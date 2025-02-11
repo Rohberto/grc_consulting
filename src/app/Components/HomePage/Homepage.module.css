@@ -1,0 +1,119 @@
+.homepage_container{
+    width: 100%;
+    min-height: 100vh;
+    background: #02142E;
+    padding: 130px 80px;
+    display: flex;
+    align-items: center;
+}
+.homepage_info_container{
+    width: 50%;
+    height: 100%;
+}
+.info_top_text{
+font-family: var(--font-nunito-sans), sans-serif;
+font-style: normal;
+font-weight: 700;
+font-size: 40px;
+color: #FFFFFF;
+}
+.info_regular_text{
+font-style: normal;
+font-weight: 400;
+font-size: 10px;
+color: #E9E9EA;
+width: 60%;
+}
+.info_bottom_container{
+    margin-top: 20px;
+}
+.info_contact_button{
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 20px 40px;
+width: 180px;
+height: 36px;
+background: #FFFFFF;
+border-radius: 4px;
+outline: none;
+border: none;
+font-family: var(--font-nunito-sans), sans-serif;
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+letter-spacing: 0.005em;
+color: #062c65;
+cursor: pointer;
+}
+
+.info_trusted{
+    margin-top: 30px;
+}
+.info_trusted_text{
+    font-style: normal;
+font-weight: 400;
+font-size: 18px;
+color: #E9E9EA;
+}
+.info_trusted_brands{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.info_trusted_brand img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.homepage_image_container{
+    width: 50%;
+    height: 100%;
+}
+.homepage_image_container img{
+    width: 80%;
+    height: auto;
+    object-fit: cover;
+}
+.mobile_info_bottom_container{
+    display: none;
+}
+@media (max-width: 1000px){
+    .homepage_container{
+        padding: 100px 40px;
+    }
+}
+@media (max-width: 768px){
+    .homepage_container{
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        padding: 120px 20px;
+        position: relative;
+    }
+    .homepage_info_container, .homepage_image_container{
+        width: 100%;
+        height: 100%;
+    }
+    .info_regular_text{
+        width: 100%;
+        }
+        .info_bottom_container{
+           display: none;
+        }
+        .mobile_info_bottom_container{
+            display: block;
+        }
+        .info_contact_button{
+            width: 100%;
+            margin-top: 20px;
+        }
+        .homepage_image_container{
+            margin-top: 20px;
+        }
+        .info_trusted_text{
+            text-align: left;
+        }
+}
