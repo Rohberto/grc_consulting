@@ -1,0 +1,124 @@
+/* Section Styles */
+.defendersSection {
+    padding: 50px 80px;
+    background: white;
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Container */
+  .container {
+    display: flex;
+    align-items: center;
+    max-width: 1100px;
+    width: 100%;
+  }
+  
+  /* Image Container */
+  .imageContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 1;
+  }
+  
+  /* Large Image */
+  .largeImage {
+    width: 100%;
+    object-fit: cover;
+max-width: 306px;
+max-height: 381px;
+border-radius: 8px;
+  }
+  
+  /* Small Image */
+  .smallImage {
+    width: 70%;
+    object-fit: cover;
+    position: absolute;
+    bottom: -20px;
+    left: 280px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+max-width: 227px;
+height: 319px;
+border-radius: 8px;
+  }
+  
+  /* Text Content */
+  .textContainer {
+    flex: 1;
+    max-width: 500px;
+  }
+  
+  /* Tag */
+  .tag {
+    display: inline-block;
+    background: #cce5ff;
+    color: #0056b3;
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  
+  /* Heading */
+  .heading {
+    font-size: 28px;
+    font-weight: bold;
+    color: #1d3557;
+    margin-bottom: 10px;
+  }
+  
+  /* Description */
+  .description {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+  }
+  
+  /* Features */
+  .features {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .features li {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .features li strong {
+    color: #0056b3;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 900px) {
+    .container {
+      flex-direction: column;
+      text-align: center;
+      gap: 20px;
+    }
+  
+    .imageContainer {
+      align-items: center;
+    }
+    .largeImage{
+border-radius: 5.5144px;
+    }
+    .smallImage{
+max-width: 156.47px;
+height: 219.89px;
+left: calc(50% - 156.47px/2 + 89.26px);
+border-radius: 5.5144px;
+
+    }
+    .defendersSection {
+      padding: 50px 20px;
+    }
+    .textContainer{
+      text-align: left;
+    }
+  }
+  
