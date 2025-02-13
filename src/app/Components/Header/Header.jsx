@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from "./header.module.css";
 import MobileMenu from './MobileMenu';
+import Link from "next/link";
 const Header = () => {
   return (
     <div className={styles.header_container}>
@@ -9,12 +10,12 @@ const Header = () => {
         </div>
 
         <ul className={styles.header_links}>
-            <li className={styles.header_link}>Home</li>
-            <li className={styles.header_link}>About Us</li>
-            <li className={styles.header_link}>Career Pathways</li>
-            <li className={styles.header_link}>Kids Center</li>
-            <li className={styles.header_link}> Learning</li>
-            <li className={styles.header_link}>Consulting</li>
+            <li className={styles.header_link}><Link href="/">Home</Link></li>
+            <li className={styles.header_link}><Link href="/about">About Us</Link></li>
+            <li className={styles.header_link}><Link href="/career_pathway">Career Pathway</Link></li>
+            <li className={styles.header_link}><Link href="/kids">Kids Center</Link></li>
+            <li className={styles.header_link}><Link href="/learning">Learning</Link></li>
+            <li className={styles.header_link}><Link href="/consulting">Consulting</Link></li>
         </ul>
 
         <div className={styles.header_button_container}>

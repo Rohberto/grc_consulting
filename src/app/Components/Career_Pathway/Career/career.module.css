@@ -1,0 +1,29 @@
+.container{
+    padding: 40px 100px;
+}
+.career_header{
+font-weight: 700;
+font-size: 56px;
+text-align: center;
+color: #062C65;
+}
+.image_container{
+    width: 100%;
+    height: auto;
+    margin-top: 40px;
+}
+.image_container img{
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+@media (max-width: 768px){
+    .container{
+        padding: 40px 20px;
+    }
+}
+@media (max-width: 650px){
+ .career_header{
+    font-size: 32px;
+ }
+}

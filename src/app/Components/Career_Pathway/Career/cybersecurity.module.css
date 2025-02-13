@@ -1,0 +1,137 @@
+.container{
+    padding: 40px 100px;
+}
+.container h2{
+font-weight: 700;
+font-size: 56px;
+color: #062C65;
+}
+.content_container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: 40px;
+}
+.consultation, .job_title, .request_education, .skills, .framework{
+    width: 20%;
+}
+.consultation p{
+font-weight: 400;
+font-size: 16px;
+letter-spacing: 0.005em;
+color: #4A4C56;
+}
+.consultation h1{
+font-style: normal;
+font-weight: 700;
+font-size: 32px;
+color: #4A4C56;
+}
+.salary_image{
+    width: 100%;
+    text-align: center;
+}
+.salary_image span{
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+text-align: center;
+letter-spacing: 0.005em;
+color: #4A4C56;
+display: inline-block;
+}
+.salary_image img{
+    width: 90%;
+}
+.job_title p{
+font-weight: 700;
+font-size: 16px;
+letter-spacing: 0.005em;
+color: #4A4C56;
+}
+.job_title ul{
+  padding: 20px 0 0 20px;
+}
+.listItem{
+font-weight: 400;
+font-size: 16px;
+letter-spacing: 0.005em;
+color: #4A4C56;
+}
+.request_education p{
+font-weight: 700;
+font-size: 16px;
+letter-spacing: 0.005em;
+color: #4A4C56;
+}
+.degree_image_container{
+    margin-top: 30px;
+}
+.column{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #E9E9EA;
+}
+.column .right{
+    text-align: right;
+}
+.column:first-child, .column:last-child{
+    border-bottom: none;
+}
+.column h1{
+font-weight: 700;
+font-size: 16px;
+letter-spacing: 0.005em;
+color: #4A4C56;
+}
+.column p{
+font-weight: 400;
+font-size: 14px;
+letter-spacing: 0.005em;
+color: #4A4C56;
+}
+.framework h4{
+font-weight: 700;
+font-size: 14px;
+letter-spacing: 0.005em;
+margin-bottom: 20px;
+color: #4A4C56;
+}
+.dropdown{
+padding: 10px;
+width: 100%;
+height: 40px;
+background: #D2D2D5;
+margin-bottom: 5px;
+outline: none;
+border: none;
+
+
+font-weight: 400;
+font-size: 14px;
+letter-spacing: 0.005em;
+color: #4A4C56;
+}
+
+@media (max-width: 768px){
+  .container{
+    padding: 40px 20px;
+  }
+}
+@media (max-width: 1000px){
+    .consultation, .job_title, .request_education, .skills, .framework{
+        width: 45%;
+    }
+}
+@media (max-width: 650px){
+    .container h2{
+        font-size: 32px;
+    }
+    .consultation, .job_title, .request_education, .skills, .framework{
+        width: 100%;
+    }
+}

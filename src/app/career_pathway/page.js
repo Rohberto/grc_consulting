@@ -1,0 +1,22 @@
+import React from 'react';
+import styles from "./page.module.css"
+import Navigation from '../Components/Career_Pathway/Navigation/Navigation';
+import Career from '../Components/Career_Pathway/Career/Career';
+import CybersecurityConsultant from '../Components/Career_Pathway/Career/Cybersecurity';
+import Footer from '../Components/Footer/Footer';
+import Certifications from '../Components/Career_Pathway/Certification/Certification';
+import CareerDevelopment from '../Components/Career_Pathway/Career/CareerDevelopment';
+const page = () => {
+  return (
+    <div className={styles.container}>
+        <Navigation/>
+        <Career/>
+        <CybersecurityConsultant/>
+        <Certifications/>
+        <CareerDevelopment/>
+        <Footer/>
+    </div>
+  )
+}
+
+export default page
