@@ -6,9 +6,11 @@ import CybersecurityConsultant from '../Components/Career_Pathway/Career/Cyberse
 import Footer from '../Components/Footer/Footer';
 import Certifications from '../Components/Career_Pathway/Certification/Certification';
 import CareerDevelopment from '../Components/Career_Pathway/Career/CareerDevelopment';
+import Header from '../Components/Header/Header';
 const page = () => {
   return (
     <div className={styles.container}>
+      <Header/>
         <Navigation/>
         <Career/>
         <CybersecurityConsultant/>

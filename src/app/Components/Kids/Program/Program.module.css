@@ -1,0 +1,106 @@
+.container{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 100px;
+    background: #FDF1F1;
+    position: relative;
+    overflow: hidden;
+    }
+    .header{
+        font-weight: 700;
+        font-size: 56px;
+        text-align: center;
+        color: #ff570d;
+        }
+        .content_container{
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 40px;
+padding: 40px 0;
+        }
+        .text_container, .image_container{
+            width: 50%;
+        }
+        .text_container li{
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            /* Helps schools fulfill their digital citizenship requirements. */
+font-weight: 400;
+font-size: 24px;
+white-space: wrap;
+letter-spacing: 0.005em;
+color: #1D1F2C;
+
+        }
+        .background_overlay_left{
+            position: absolute;
+            top: 10%;
+            left: -5%;
+            }
+            .background_overlay_right{
+                position: absolute;
+                right: 0%;
+                bottom: 0;
+                }
+            .wavy_image{
+            position: absolute;
+            bottom: -10%;
+            left: 0;
+            }
+            .wavy_image img{
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                inset: auto auto -10px auto;
+            }
+            
+         @media (max-width: 1500px){
+            .wavy_image{
+                bottom: -50px;
+            }
+            }
+         @media (max-width: 650px){
+            .wavy_image{
+                bottom: -25px;
+            }
+            }
+            @media (max-width: 1000px){
+                .container{
+                    padding: 20px 40px;
+                }
+            }
+            @media (max-width: 768px){
+                .container{
+                    padding: 20px;
+                }
+                
+                .header{
+                    font-size: 36px;
+                    margin-bottom: 10px;
+                }
+                .content_container{
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .text_container, .image_container{
+                    width: 100%;
+                }
+                .image_container{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .image_container img{
+                    width: 110%;
+                }
+                .text_container li{
+                    font-size: 18px;
+                }
+            }

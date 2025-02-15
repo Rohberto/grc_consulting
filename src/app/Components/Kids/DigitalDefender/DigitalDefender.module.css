@@ -1,0 +1,174 @@
+.container{
+width: 100%;
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 20px 100px;
+background: #CFEBC8;
+position: relative;
+overflow: hidden;
+}
+.digital_upper_content{
+    width: 100%;
+   text-align: center;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.digital_upper_content h1{
+font-weight: 700;
+font-size: 56px;
+text-align: center;
+color: #031411;
+}
+.digital_upper_content p{
+font-weight: 400;
+font-size: 18px;
+text-align: center;
+color: #1D1F2C;
+width: 60%;
+}
+.buttons_container{
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.green_button{
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 24px;
+margin-right: 10px;
+width: 172px;
+height: 77px;
+background: #9FE49D;
+box-shadow: 0px 9px 22px rgba(14, 173, 0, 0.4);
+border-radius: 999px;
+}
+.white_button{
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 24px;
+margin-right: 10px;
+width: 172px;
+height: 77px;
+background: #FFFFFF;
+border: 1px solid #9FE49D;
+border-radius: 999px;
+}
+.green_button, .white_button{
+font-weight: 400;
+font-size: 18px;
+color: #031411;
+}
+.digital_lower_content{
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 0px;
+}
+.image_container{
+width: 50%;
+height: 100%;
+}
+.image_container img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.content_container{
+    width: 50%;
+}
+.mobile_buttons{
+    display: none;
+}
+.background_overlay_left{
+    position: absolute;
+    top: 10%;
+    left: -5%;
+    }
+    .background_overlay_right{
+        position: absolute;
+        right: 0%;
+        bottom: 0;
+        }
+    .wavy_image{
+    position: absolute;
+    bottom: -10%;
+    left: 0;
+    }
+    .wavy_image img{
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        inset: auto auto -10px auto;
+    }
+    
+ @media (max-width: 1500px){
+    .wavy_image{
+        bottom: -50px;
+    }
+    }
+ @media (max-width: 650px){
+    .wavy_image{
+        bottom: -25px;
+    }
+    }
+    @media (max-width: 1000px){
+        .container{
+            padding: 20px 40px;
+        }
+    }
+    @media (max-width: 768px){
+        .container{
+            padding: 20px;
+        }
+        .digital_upper_content p{
+            font-size: 16px;
+            width: 100%;
+        }
+        .digital_upper_content h1{
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .buttons_container .white_button{
+            display: none;
+        }
+        .buttons_container .green_button{
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 24px;
+width: 100%;
+height: 77px;
+        }
+        .digital_lower_content{
+            flex-direction: column;
+            align-items: center;
+        }
+        .image_container, .content_container{
+            width: 100%;
+        }
+        .mobile_buttons{
+            display: block;
+            width: 100%;
+            padding: 20px 0;
+        }
+        .mobile_buttons .white_button{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+            width: 100%;
+            height: 77px;
+            margin-bottom: 15px;
+        }
+    }

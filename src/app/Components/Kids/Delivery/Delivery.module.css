@@ -1,0 +1,130 @@
+.delivery_container{
+    width: 100%;
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 40px 100px;
+position: relative;
+overflow: hidden;
+background: #F7E37C;
+}
+.delivery_header{
+    font-weight: 700;
+font-size: 56px;
+text-align: center;
+color: #031411;
+}
+.delivery_description{
+    font-weight: 400;
+font-size: 18px;
+text-align: center;
+color: #1D1F2C;
+width: 60%;
+}
+.delivery_cards_container{
+display: flex;
+padding: 40px 0 80px;
+align-items: center;
+gap: 32px;
+width: 100%;
+}
+.card{
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 24px 20px;
+gap: 20px;
+min-width: 320px;
+max-width: 419px;
+height: 100%;
+border-radius: 30px;
+text-align: center;
+}
+.card_one{
+    background: #E7846F;
+}
+.card_two{
+background: #6FE7A1;
+}
+.card_three{
+    background-color: #6F9FE7;
+}
+.card h3{
+    width: 100%;
+font-weight: 700;
+font-size: 24px;
+text-align: center;
+letter-spacing: 0.005em;
+color: #1D1F2C;
+
+}
+.card_image{
+    width: 100%;
+    height: auto;
+}
+.card_image img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.background_overlay_left{
+    position: absolute;
+    top: 10%;
+    left: -5%;
+    }
+    .background_overlay_right{
+        position: absolute;
+        right: 0%;
+        bottom: 0;
+        }
+    .wavy_image{
+    position: absolute;
+    bottom: -10%;
+    left: 0;
+    }
+    .wavy_image img{
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        inset: auto auto -10px auto;
+    }
+
+    
+    @media (max-width: 1500px){
+        .wavy_image{
+            bottom: -50px;
+        }
+        }
+     @media (max-width: 650px){
+        .wavy_image{
+            bottom: -25px;
+        }
+        }
+
+ @media (max-width: 1200px){
+    .delivery_cards_container{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    }
+
+ @media (max-width: 1000px){
+        .container{
+            padding: 20px 40px;
+        }
+    }
+    @media (max-width: 768px){
+        .delivery_container{
+            padding: 20px;
+        }
+        .delivery_description{
+            font-size: 16px;
+            width: 100%;
+        }
+        .delivery_header{
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+    }
