@@ -1,0 +1,100 @@
+.container {
+    padding: 40px 100px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: #f1f1f1;
+  }
+  
+  .title {
+    font-weight: 700;
+font-size: 56px;
+text-align: center;
+    color: #062C65;
+  }
+  
+  .subtitle {
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center;
+    color: #4A4C56;
+    width: 60%;
+    margin-bottom: 30px;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    justify-content: center;
+  }
+  .government_grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    justify-content: center;
+  }
+  .government_section{
+    padding: 70px 0 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+
+  }
+  .card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+  
+  .icon {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+  }
+  
+  .cardTitle {
+    font-size: 1.5rem;
+    color: #062C65;
+    margin-bottom: 10px;
+  }
+  .card ul{
+    padding: 0 20px;
+  }
+  .cardText, .cardIdeal, .card li{
+    font-size: 1rem;
+    color: #4A4C56;
+    margin-bottom: 10px;
+  }
+  .ideal_colored{
+    color: #062C65;
+    font-weight: bold;
+  }
+  .sectionTitle {
+    font-size: 1.8rem;
+    color: #062c65;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .container{
+      padding: 40px 20px;
+    }
+    .title{
+      font-size: 36px;
+    }
+    .subtitle{
+      font-size: 16px;
+      width: 100%;
+    }
+    .grid,.government_grid{
+      grid-template-columns: 1fr;
+    }
+  }
+  

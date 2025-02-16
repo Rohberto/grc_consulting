@@ -7,10 +7,10 @@ const Navigation = () => {
   return (
     <div className={styles.navigation_container}>
         <h1 className={styles.navigation_header}>
-            Career Pathway
+           Consulting
         </h1>
 
-        <p className={styles.navigation_links}> Home / <span className={styles.navigation_link}>career_pathway</span></p>
+        <p className={styles.navigation_links}> Home / <span className={styles.navigation_link}>consulting</span></p>
     </div>
   )
 }
