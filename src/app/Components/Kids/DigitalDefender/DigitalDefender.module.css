@@ -85,6 +85,9 @@ height: 100%;
 .content_container{
     width: 50%;
 }
+.content_container h1, .content_container p{ 
+
+color: #1D1F2C;}
 .mobile_buttons{
     display: none;
 }

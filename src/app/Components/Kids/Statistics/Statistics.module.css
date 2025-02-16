@@ -1,7 +1,11 @@
 .statistics_container{
     padding: 40px 100px;
     width: 100%;
-height: auto;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 position: relative;
     background-color: #2956CD;
     overflow-y: hidden;
@@ -58,7 +62,7 @@ position: relative;
             }
         .wavy_image{
         position: absolute;
-        bottom: -10%;
+        bottom: -13%;
         left: 0;
         }
         .wavy_image img{

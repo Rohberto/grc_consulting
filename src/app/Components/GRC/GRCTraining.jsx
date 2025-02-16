@@ -7,7 +7,7 @@ const GRCTraining = () => {
       <div className={styles.content}>
         <h1>Empowering Organizations <br/> with Tailored GRC Training <br/> for Success</h1>
         <p>
-          Reach out now and discover how our expertise can help you <br/> achieve compliance and manage risks effectively.
+          ITG GRC provides comprehensive GRC training solutions to equip employees with the skills needed to mitigate risks, ensure compliance and enhance cybersecurity. Our customized corporate training programs educate employees at all levels, fostering a well-informed and security-conscious workforce.
         </p>
         <button className={styles.button}>Learn More</button>
       </div>

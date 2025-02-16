@@ -11,7 +11,7 @@ import styles from "./Expertise.module.css";
 const Expertise = () => {
     const expertiseData = [
         {
-          title: "GRC Solutions",
+          title: "Business Solutions",
           image: "/Assets/solutions.png", 
           link: "#"
         },
@@ -26,7 +26,7 @@ const Expertise = () => {
           link: "#"
         },
         {
-          title: "Government Contracts",
+          title: "Government Solutions",
           image: "/Assets/govenment.png", 
           link: "#"
         }
