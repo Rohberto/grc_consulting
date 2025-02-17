@@ -1,0 +1,95 @@
+.container {
+    padding: 40px 100px;
+      text-align: center;
+      background-color: hsl(0, 0%, 100%);
+      position: relative;
+      min-height: 100vh;
+
+    }
+    .title {
+      font-weight: 700;
+  font-size: 56px;
+  text-align: center;
+      color: #062C65;
+    }  
+    .swiper{
+        padding: 40px !important;
+    }
+    .card{
+        text-align: left;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 20px 24px;
+gap: 32px;
+border-radius: 20px;
+width: 100%;
+height: 417px !important;
+    }
+    .card h1{
+font-weight: 700;
+font-size: 32px;
+    }
+    .card p{
+font-weight: 400;
+font-size: 16px;
+letter-spacing: 0.005em;
+padding: 20px 0;
+    }
+    .light{
+        background-color: #EBF2FE;
+        color: #062C65;
+    }
+    .dark{
+        background: #0258A3;
+        color: #fff;
+    }
+    .bottom_content{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 20px;
+    }
+    .bottom_text p{
+        padding: 0;
+    }
+
+    .brand_marquee {
+        display: flex;
+        white-space: nowrap;
+        overflow: hidden;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+      
+      .marquee_content {
+        display: flex;
+        gap: 40px;
+        width: 100%;
+        animation: marqueeAnimation 20s linear infinite;
+        margin-bottom: 40px;
+      }
+      @keyframes marqueeAnimation {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+    @media (max-width: 768px){
+        .container{
+            padding: 20px;
+        }
+        .title{
+            font-size: 32px;
+        }
+        .swiper{
+            padding: 40px 0 !important;
+        }
+        .card h1{
+            font-size: 24px;
+        }
+    }

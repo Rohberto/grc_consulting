@@ -10,9 +10,6 @@
 .homepage_info_container{
     width: 50%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 .info_top_text{
 font-family: var(--font-nunito-sans), sans-serif;
@@ -30,6 +27,7 @@ width: 60%;
 }
 .info_bottom_container{
     margin-top: 20px;
+    padding: 0;
 }
 .info_contact_button{
 display: flex;
