@@ -1,99 +1,12 @@
 "use client"
 import React, {useState} from 'react';
 import styles from "./Banner.module.css";
- 
+import {useRouter } from 'next/navigation';
+import {levels} from "../../../utils"; 
+
 const Banner = () => {
-  const levels = [
-    {
-      id: "entry",
-      label: "Entry Level",
-      content: [
-        {
-          title: "Security Awareness Analyst",
-          description: "Engaging, hands-on courses that spark curiosity, creativity, and critical thinking through interactive play and fun learning experiences for kids",
-          lessons: 1.2,
-          image: "/Assets/man_tech.png",
-          price: 99.98
-        },
-        {
-          title: "Compliance Analyst",
-          description: "Engaging, hands-on courses that spark curiosity, creativity, and critical thinking through interactive play and fun learning experiences for kids",
-          lessons: 1.2,
-          image: "/Assets/kid_group.png",
-          price: 99.98
-        },
-        {
-          title: "Little Cyber Heroes",
-          description: "Engaging, hands-on courses that spark curiosity, creativity, and critical thinking through interactive play and fun learning experiences for kids",
-          lessons: 1.2,
-          image: "/Assets/adult_group.png",
-          price: 98.88
-        },
-        {
-          title: "Third Party Risk Analyst",
-          description: "Engaging, hands-on courses that spark curiosity, creativity, and critical thinking through interactive play and fun learning experiences for kids",
-          lessons: 1.2,
-          image: "/Assets/teaching.png",
-          price: 98.88
-        },
-      ],
-    },
-    {
-      id: "mid",
-      label: "Mid-Level",
-      content: [
-        {
-          title: "Military Fundamentals Course",
-          description: "Engaging, hands-on courses that spark curiosity, creativity, and critical thinking through interactive play and fun learning experiences for kids",
-          lessons: 1.2,
-          image: "/Assets/kid_learning.png",
-          price: 98.88
-        },
-      
-        {
-          title: "Transition and Leadership Training",
-          description: "Engaging, hands-on courses that spark curiosity, creativity, and critical thinking through interactive play and fun learning experiences for kids",
-          lessons: 1.2,
-          image: "/Assets/man_tech.png",
-          price: 98.88
-        },
-        {
-          title: "Safe Surfing Academy For Kids",
-          description: "Engaging, hands-on courses that spark curiosity, creativity, and critical thinking through interactive play and fun learning experiences for kids",
-          lessons: 1.2,
-          image: "/Assets/teaching.png",
-          price: 98.88
-        },
-        {
-          title: "Training for post Military success",
-          description: "Engaging, hands-on courses that spark curiosity, creativity, and critical thinking through interactive play and fun learning experiences for kids",
-          lessons: 1.2,
-          image: "/Assets/tech_rays.png",
-          price: 98.88
-        },
-      ],
-    },
-    {
-      id: "senior",
-      label: "Senior-Level",
-      content: [
-        {
-          title: "Military Fundamentals Course",
-          description: "Engaging, hands-on courses that spark curiosity, creativity, and critical thinking through interactive play and fun learning experiences for kids",
-          lessons: 1.2,
-          image: "/Assets/man_tech.png",
-          price: 98.88
-        },
-        {
-          title: "Transition and Leadership training",
-          description: "Engaging, hands-on courses that spark curiosity, creativity, and critical thinking through interactive play and fun learning experiences for kids",
-          lessons: 1.2,
-          image: "/Assets/tech_woman.png",
-          price: 98.88
-        },
-      ],
-    },
-  ];
+  const router = useRouter();
+ 
   const [activeLevel, setActiveLevel] = useState("entry");
   // Find the current level object to get the label
   const currentLevel = levels.find((level) => level.id === activeLevel);
@@ -122,7 +35,9 @@ const Banner = () => {
         {levels
           .find((level) => level.id === activeLevel)
           ?.content.map((card, index) => (
-            <div key={index} className={styles.card}>
+            <div key={index} className={styles.card} onClick={() => {
+              router.push(`/learning/${card.id}`)
+            }}>
             <img src={card.image} alt={card.title} className={styles.image} />
             <h4>{card.title}</h4>
             <p>{card.description}</p>

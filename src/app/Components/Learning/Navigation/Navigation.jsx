@@ -1,13 +1,13 @@
 "use client"
 import React from 'react';
 import styles from "./Navigation.module.css";
-
+import {usePathname} from "next/navigation";
 
 const Navigation = () => {
   return (
     <div className={styles.navigation_container}>
         <h1 className={styles.navigation_header}>
-          Learning
+         Learning
         </h1>
 
         <p className={styles.navigation_links}> Home / <span className={styles.navigation_link}>learning</span></p>
@@ -15,4 +15,4 @@ const Navigation = () => {
   )
 }
 
-export default Navigation;
+export default Navigation
