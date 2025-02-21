@@ -1,0 +1,184 @@
+.checkoutContainer {
+    display: flex;
+    gap: 2rem;
+    margin: 0 auto;
+    padding: 2rem 120px;
+   background-color: #fefefe;
+  }
+  
+  .leftSection {
+width: 50%;
+height: 100%;
+    padding: 1.5rem;
+background: #F5F8FC;
+border: 1px solid #E6EDF7;
+box-shadow: 0px 20px 24px rgba(24, 35, 34, 0.12), 0px 8px 8px -4px rgba(24, 35, 34, 0.03);
+border-radius: 16px;
+}
+  
+  .rightSection {
+    width: 50%;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    padding: 1.5rem;
+    border-radius: 0.25rem;
+    align-self: flex-start;
+  }
+  
+  .sectionTitle {
+    margin-bottom: 1rem;
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+letter-spacing: 0.005em;
+color: #062C65;
+  }
+  
+  .billingForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .formLabel {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    color: #2d3748;
+  }
+  
+  .formInput,
+  .formSelect {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid #cbd5e0;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+  }
+  
+  .formInput:focus,
+  .formSelect:focus {
+    outline: none;
+    border-color: #3182ce;
+  }
+  
+  .orderBox {
+    margin-bottom: 1.5rem;
+  }
+  
+  .orderRow {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 0.75rem;
+font-weight: 400;
+font-size: 18px;
+color: #1D1F2C;
+padding: 20px 0;
+border-bottom: 1px solid #e2e8f0;
+  }
+  .order_row{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+font-weight: 400;
+font-size: 16px;
+color: #1D1F2C;
+  }
+  .order_row span, .orderRow span{
+    width: 50%;
+  }
+  .order_row span:last-child, .orderRow span:last-child{
+    text-align: right;
+  }
+  .order_row:last-child{
+    border-bottom: 1px solid #1d1f2c;
+  }
+  .totalPrice {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+font-weight: 700;
+font-size: 32px;
+color: #062C65;
+border-bottom: 1px solid #062C65;
+padding: 20px 0;
+  }
+  
+  .paymentBox {
+    padding-top: 1rem;
+  }
+  
+  .sectionSubtitle {
+font-weight: 700;
+font-size: 24px;
+letter-spacing: 0.005em;
+color: #062C65;
+    margin-bottom: 0.5rem;
+  }
+  
+  .paymentLabel {
+    font-size: 0.9rem;
+    color: #4a5568;
+    margin-bottom: 0.5rem;
+  }
+  .inputBox{
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 10px;
+gap: 10px;
+background: #E6EDF7;
+border-radius: 8px;
+  }
+  .footer_form_text{
+    margin-top: 15px;
+font-weight: 400;
+font-size: 14px;
+color: #4A4C56;
+  }
+  .cardInput {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #cbd5e0;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .cardInput:focus {
+    outline: none;
+    border-color: #3182ce;
+  }
+  
+  .placeOrderButton {
+    background: #3182ce;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    margin: 15px 0;
+  }
+  
+  .placeOrderButton:hover {
+    background: #2b6cb0;
+  }
+  @media (max-width: 1000px){
+    .checkoutContainer {
+        padding: 2rem 20px;
+      }
+  }
+  @media (max-width: 760px){
+    .checkoutContainer {
+        padding: 2rem 20px;
+        flex-direction: column;
+        align-items: center;
+      }
+      .leftSection, .rightSection{
+
+        width: 100%;
+      }
+  }
+  

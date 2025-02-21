@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from "./CourseDetail.module.css";
 import {RiArrowDropDownLine} from "react-icons/ri";
-
+import { useRouter } from 'next/navigation';
 const CourseDetail = ({description, image}) => {
-    console.log(image);
+   const router= useRouter();
     const Learn = ["Become a cybersecurity professional", 
         "Understand common cyber threats and attack methods",
         "Learn how to implement basic security measures",
@@ -197,7 +197,7 @@ const CourseDetail = ({description, image}) => {
           {/* Footer with Price and Button */}
           <div className={styles.footer}>
             <div className={styles.price}>$88.88</div>
-            <button className={styles.enrollButton}>Enroll Now</button>
+            <button className={styles.enrollButton} onClick={() => router.push("/checkout")}>Enroll Now</button>
           </div>
         </div>
       </div>
