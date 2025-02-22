@@ -63,6 +63,7 @@ color: #E9E9EA;
     width: 100%;
     display: flex;
     align-items: center;
+    margin-left: -15px;
 }
 
 .info_trusted_brand img{
@@ -95,7 +96,7 @@ color: #E9E9EA;
         flex-direction: column;
         text-align: center;
         align-items: center;
-        padding: 60px 20px;
+        padding: 100px 20px;
         position: relative;
     }
     .homepage_info_container, .homepage_image_container{
@@ -120,5 +121,8 @@ color: #E9E9EA;
         }
         .info_trusted_text{
             text-align: left;
+        }
+        .info_trusted_brands{
+            margin-left: -10px;
         }
 }
