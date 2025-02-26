@@ -16,7 +16,7 @@ const Header = () => {
             <li className={styles.header_link}><Link href="/kids">Kids Center</Link></li>
             <li className={styles.header_link}><Link href="/learning">Learning</Link></li>
             <li className={styles.header_link}><Link href="/consulting">Consulting</Link></li>
-        </ul>
+        </ul> 
 
         <div className={styles.header_button_container}>
             <button className={styles.header_button}>Sign Up</button>

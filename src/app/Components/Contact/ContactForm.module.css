@@ -5,6 +5,7 @@
     text-align: center;
 padding: 40px 80px;
 background: #F1F1F1;
+width: 100%;
 }
 .tag {
     color: #0056b3;
@@ -111,6 +112,7 @@ color: #100F14;
   }
   .checkboxGroup input{
     margin-top: 8px;
+    background-color: transparent;
   }
   
   .submitButton {
@@ -148,6 +150,11 @@ color: #100F14;
     .container {
     padding: 40px 20px;
     }
+    .header_link{
+      font-size: 14px;
+     }
+  }
+  @media (max-width: 768px){
     .inputGroup {
        flex-direction: column;
       }

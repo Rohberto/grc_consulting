@@ -69,6 +69,22 @@ padding: 20px 0;
         width: 100%;
         animation: marqueeAnimation 20s linear infinite;
       }
+
+      .paused .marquee_content {
+        animation-play-state: paused;
+      }
+
+      .marquee_content img{
+        width: 120px;
+        height: 120px;
+        object-fit: contain;
+        filter: grayscale(150%);
+        cursor: pointer;
+  transition: filter 0.3s ease-in-out;
+      }
+      .marquee_content img:hover{
+          filter: grayscale(0%);
+      }
       @keyframes marqueeAnimation {
         from {
           transform: translateX(0);
@@ -85,6 +101,16 @@ padding: 20px 0;
           transform: translateX(-100%);
         }
       }
+      
+    @media (max-width: 1200px){
+        .container{
+            padding: 20px;
+        }
+        .swiper{
+          padding: 40px 0 !important;
+          margin: 0 !important;
+      }
+      }
     @media (max-width: 768px){
         .container{
             padding: 20px;
@@ -93,10 +119,7 @@ padding: 20px 0;
             font-size: 32px;
             padding: 0;
         }
-        .swiper{
-            padding: 40px 0 !important;
-            margin: 0 !important;
-        }
+     
         .card h1{
             font-size: 24px;
         }
@@ -110,5 +133,7 @@ padding: 20px 0;
           .marquee_content img{
             width: 80px;
             object-fit: contain;
+            filter: grayscale(0);
           }
+      
     }

@@ -10,7 +10,7 @@ left: 0px;
 top: 0px;
 background: #02142E;
 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-padding: 10px 80px;
+padding: 10px 150px;
 z-index: 100;
 }
 .header_logo{
@@ -61,9 +61,16 @@ letter-spacing: 0.005em;
 color: #062c65;
 cursor: pointer;
 }
-@media (max-width: 900px){
+@media (max-width: 1200px){
    .header_container{
     padding: 10px 20px;
+   }
+   .header_link{
+    font-size: 14px;
+   }
+   .header_logo{
+    width: 90px;
+    height: auto;
    }
 }
 @media (max-width: 768px){

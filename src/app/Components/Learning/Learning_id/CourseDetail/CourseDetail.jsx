@@ -199,6 +199,7 @@ const CourseDetail = ({description, image}) => {
             <div className={styles.price}>$88.88</div>
             <button className={styles.enrollButton} onClick={() => router.push("/checkout")}>Enroll Now</button>
           </div>
+          
         </div>
       </div>
     </div>

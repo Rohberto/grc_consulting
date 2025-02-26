@@ -1,8 +1,8 @@
 
 
 .container {
-  padding: 2rem;
-  max-width: 1200px;
+  padding: 2rem 150px;
+width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -44,7 +44,7 @@ border-bottom: 1px solid #D2D2D5;
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-top: 40px;
 }
@@ -109,8 +109,14 @@ color: #062C65;
   margin-top: 1rem;
   font-weight: bold;
   color: #0070f3;
+  font-size: 32px;
 }
 
+@media (max-width: 1100px) {
+  .container {
+    padding: 2rem 20px;
+  }
+}
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: 1fr;

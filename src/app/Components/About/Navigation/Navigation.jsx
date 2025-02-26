@@ -10,7 +10,7 @@ const Navigation = () => {
            About Us
         </h1>
 
-        <p className={styles.navigation_links}> Home / <span className={styles.navigation_link}>about</span></p>
+        <p className={styles.navigation_links}> Home/<span className={styles.navigation_link}>about</span></p>
     </div>
   )
 }

@@ -1,6 +1,7 @@
 /* Section Styles */
 .defendersSection {
-    padding: 50px 80px;
+    padding: 50px 150px;
+    width: 100%;
     background: white;
     display: flex;
     justify-content: center;
@@ -94,6 +95,11 @@ border-radius: 8px;
   }
   
   /* Responsive Design */
+  @media (max-width: 1200px) {
+    .defendersSection {
+      padding: 50px 20px;
+    }
+  }
   @media (max-width: 900px) {
     .container {
       flex-direction: column;

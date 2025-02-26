@@ -2,7 +2,7 @@
     width: 100%;
     min-height: 100vh;
     background: #02142E;
-    padding: 130px 100px;
+    padding: 130px 150px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,9 +86,9 @@ color: #E9E9EA;
 .mobile_info_bottom_container{
     display: none;
 }
-@media (max-width: 1000px){
+@media (max-width: 1200px){
     .homepage_container{
-        padding: 100px 40px;
+        padding: 100px 20px;
     }
 }
 @media (max-width: 768px){

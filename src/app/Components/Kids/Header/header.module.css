@@ -10,9 +10,9 @@ left: 0px;
 top: 0px;
 background: #D2F0EF;
 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-padding: 10px 80px;
+padding: 10px 150px;
 z-index: 100;
-}
+}   
 .header_logo{
 width: 126px;
 height: 63px;
@@ -64,6 +64,9 @@ cursor: pointer;
 @media (max-width: 900px){
    .header_container{
     padding: 10px 20px;
+   }
+   .header_link{
+    font-size: 14px;
    }
 }
 @media (max-width: 768px){

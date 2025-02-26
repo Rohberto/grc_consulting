@@ -5,7 +5,9 @@
     padding: 2rem 120px;
    background-color: #fefefe;
   }
-  
+  .checkoutContainer input{
+    background: #fefefe;
+  }
   .leftSection {
 width: 50%;
 height: 100%;

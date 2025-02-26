@@ -1,18 +1,18 @@
 .certification_content{
-padding: 40px 100px;
+padding: 40px 150px;
 width: 100%;
 height: auto;
 background: #031839;
 }
 .statistics_container{
-padding: 40px 100px;
+padding: 40px 150px;
 width: 100%;
 height: auto;
 background: #F1F1F1;
 }
 .certification_text_content{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     gap: 40px;
 }
@@ -77,7 +77,7 @@ color: #4A4C56;
        flex-wrap: wrap;
     }
 }
-@media (max-width: 780px){
+@media (max-width: 1100px){
    .certification_content, .statistics_container{
     padding: 40px 20px;
    }
