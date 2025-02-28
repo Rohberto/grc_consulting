@@ -1,6 +1,6 @@
 import styles from "./Footer.module.css";
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
-
+import Link from "next/link";
 const Footer = () => {
   return (
     <footer className={styles.footer}>
@@ -17,12 +17,12 @@ const Footer = () => {
         <div>
           <h4>Links</h4>
           <ul>
-            <li>Home</li>
-            <li>About Us</li>
-            <li>GRC Solutions</li>
-            <li>Career Development</li>
-            <li>Compliance Solutions</li>
-            <li>Contact</li>
+          <li className={styles.header_link}><Link href="/">Home</Link></li>
+            <li className={styles.header_link}><Link href="/about">About Us</Link></li>
+            <li className={styles.header_link}><Link href="/career_pathway">Career Pathway</Link></li>
+            <li className={styles.header_link}><Link href="/kids">Kids Center</Link></li>
+            <li className={styles.header_link}><Link href="/learning">Learning</Link></li>
+            <li className={styles.header_link}><Link href="/consulting">Consulting</Link></li>
           </ul>
         </div>
         <div>

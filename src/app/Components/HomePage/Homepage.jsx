@@ -22,9 +22,9 @@ const Homepage = () => {
             </div>
 
             <div className={styles.info_bottom_container}>
-                <button className={styles.info_contact_button}>
+            <a href='#contact' rel='no_referrer'> <button className={styles.info_contact_button}>
                     Contact Us
-                </button>
+                </button></a>
 
                 <div className={styles.info_trusted}>
                     <p className={styles.info_trusted_text}>Trusted by Leading Brands</p>

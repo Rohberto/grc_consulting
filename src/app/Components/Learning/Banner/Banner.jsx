@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import styles from "./Banner.module.css";
 import {useRouter } from 'next/navigation';
 import {levels} from "../../../utils"; 
+import Footer from '../../Footer/Footer';
 
 const Banner = () => {
   const router = useRouter();

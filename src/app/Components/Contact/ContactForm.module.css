@@ -93,6 +93,7 @@ color: #062C65;
     display: flex;
    justify-content: space-between;
    align-items: center;
+   text-align: left;
   }
   
   .checkboxGroup label {
@@ -104,7 +105,7 @@ color: #062C65;
   }
   .label{
     display: inline-block;
-    width: 90%;
+text-align: left;
 font-weight: 400;
 white-space: nowrap;
 font-size: 10px;
