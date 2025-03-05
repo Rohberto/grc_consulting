@@ -1,9 +1,10 @@
 "use client"; // Ensure Swiper works in Next.js App Router
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/autoplay";
 import styles from "./Expertise.module.css";
 import gsap from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
@@ -16,6 +17,21 @@ const Expertise = () => {
         {
           title: "Business Solutions",
           image: "/Assets/solutions.png", 
+          link: "#"
+        },
+        {
+          title: "ITG Learning Academy",
+          image: "/Assets/learning.png", 
+          link: "#"
+        },
+        {
+          title: "Career Development",
+          image: "/Assets/career.png", 
+          link: "#"
+        },
+        {
+          title: "Government Solutions",
+          image: "/Assets/govenment.png", 
           link: "#"
         },
         {
@@ -75,7 +91,7 @@ const Expertise = () => {
             scrub: true
           }
         })
-        gsap.to(`.${styles.card}`, {
+     /*   gsap.to(`.${styles.card}`, {
           x: 0,
           opacity: 1,
           duration: .5,
@@ -87,7 +103,7 @@ const Expertise = () => {
             end: "top top", 
             scrub: true
           }
-        })
+        })*/
       })
   return (
     <section className={styles.expertiseSection} ref={container}>
@@ -101,10 +117,11 @@ const Expertise = () => {
         {/* Swiper for Tablets & Mobile */}
         <div className={styles.sliderContainer}>
           <Swiper
-            modules={[Pagination]}
+            modules={[Pagination, Autoplay]}
             pagination={{ clickable: true }}
             spaceBetween={20}
             slidesPerView={1}
+            autoplay= {{delay: 3000, disableOnInteraction: false}}
             breakpoints={{
               640: { slidesPerView: 2 },
               768: { slidesPerView: 2 },

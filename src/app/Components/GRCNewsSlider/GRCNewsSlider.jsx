@@ -1,8 +1,9 @@
 "use client"
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/autoplay";
 import styles from "./GRCNewsSlider.module.css";
 import Image from "next/image";
 
@@ -50,10 +51,11 @@ const GRCNewsSlider = () => {
         <p className={styles.tag}>Articles & Blogs</p>
       <h2>Keep up With The Latest in GRC News</h2>
       <Swiper 
-       modules={[Pagination]}
+       modules={[Pagination, Autoplay]}
             pagination={{ clickable: true }}
             spaceBetween={20}
             slidesPerView={1}
+            autoplay= {{delay: 3000, disableOnInteraction: false}}
             breakpoints={{
               640: { slidesPerView: 2 },
               768: { slidesPerView: 2 },

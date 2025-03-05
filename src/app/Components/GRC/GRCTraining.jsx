@@ -31,14 +31,14 @@ const GRCTraining = () => {
       scrollTrigger: {
         trigger: container.current,
         start: "top bottom",
-        end: "top top", 
+        end: "bottom top", 
         scrub: true
       }
     })
     
   })
   return (
-    <section className={styles.container}>
+    <section className={styles.container} ref={container}>
       <div className={styles.content}>
         <h1>Empowering Organizations <br/> with Tailored GRC Training <br/> for Success</h1>
         <p>

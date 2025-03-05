@@ -1,3 +1,4 @@
+"use client"
 import React, {useRef} from 'react';
 import styles from "./header.module.css";
 import MobileMenu from './MobileMenu';
