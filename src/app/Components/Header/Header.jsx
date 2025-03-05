@@ -1,10 +1,24 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import styles from "./header.module.css";
 import MobileMenu from './MobileMenu';
 import Link from "next/link";
-const Header = () => {
+import { useGSAP } from '@gsap/react';
+const Header = ({tl}) => {
+const header = useRef();
+
+
+  useGSAP(() => {
+    tl.from(`.${styles.header_container} > *`
+      , {
+        y: -100,
+        opacity: 0,
+        duration: 1,
+        stagger: .2,
+        ease: "power2.out"
+      })
+  })
   return (
-    <div className={styles.header_container}>
+    <div className={styles.header_container} ref={header}>
         <div className={styles.header_logo}>
             <img src="/Assets/Logo.png" alt="GNC LOGO" />
         </div>

@@ -1,16 +1,54 @@
 import React from 'react';
 import styles from "./Homepage.module.css";
+import { useGSAP } from '@gsap/react';
 
-const Homepage = () => {
+const Homepage = ({tl}) => {
+    useGSAP(() => {
+        tl.from(`.${styles.info_top_text} span`, {
+            y: "100%",
+            skewY: 10,
+            opacity: 0,
+            stagger: .5,
+            duration: 1,
+            ease: "power2.out"
+        }, "<50%").from(
+            `.${styles.homepage_image_container} img`, {
+                x: "100%",
+                opacity: 0,
+                duration: 1.2,
+                ease: "power2.out"
+              
+            }, "<40%"
+        ). from(`.${styles.info_regular_text}`
+            , {
+              y: 100,
+              opacity: 0,
+              skewY: 10,
+              duration: 1,
+              stagger: .2,
+              ease: "power2.out"
+            }).from(`.${styles.info_bottom_container} > *`, {
+                y: 100,
+                opacity: 0,
+                skewY: 10,
+                duration: 1,
+                stagger: .2,
+                ease: "power2.out"
+            })
+    })
   return (
     <div className={styles.homepage_container}>
         <div className={styles.homepage_info_container}>
             
             <div className={styles.info_top_container}>
                 <h1 className={styles.info_top_text}>
-                    Navigating Compliance. <br/>
-                    Mitigating Risk. <br/>
-                    Enhancing Governance.
+                   <span> Navigating Compliance.</span> 
+                </h1>
+                <h1 className={styles.info_top_text}>
+                   <span>Mitigating Risk</span> 
+                </h1>
+                <h1 className={styles.info_top_text}>
+                   <span>Enhancing Governance.</span> 
                 </h1>
             
                 <p className={styles.info_regular_text}>

@@ -5,7 +5,10 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import styles from "./Expertise.module.css";
-
+import gsap from 'gsap';
+import {ScrollTrigger} from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+import { useRef } from 'react';
 
 
 const Expertise = () => {
@@ -31,8 +34,63 @@ const Expertise = () => {
           link: "#"
         }
       ];
+
+      const container = useRef();
+
+      useGSAP(() => {
+        gsap.registerPlugin(ScrollTrigger);
+       gsap.to(`.${styles.tag}`,{
+          y: 0,
+          opacity: 1,
+          duration: .5,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: container.current,
+          start: "top bottom",
+          end: "bottom top", 
+          scrub: true
+        }
+        })
+        gsap.to(`.${styles.heading}`, {
+          y: 0,
+          opacity: 1,
+          duration: .5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: container.current,
+            start: "top bottom",
+            end: "bottom top", 
+            scrub: true
+          }
+        })
+        gsap.to(`.${styles.description}`, {
+          y: 0,
+          opacity: 1,
+          duration: .5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: container.current,
+            start: "top bottom",
+            end: "bottom top", 
+            scrub: true
+          }
+        })
+        gsap.to(`.${styles.card}`, {
+          x: 0,
+          opacity: 1,
+          duration: .5,
+          stagger: .5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: container.current,
+            start: "top bottom",
+            end: "top top", 
+            scrub: true
+          }
+        })
+      })
   return (
-    <section className={styles.expertiseSection}>
+    <section className={styles.expertiseSection} ref={container}>
       <div className={styles.container}>
         <button className={styles.tag}>Our Expertise</button>
         <h2 className={styles.heading}>Solutions Based Expertise</h2>

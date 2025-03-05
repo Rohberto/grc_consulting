@@ -16,7 +16,12 @@ font-family: var(--font-nunito-sans), sans-serif;
 font-style: normal;
 font-weight: 700;
 font-size: 40px;
+line-height: 50px;
+overflow-y: hidden;
 color: #FFFFFF;
+}
+.info_top_text span{
+    display: inline-block;
 }
 .info_regular_text{
 font-style: normal;

@@ -1,5 +1,4 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client"
 import Homepage from "./Components/HomePage/Homepage";
 import Services from "./Components/Services/Services";
 import Expertise from "./Components/Expertise/Expertise";
@@ -9,11 +8,15 @@ import GRCNewsSlider from "./Components/GRCNewsSlider/GRCNewsSlider";
 import ContactForm from "./Components/Contact/ContactForm";
 import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
+import gsap from "gsap";
+
 export default function Home() {
+ const tl = gsap.timeline();
+
   return (
     <div className="">
-      <Header/>
-      <Homepage/>
+      <Header tl={tl}/>
+      <Homepage tl={tl}/>
       <Services/>
       <Expertise/>
       <DigitalDefenders/>

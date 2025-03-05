@@ -21,12 +21,16 @@
     font-weight: 400;
     border-radius: 20px;
     cursor: default;
+    opacity: 0;
+    transform:  translateY(50px);
   }
   
   /* Heading */
   .heading {
     font-size: 2rem;
     color: #002855;
+    transform: translateY(100%);
+    opacity: 0;
     margin: 1rem 0;
   }
   
@@ -37,6 +41,8 @@
     width: 50%;
     font-size: 16px;
     color: #555;
+    transform: translateY(100%);
+    opacity: 0;
   }
   
   /* Cards Container */
@@ -58,8 +64,11 @@
     min-width: 300px;
     max-width: 500px;
     text-align: left;
+    transform: translateX(-200px) skewX(-20deg) scale(1.2);
   }
-  
+  .card:last-child{
+    transform: translateX(200px) skewX(20deg) scale(1.2);
+  }
   .card h3 {
     font-size: 1.5rem;
     color: #002855;

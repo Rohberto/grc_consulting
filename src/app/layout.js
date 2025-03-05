@@ -1,5 +1,7 @@
+
 import { Geist, Geist_Mono, Nunito_Sans } from "next/font/google";
 import "./globals.css";
+import Layout from "./ScrollTrigger";
 
 
 const geistSans = Geist({
@@ -60,10 +62,14 @@ export const viewport = {
 
 
 export default function RootLayout({ children }) {
+ 
+
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} ${nunitoSans.variable}`}>
+        <Layout>
         {children}
+        </Layout>
       </body>
     </html>
   );

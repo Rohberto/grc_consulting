@@ -14,6 +14,8 @@
     font-weight: bold;
     color: #1d3557;
     margin-bottom: 10px;
+    transform: translateY(100%);
+    opacity: 0;
   }
   
   .description {
@@ -21,6 +23,8 @@
     color: #555;
     max-width: 700px;
     margin: 0 auto 20px;
+    transform: translateY(100%);
+    opacity: 0;
   }
   
   /* Tag Button */
@@ -33,6 +37,8 @@
     margin-bottom: 10px;
     font-weight: 400;
 background: #FFFFFF;
+opacity: 0;
+transform:  translateY(50px);
   }
   
   /* Swiper Container */
@@ -49,6 +55,8 @@ background: #FFFFFF;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s;
+    opacity: 0;
+    transform: translateX(-100%);
   }
   
   .card:hover {

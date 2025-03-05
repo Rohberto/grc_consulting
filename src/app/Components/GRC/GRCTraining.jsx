@@ -1,7 +1,42 @@
-import Image from "next/image";
 import styles from "./GRCTraining.module.css";
+import gsap from 'gsap';
+import {ScrollTrigger} from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+import { useRef } from 'react';
 
 const GRCTraining = () => {
+  const container = useRef();
+
+  useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger);
+   gsap.to(`.${styles.image}`,{
+    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+     scale: 1,
+    duration: 2,
+    ease: "power2",
+    scrollTrigger: {
+      trigger: container.current,
+      start: "top bottom",
+      end: "bottom top", 
+      scrub: true
+    }
+    })
+ 
+    gsap.to(`.${styles.content} > *`, {
+      y: 0,
+      opacity: 1,
+      duration: .5,
+      ease: "power2.out",
+      stagger: .3,
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top bottom",
+        end: "top top", 
+        scrub: true
+      }
+    })
+    
+  })
   return (
     <section className={styles.container}>
       <div className={styles.content}>

@@ -1,8 +1,59 @@
 import styles from "./DigitalDefenders.module.css";
+import gsap from "gsap";
+import {ScrollTrigger} from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+import { useRef } from 'react';
 
 const DigitalDefenders = () => {
+
+
+  const container = useRef();
+
+  useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger);
+   gsap.to(`.${styles.largeImage}`,{
+    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+     scale: 1,
+    duration: 2,
+    ease: "power2",
+    scrollTrigger: {
+      trigger: container.current,
+      start: "top bottom",
+      end: "bottom top", 
+      scrub: true
+    }
+    })
+   gsap.to(`.${styles.smallImage}`,{
+    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+    scale: 1,
+    delay: .5,
+      duration: 2,
+    ease: "power2",
+    scrollTrigger: {
+      trigger: container.current,
+      start: "top bottom",
+      end: "bottom top", 
+      scrub: true
+    }
+    })
+    gsap.to(`.${styles.textContainer} > *`, {
+      y: 0,
+      opacity: 1,
+      duration: .5,
+      ease: "power2.out",
+      stagger: .3,
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top bottom",
+        end: "top top", 
+        scrub: true
+      }
+    })
+    
+  })
+
   return (
-    <section className={styles.defendersSection}>
+    <section className={styles.defendersSection} ref={container}>
       <div className={styles.container}>
         {/* Left Side - Images */}
         <div className={styles.imageContainer}>

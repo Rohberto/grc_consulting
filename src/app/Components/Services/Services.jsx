@@ -1,9 +1,65 @@
 import styles from './Services.module.css';
-
+import gsap from 'gsap';
+import {ScrollTrigger} from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+import { useRef } from 'react';
 const Services = () => {
+  const container = useRef();
 
+  useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger);
+   gsap.to(`.${styles.serviceTag}`,{
+      y: 0,
+      opacity: 1,
+      duration: .5,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: container.current,
+      start: "top bottom",
+      end: "bottom top", 
+      scrub: true
+    }
+    })
+    gsap.to(`.${styles.heading}`, {
+      y: 0,
+      opacity: 1,
+      duration: .5,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top bottom",
+        end: "bottom top", 
+        scrub: true
+      }
+    })
+    gsap.to(`.${styles.description}`, {
+      y: 0,
+      opacity: 1,
+      duration: .5,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top bottom",
+        end: "bottom top", 
+        scrub: true
+      }
+    })
+    gsap.to(`.${styles.card}`, {
+      x: 0,
+      scale: 1,
+      skewX: 0,
+      duration: .5,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top bottom",
+        end: "center top", 
+        scrub: true
+      }
+    })
+  })
   return (
-    <section className={styles.servicesSection}>
+    <section className={styles.servicesSection} ref={container}>
       <div className={styles.container}>
         <button className={styles.serviceTag}>Our Services</button>
         <h2 className={styles.heading}>
