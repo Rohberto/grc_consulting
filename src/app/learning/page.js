@@ -4,8 +4,8 @@ import Header from '../Components/Header/Header'
 import Subheader from '../Components/Learning/SubHeader/Subheader'
 import Banner from '../Components/Learning/Banner/Banner'
 import Footer from '../Components/Footer/Footer'
-
 const page = () => {
+
   return (
     <div>
         <Header/>

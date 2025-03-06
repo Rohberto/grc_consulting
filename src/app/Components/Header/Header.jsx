@@ -4,12 +4,14 @@ import styles from "./header.module.css";
 import MobileMenu from './MobileMenu';
 import Link from "next/link";
 import { useGSAP } from '@gsap/react';
-const Header = ({tl}) => {
-const header = useRef();
+import gsap from 'gsap';
 
+const Header = () => {
+const header = useRef();
+const tl = gsap.timeline();
 
   useGSAP(() => {
-    tl.from(`.${styles.header_container} > *`
+    tl.from([`.${styles.header_logo} `, `.${styles.header_link}`, `.${styles.header_button_container}`]
       , {
         y: -100,
         opacity: 0,

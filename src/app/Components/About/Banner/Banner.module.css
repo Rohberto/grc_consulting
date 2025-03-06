@@ -13,7 +13,13 @@
 font-size: 56px;
 text-align: center;
     color: #062C65;
-  }  
+    line-height: 66px;
+overflow-y: hidden;
+}
+.title span{
+    display: inline-block;
+}
+  
 .card_container{
     display: flex;
     justify-content: center;
@@ -35,6 +41,13 @@ max-width: 644px;
 border-radius: 16px;
 background: #E0E9F5;
 text-align: left;
+opacity: 0;
+}
+.mission{
+    transform: translateX(-200px) skewX(-20deg) scale(1.2);
+}
+.vision{
+    transform: translateX(200px) skewX(20deg) scale(1.2);
 }
 .mission h1, .vision h1{
 font-weight: 700;
@@ -66,6 +79,7 @@ background: #031839;
     width: 100%;
     height: auto;
     object-fit: contain;
+    clip-path: polygon(0 0, 0 0,0 100%, 0 100%);
 }
 @media (max-width: 1200px){
     .container{
@@ -78,6 +92,7 @@ background: #031839;
     }
     .title{
         font-size: 32px;
+        line-height: 42px;
     }
     .card_container{
         flex-direction: column;

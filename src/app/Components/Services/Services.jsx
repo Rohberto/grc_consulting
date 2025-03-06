@@ -8,6 +8,9 @@ const Services = () => {
 
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
+    let mm = gsap.matchMedia();
+
+    mm.add("(min-width: 768px)", () => {
    gsap.to(`.${styles.serviceTag}`,{
       y: 0,
       opacity: 1,
@@ -57,6 +60,59 @@ const Services = () => {
         scrub: true
       }
     })
+  })
+
+  mm.add("(max-width: 768px)", () => {
+    gsap.to(`.${styles.serviceTag}`,{
+      y: 0,
+      opacity: 1,
+      duration: .5,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: container.current,
+      start: "top bottom",
+      end: "top center", 
+      scrub: true
+    }
+    })
+    gsap.to(`.${styles.heading}`, {
+      y: 0,
+      opacity: 1,
+      duration: .5,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top bottom",
+        end: "top center", 
+        scrub: true
+      }
+    })
+    gsap.to(`.${styles.description}`, {
+      y: 0,
+      opacity: 1,
+      duration: .5,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top bottom",
+        end: "top center", 
+        scrub: true
+      }
+    })
+    gsap.to(`.${styles.card}`, {
+      x: 0,
+      scale: 1,
+      skewX: 0,
+      duration: .5,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top center",
+        end: "center top", 
+        scrub: true
+      }
+    })
+  })
   })
   return (
     <section className={styles.servicesSection} ref={container}>

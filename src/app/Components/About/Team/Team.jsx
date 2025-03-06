@@ -2,9 +2,10 @@
 import React, {useState} from 'react';
 import styles from "./Team.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/autoplay";
 
 const Team = () => {
     const Info = [
@@ -21,8 +22,9 @@ const Team = () => {
         <h1 className={styles.title}>Facts About The Team.</h1>
     
         <Swiper 
-       modules={[Pagination]}
+       modules={[Pagination, Autoplay]}
             pagination={{ clickable: true }}
+            autoplay= {{delay: 3000, disableOnInteraction: false}}
             spaceBetween={20}
             slidesPerView={1}
             breakpoints={{

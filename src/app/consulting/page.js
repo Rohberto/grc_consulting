@@ -6,8 +6,9 @@ import BusinessSolutions from '../Components/Consulting/Solutions/Solutions';
 import Choose from '../Components/Consulting/Choose/Choose';
 import ContactForm from '../Components/Contact/ContactForm';
 import Footer from '../Components/Footer/Footer';
-
+import gsap from 'gsap';
 const page = () => {
+
   return (
     <div>
         <Header/>

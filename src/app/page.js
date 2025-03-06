@@ -8,15 +8,15 @@ import GRCNewsSlider from "./Components/GRCNewsSlider/GRCNewsSlider";
 import ContactForm from "./Components/Contact/ContactForm";
 import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
-import gsap from "gsap";
+
 
 export default function Home() {
- const tl = gsap.timeline();
+
 
   return (
     <div className="">
-      <Header tl={tl}/>
-      <Homepage tl={tl}/>
+      <Header/>
+      <Homepage/>
       <Services/>
       <Expertise/>
       <DigitalDefenders/>

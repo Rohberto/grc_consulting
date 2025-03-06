@@ -53,8 +53,13 @@ font-size: 16px;
 letter-spacing: 0.005em;
 color: #062c65;
 cursor: pointer;
+transition: all 0.5s ease-in-out;
 }
-
+.info_contact_button:hover{
+    background-color: #062c65;
+    color: #fff;
+    transform: scale(1.1);
+}
 .info_trusted{
     margin-top: 30px;
 }
@@ -129,5 +134,10 @@ color: #E9E9EA;
         }
         .info_trusted_brands{
             margin-left: -10px;
+        }
+}
+@media (max-width: 500px){
+    .info_top_text{
+        font-size: 32px;
         }
 }

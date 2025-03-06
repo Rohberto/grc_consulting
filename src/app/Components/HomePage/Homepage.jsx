@@ -1,40 +1,79 @@
 import React from 'react';
 import styles from "./Homepage.module.css";
 import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 
-const Homepage = ({tl}) => {
-    useGSAP(() => {
-        tl.from(`.${styles.info_top_text} span`, {
-            y: "100%",
-            skewY: 10,
-            opacity: 0,
-            stagger: .5,
-            duration: 1,
-            ease: "power2.out"
-        }, "<50%").from(
-            `.${styles.homepage_image_container} img`, {
-                x: "100%",
-                opacity: 0,
-                duration: 1.2,
-                ease: "power2.out"
-              
-            }, "<40%"
-        ). from(`.${styles.info_regular_text}`
-            , {
-              y: 100,
-              opacity: 0,
-              skewY: 10,
-              duration: 1,
-              stagger: .2,
-              ease: "power2.out"
-            }).from(`.${styles.info_bottom_container} > *`, {
-                y: 100,
-                opacity: 0,
+const Homepage = () => {
+    const tl1 = gsap.timeline();
+       useGSAP(() => {
+        let mm = gsap.matchMedia();
+        mm.add("(min-width: 768px)", () => {
+            tl1.from(`.${styles.info_top_text} span`, {
+                y: "100%",
                 skewY: 10,
+                opacity: 0,
+                stagger: .5,
                 duration: 1,
-                stagger: .2,
                 ease: "power2.out"
-            })
+            }, "<50%").from(
+                `.${styles.homepage_image_container} img`, {
+                    x: "100%",
+                    opacity: 0,
+                    duration: 1.2,
+                    ease: "power2.out"
+                  
+                }, "<40%"
+            ). from(`.${styles.info_regular_text}`
+                , {
+                  y: 100,
+                  opacity: 0,
+                  skewY: 10,
+                  duration: 1,
+                  stagger: .2,
+                  ease: "power2.out"
+                }).from(`.${styles.info_bottom_container} > *`, {
+                    y: 100,
+                    opacity: 0,
+                    skewY: 10,
+                    duration: 1,
+                    stagger: .2,
+                    ease: "power2.out"
+                })
+        })
+
+        mm.add("(max-width: 768px)", () => {
+            tl1.from(`.${styles.info_top_text} span`, {
+                y: "100%",
+                skewY: 10,
+                opacity: 0,
+                stagger: .5,
+                duration: 1,
+                ease: "power2.out"
+            }, "<50%"). from(`.${styles.info_regular_text}`
+                , {
+                  y: 100,
+                  opacity: 0,
+                  skewY: 6,
+                  duration: .6,
+                  ease: "power2.out"
+                }).from(
+                    `.${styles.homepage_image_container} img`, {
+                        x: "100%",
+                        opacity: 0,
+                        duration: 1,
+                        ease: "power2.out"
+                      
+                    }
+                ) .from(`.${styles.mobile_info_bottom_container} `, {
+                    y: 100,
+                    opacity: 0,
+                    skewY: 10,
+                    duration: 1,
+                    stagger: .2,
+                    ease: "power2.out"
+                })
+        })
+       
     })
   return (
     <div className={styles.homepage_container}>

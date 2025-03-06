@@ -6,6 +6,7 @@ import {useParams} from 'next/navigation';
 import {levels} from "../../utils";
 import CourseDetail from '../../Components/Learning/Learning_id/CourseDetail/CourseDetail.jsx';
 import Related from '@/app/Components/Learning/Learning_id/Related/Related.jsx';
+
 const page = () => {
    const params = useParams();
   const id = params.id;
@@ -19,6 +20,7 @@ const page = () => {
     return null;
   }
    const course = findCourseById(id);
+
 
   return (
     <div>
