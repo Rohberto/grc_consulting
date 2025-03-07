@@ -18,7 +18,7 @@ const mainContainer = useRef();
         ease: "power2.out",
         stagger: .2,
         scrollTrigger: {
-          trigger: container.current,
+          trigger: `.${styles.certification_text_content}`,
           start: "top center",
           end: "top top", 
           scrub: true
@@ -47,7 +47,7 @@ const mainContainer = useRef();
         duration: 1,
         ease: "power2.out",
         scrollTrigger: {
-          trigger: mainContainer.current,
+          trigger: `${styles.statistics_container}`,
           start: "top bottom",
           end: "top center", 
           scrub: true

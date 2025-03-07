@@ -1,11 +1,12 @@
 .container {
-    padding: 60px 0;
+    padding: 60px 0 160px;
       text-align: center;
       background-color: hsl(0, 0%, 100%);
       position: relative;
       min-height: 100vh;
 
     }
+
     .title {
       font-weight: 700;
   font-size: 56px;

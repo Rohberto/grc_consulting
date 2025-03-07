@@ -45,8 +45,8 @@ const Banner = () => {
             duration: 2,
             ease: "power2",
             scrollTrigger: {
-              trigger: imgcontainer.current,
-              start: "top center",
+              trigger: container.current,
+              start: "top top",
               end: "bottom center", 
               scrub: true
             }
