@@ -2,7 +2,7 @@ import styles from "./ContactForm.module.css";
 
 const ContactForm = () => {
   return (
-    <section className={styles.container}>
+    <section className={styles.container} id="contact">
          <button className={styles.tag}>Contact Us</button>
       <h2>Solution is a Message Away</h2>
       <div className={styles.formContainer}>

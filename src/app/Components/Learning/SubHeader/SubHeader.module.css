@@ -28,6 +28,13 @@ font-size: 16px;
 outline: none;
 border: none;
 color: #004AAD;
+cursor: pointer;
+transition: all 0.5s ease-in-out;
+}
+.subheader_button button:hover{
+    background-color: #062c65;
+    color: #fff;
+    transform: scale(1.1);
 }
 @media (max-width: 768px){
     .container{

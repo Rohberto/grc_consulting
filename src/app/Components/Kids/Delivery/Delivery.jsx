@@ -1,15 +1,73 @@
-import React from 'react';
+"use client"
+import React, {useRef} from 'react';
 import styles from "./Delivery.module.css";
+import gsap from 'gsap';
+import {ScrollTrigger} from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
 
 const Delivery = () => {
+  const container = useRef();
+  const cardContainer = useRef();
+  useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    let mm = gsap.matchMedia();
+
+    mm.add("(max-width: 768px)", () => {
+      gsap.to(`.${styles.card}`, {
+        x: 0,
+        opacity: 1,
+        duration: .5,
+        stagger: .5,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: cardContainer.current,
+          start: "top center",
+          end: "bottom bottom", 
+          scrub: true
+        }
+      })
+    })
+    mm.add("(min-width: 768px)", () => {
+      gsap.to(`.${styles.card}`, {
+        x: 0,
+        opacity: 1,
+        duration: .5,
+        stagger: .5,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: container.current,
+          start: "top center",
+          end: "bottom bottom", 
+          scrub: true
+        }
+      })
+    })
+
+    gsap.to([`.${styles.delivery_header}`, `.${styles.delivery_description}`], {
+      y: 0,
+      opacity: 1,
+      duration: .5,
+      stagger: .5,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top center",
+        end: "top top", 
+        scrub: true
+      }
+    })
+   
+ 
+  })
   return (
-    <div className={styles.delivery_container}>
+    <div className={styles.delivery_container}ref={container}>
         <h1 className={styles.delivery_header}>Delivery Modes</h1>
         <p className={styles.delivery_description}>
         Through our Digital Defenders program we strive to educate young learners on safe internet practices, digital citizenship, and the fundamentals of cybersecurity, with a special focus on online gaming safety.
         </p>
    
-   <div className={styles.delivery_cards_container}>
+   <div className={styles.delivery_cards_container} ref={cardContainer}>
         <div  className={`${styles.card} ${styles.card_one}`}>
             <div className={styles.card_image}>
                 <img src="/Assets/frame.png" at="kids_frame"/>

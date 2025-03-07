@@ -12,6 +12,11 @@ font-weight: 700;
 font-size: 56px;
 text-align: center;
 color: #FFFFFF;
+line-height: 66px;
+overflow-y: hidden;
+}
+.navigation_header span{
+    display: inline-block;
 }
 .navigation_links{
 font-family: 'Inter';

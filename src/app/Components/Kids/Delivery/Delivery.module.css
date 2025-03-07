@@ -14,6 +14,8 @@ background: #F7E37C;
 font-size: 56px;
 text-align: center;
 color: #031411;
+transform: translateY(100%);
+opacity: 0;
 }
 .delivery_description{
     font-weight: 400;
@@ -21,6 +23,8 @@ font-size: 18px;
 text-align: center;
 color: #1D1F2C;
 width: 60%;
+transform: translateY(100%);
+opacity: 0;
 }
 .delivery_cards_container{
 display: flex;
@@ -41,6 +45,8 @@ max-width: 419px;
 height: 100%;
 border-radius: 30px;
 text-align: center;
+transform: translateX(-100%);
+opacity: 0;
 }
 .card_one{
     background: #E7846F;

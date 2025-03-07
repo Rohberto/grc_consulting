@@ -1,14 +1,65 @@
-import React from 'react';
+"use client"
+import React, {useRef} from 'react';
 import styles from "./Program.module.css";
+import gsap from 'gsap';
+import {ScrollTrigger} from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 
 const Program = () => {
+  const container = useRef();
+  const contentContainer = useRef();
+ useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from(`.${styles.header} span`, {
+      y: "100%",
+      skewY: 10,
+      opacity: 0,
+      stagger: .5,
+      duration: 1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top center",
+        end: "top top", 
+        scrub: true
+      }
+    })
+
+    gsap.to(`.${styles.text_container} ul li`, {
+      y: 0,
+      opacity: 1,
+      duration: .5,
+      ease: "power2.out",
+      stagger: .5,
+      scrollTrigger: {
+        trigger: contentContainer.current,
+        start: "top center",
+        end: "top top", 
+        scrub: true
+      }
+    })
+
+ gsap.to(`.${styles.image_container} img`,{
+      clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+       scale: 1,
+      duration: 2,
+      ease: "power2",
+      scrollTrigger: {
+        trigger: contentContainer.current,
+        start: "top center",
+        end: "bottom bottom", 
+        scrub: true
+      }
+      })
+    })
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={container}>
         <h1 className={styles.header}>
-            Why This Program?
+           <span> Why This Program?</span>
         </h1>
 
-        <div className={styles.content_container}>
+        <div className={styles.content_container} ref={contentContainer}>
             <div className={styles.text_container}>
                 <ul>
                     <li><img src='/Assets/list_1.png' alt='list-counter'></img> Mission
