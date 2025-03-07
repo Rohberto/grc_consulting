@@ -150,10 +150,15 @@ margin-bottom: 20px;
 font-weight: 400;
 font-size: 18px;
 color: #062C65;
+cursor: pointer;
+transition: all 1s ease-in-out;
   }
+
   
   .shareButton:hover {
     background-color: #2b6cb0;
+    color: #fff;
+  
   }
   
   .content {

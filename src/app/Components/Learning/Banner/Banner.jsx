@@ -36,9 +36,10 @@ const Banner = () => {
         {levels
           .find((level) => level.id === activeLevel)
           ?.content.map((card, index) => (
-            <div key={index} className={styles.card} onClick={() => {
+            <div key={index} className={`${styles.card}`} onClick={() => {
               router.push(`/learning/${card.id}`)
             }}>
+              <div className={`${card?.completed ? styles.blur : ""}`}>
             <img src={card.image} alt={card.title} className={styles.image} />
             <h4>{card.title}</h4>
             <p>{card.description}</p>
@@ -46,7 +47,11 @@ const Banner = () => {
               <li>{card.lessons}</li>
             </ul>
             <span className={styles.label}>${card.price}</span>
+           </div>
+            {card?.completed && <div className={styles.darkOverlay}>Coming Soon</div>}
           </div>
+
+         
           ))}
         </div>
         </div>
