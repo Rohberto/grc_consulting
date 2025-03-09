@@ -102,6 +102,10 @@ color: #062C65;
     align-items: center;
     justify-content: flex-start;
     gap: 10px;
+    width: auto;
+  }
+  .checkboxGroup label input, .checkboxGroup label span{
+    flex-grow: 0;
   }
   .label{
     display: inline-block;
@@ -162,6 +166,7 @@ color: #100F14;
       .checkboxGroup {
         flex-direction: column;
         align-items: flex-start;
+        justify-content: flex-start;
       }
   }
 

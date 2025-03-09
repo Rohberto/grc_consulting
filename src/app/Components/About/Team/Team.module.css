@@ -108,7 +108,7 @@ padding: 20px 0;
       
     @media (max-width: 1200px){
         .container{
-            padding: 60px 20px;
+            padding: 60px 20px 160px;
         }
         .swiper{
           padding: 40px 0 !important;
@@ -117,7 +117,7 @@ padding: 20px 0;
       }
     @media (max-width: 768px){
         .container{
-            padding: 60px 20px;
+            padding: 60px 20px 160px;
         }
         .title{
             font-size: 32px;

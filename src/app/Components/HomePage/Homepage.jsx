@@ -15,7 +15,7 @@ const Homepage = () => {
                 stagger: .5,
                 duration: 1,
                 ease: "power2.out"
-            }, "<50%").from(
+            }).from(
                 `.${styles.homepage_image_container} img`, {
                     x: "100%",
                     opacity: 0,
