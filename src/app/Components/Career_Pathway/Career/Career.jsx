@@ -1,7 +1,6 @@
 "use client"
 import React from 'react';
 import styles from "./career.module.css";
-import CareerChart from './DynamicCareer';
 import CyberChart from './CyberChart';
 
 
