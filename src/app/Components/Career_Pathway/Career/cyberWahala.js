@@ -138,7 +138,7 @@ const CyberChart = () => {
         central: { borderWidth: 2 * scaleFactor, color: { border: "#98FF98", background: "#55D7AE" }, widthConstraint: { minimum: 120, maximum: 150 } },
         advanced: { borderWidth: 2 * scaleFactor, color: { border: "#FFA07A", background: "#D58654" } },
       },
-      interaction: { hover: true, zoomView: true, dragNodes: false }, // Re-enabled hover
+      interaction: { hover: true, zoomView: true, dragNodes: false, dragView: false}, // Re-enabled hover
       physics: { enabled: false },
       autoResize: true,
     };
