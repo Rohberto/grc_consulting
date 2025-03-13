@@ -11,9 +11,10 @@ const CyberChart = () => {
   const networkRef = useRef(null);
   const tippyInstanceRef = useRef(null);
 
-  // State to track container dimensions for responsiveness
+  // State to track container dimensions and Tippy status
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [width, setWidth] = useState(0);
+  const [isTippyOpen, setIsTippyOpen] = useState(false);
 
   // Nodes with manual x, y coordinates for precise positioning
   const baseNodes = [
@@ -137,9 +138,9 @@ const CyberChart = () => {
         central: { borderWidth: 2 * scaleFactor, color: { border: "#98FF98", background: "#55D7AE" }, widthConstraint: { minimum: 120, maximum: 150 } },
         advanced: { borderWidth: 2 * scaleFactor, color: { border: "#FFA07A", background: "#D58654" } },
       },
-      interaction: { hover: true, zoomView: true, dragNodes: false },
+      interaction: { hover: true, zoomView: true, dragNodes: false }, // Re-enabled hover
       physics: { enabled: false },
-      autoResize: true, // Automatically adjust to container size
+      autoResize: true,
     };
 
     const network = new Network(containerRef.current, { nodes: scaledNodes, edges }, options);
@@ -149,17 +150,16 @@ const CyberChart = () => {
     const canvas = containerRef.current.querySelector("canvas");
     if (canvas) {
       canvas.addEventListener("touchmove", (e) => {
-        // Allow pinch-to-zoom but prevent panning from stopping scroll
         if (e.touches.length === 1) {
-          e.preventDefault(); // Still allow single touch for hover, but don't block scroll
+          e.preventDefault();
         }
       });
     }
 
-    // Show arrows and sharpen edges on node hover
+    // Handle hover for desktop
     network.on("hoverNode", (params) => {
       const nodeId = params.node;
-      if (nodeId && containerRef.current) {
+      if (nodeId && containerRef.current && width > 768) { // Assume > 768px is desktop
         const connectedEdges = network.getConnectedEdges(nodeId);
         connectedEdges.forEach((edgeId) => {
           const edge = edges.find((e) => e.id === edgeId);
@@ -173,6 +173,76 @@ const CyberChart = () => {
           }
         });
 
+        const node = baseNodes.find((n) => n.id === nodeId);
+        if (node && !isTippyOpen) {
+          const nodePosition = network.getPositions([nodeId])[nodeId];
+          const domPosition = network.canvasToDOM({ x: nodePosition.x, y: nodePosition.y });
+          const nodeSize = node.size || 25 * scaleFactor;
+          const adjustedY = domPosition.y + nodeSize;
+
+          const virtualReference = {
+            getReferenceClientRect: () => ({
+              width: 0,
+              height: 0,
+              top: adjustedY,
+              left: domPosition.x,
+              right: domPosition.x,
+              bottom: adjustedY,
+            }),
+          };
+
+          if (tippyInstanceRef.current) {
+            tippyInstanceRef.current.destroy();
+            console.log("Destroyed existing Tippy instance on hover");
+          }
+
+          tippyInstanceRef.current = Tippy(containerRef.current, {
+            content: nodeDetails[node.id] || "No details",
+            trigger: "manual",
+            placement: "bottom",
+            appendTo: containerRef.current,
+            allowHTML: true,
+            showOnCreate: true,
+            getReferenceClientRect: virtualReference.getReferenceClientRect,
+            onHidden: (instance) => {
+              console.log("Tippy hidden on blur");
+              setTimeout(() => {
+                if (tippyInstanceRef.current && !tippyInstanceRef.current.state.isDestroyed) {
+                  tippyInstanceRef.current.destroy();
+                  tippyInstanceRef.current = null;
+                  setIsTippyOpen(false);
+                  console.log("Tippy destroyed after delay");
+                }
+              }, 100);
+            },
+            popperOptions: {
+              modifiers: [
+                {
+                  name: "preventOverflow",
+                  options: {
+                    boundary: containerRef.current,
+                  },
+                },
+              ],
+            },
+          });
+          setIsTippyOpen(true);
+          console.log("New Tippy instance created on hover");
+        }
+      }
+    });
+
+    network.on("blurNode", () => {
+      if (tippyInstanceRef.current && width > 768) {
+        console.log("Blur detected, hiding Tippy");
+        tippyInstanceRef.current.hide();
+      }
+    });
+
+    // Handle click for mobile
+    network.on("click", (params) => {
+      const nodeId = params.nodes[0];
+      if (nodeId && containerRef.current && width <= 768) { // Assume <= 768px is mobile
         const node = baseNodes.find((n) => n.id === nodeId);
         if (node) {
           const nodePosition = network.getPositions([nodeId])[nodeId];
@@ -193,53 +263,58 @@ const CyberChart = () => {
 
           if (tippyInstanceRef.current) {
             tippyInstanceRef.current.destroy();
-            console.log("Destroyed existing Tippy instance");
+            setIsTippyOpen(false);
+            console.log("Destroyed existing Tippy instance on click");
           }
 
-          // Delay Tippy creation to ensure DOM is ready
-          setTimeout(() => {
-            if (containerRef.current) {
-              tippyInstanceRef.current = Tippy(containerRef.current, {
-                content: nodeDetails[node.id] || "No details",
-                trigger: "manual",
-                placement: "bottom",
-                appendTo: containerRef.current,
-                allowHTML: true,
-                showOnCreate: true,
-                getReferenceClientRect: virtualReference.getReferenceClientRect,
-                onHidden: (instance) => {
-                  console.log("Tippy hidden, preparing to destroy");
-                  setTimeout(() => {
-                    if (tippyInstanceRef.current && !tippyInstanceRef.current.state.isDestroyed) {
-                      tippyInstanceRef.current.destroy();
-                      tippyInstanceRef.current = null;
-                      console.log("Tippy destroyed after delay");
-                    }
-                  }, 100);
-                },
-                popperOptions: {
-                  modifiers: [
-                    {
-                      name: "preventOverflow",
-                      options: {
-                        boundary: containerRef.current,
-                      },
+          if (!isTippyOpen) {
+            tippyInstanceRef.current = Tippy(containerRef.current, {
+              content: nodeDetails[node.id] || "No details",
+              trigger: "manual",
+              placement: "bottom",
+              appendTo: containerRef.current,
+              allowHTML: true,
+              showOnCreate: true,
+              getReferenceClientRect: virtualReference.getReferenceClientRect,
+              onHidden: (instance) => {
+                console.log("Tippy hidden on click out");
+                setTimeout(() => {
+                  if (tippyInstanceRef.current && !tippyInstanceRef.current.state.isDestroyed) {
+                    tippyInstanceRef.current.destroy();
+                    tippyInstanceRef.current = null;
+                    setIsTippyOpen(false);
+                    console.log("Tippy destroyed after delay");
+                  }
+                }, 100);
+              },
+              popperOptions: {
+                modifiers: [
+                  {
+                    name: "preventOverflow",
+                    options: {
+                      boundary: containerRef.current,
                     },
-                  ],
-                },
-              });
-              console.log("New Tippy instance created");
-            } else {
-              console.log("containerRef.current is null during Tippy creation");
-            }
-          }, 0); // Immediate delay to defer to next event loop
+                  },
+                ],
+              },
+            });
+            setIsTippyOpen(true);
+            console.log("New Tippy instance created on click");
+          }
         }
-      } else {
-        console.log("containerRef.current is null or nodeId is invalid");
       }
     });
 
-    // Reset edges on node blur with delay
+    // Hide Tippy on double click (mobile) or outside interaction
+    network.on("doubleClick", () => {
+      if (tippyInstanceRef.current && width <= 768) {
+        tippyInstanceRef.current.hide();
+        setIsTippyOpen(false);
+        console.log("Tippy hidden on double click");
+      }
+    });
+
+    // Reset edges on blur (optional)
     network.on("blurNode", () => {
       edges.forEach((edge) => {
         network.body.data.edges.update({
@@ -249,18 +324,12 @@ const CyberChart = () => {
           color: { color: "#666", highlight: "#666" },
         });
       });
-
-      if (tippyInstanceRef.current) {
-        console.log("Blur detected, hiding Tippy");
-        tippyInstanceRef.current.hide();
-        // Delay destroy handled by onHidden
-      }
     });
 
-    // Show arrows on edge hover
+    // Edge hover for desktop (optional)
     network.on("hoverEdge", (params) => {
       const edge = edges.find((e) => e.id === params.edge);
-      if (edge) {
+      if (edge && width > 768) {
         network.body.data.edges.update({ id: edge.id, arrows: { to: { enabled: true, scaleFactor: 1 } }, width: 2 * scaleFactor });
       }
     });
@@ -272,10 +341,9 @@ const CyberChart = () => {
       }
     });
 
-    // Add level labels (Feeder Role, Entry-Level, etc.) as HTML overlays
+    // Add level labels
     const addLevelLabels = () => {
       const container = containerRef.current;
-      // Clear existing labels to avoid duplicates
       const existingLabels = container.getElementsByTagName("div");
       while (existingLabels.length > 0 && existingLabels[0].innerText.match(/ROLE|LEVEL/)) {
         container.removeChild(existingLabels[0]);
@@ -306,6 +374,22 @@ const CyberChart = () => {
       addLevelLabels();
     });
 
+    // Detect when container scrolls out of view
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting === false && tippyInstanceRef.current) {
+          console.log("Container out of view, hiding Tippy");
+          tippyInstanceRef.current.hide();
+          setIsTippyOpen(false);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
     return () => {
       if (networkRef.current) networkRef.current.destroy();
       if (tippyInstanceRef.current && !tippyInstanceRef.current.state.isDestroyed) {
@@ -313,8 +397,11 @@ const CyberChart = () => {
         tippyInstanceRef.current = null;
         console.log("Cleanup: Tippy destroyed on unmount");
       }
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
     };
-  }, [dimensions]);
+  }, [dimensions, width]);
 
   return (
     <div
