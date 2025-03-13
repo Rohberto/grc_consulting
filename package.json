@@ -12,6 +12,7 @@
     "@gsap/react": "^2.1.2",
     "@headlessui/react": "^2.2.0",
     "@studio-freight/lenis": "^1.0.42",
+    "@tippyjs/react": "^4.2.6",
     "aframe": "^1.7.0",
     "gsap": "^3.12.7",
     "lenis": "^1.1.22",

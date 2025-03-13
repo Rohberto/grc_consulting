@@ -1,7 +1,8 @@
 "use client"
 import React from 'react';
 import styles from "./career.module.css";
-import CyberChart from './CyberChart';
+import CyberChart from './cyberWahala';
+import ErrorBoundary from './ErrorBoundary';
 
 
 const Career = () => {
@@ -12,8 +13,9 @@ const Career = () => {
        {/* <div className={styles.image_container}>
             <img src="/Assets/career_chart.png" alt='career_chart'/>
         </div> */}
-
+<ErrorBoundary>
    <CyberChart/>
+   </ErrorBoundary>
     </div>
   )
 }

@@ -13,9 +13,10 @@ const CyberChart = () => {
 
   // State to track container dimensions for responsiveness
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const [width, setWidth] = useState(0);
 
   // Nodes with manual x, y coordinates for precise positioning
-  const nodes = [
+  const baseNodes = [
     { id: "central_consultant", label: "Cybersecurity Consultant", group: "central", x: 100, y: 0, size: 40, title: "Central Role" },
     { id: "feeder_networking", label: "Networking", group: "feeder", x: -400, y: -200, title: "Feeder Role" },
     { id: "feeder_software_dev", label: "Software Development", group: "feeder", x: -400, y: -120, title: "Feeder Role" },
@@ -71,7 +72,6 @@ const CyberChart = () => {
     "adv_architect": `<div><strong>Role:</strong> Cybersecurity Architect<br/><strong>Skills:</strong> Architecture</div>`,
   };
 
-
   // Update dimensions on resize
   useEffect(() => {
     const updateDimensions = () => {
@@ -80,6 +80,7 @@ const CyberChart = () => {
           width: containerRef.current.offsetWidth,
           height: containerRef.current.offsetHeight,
         });
+        setWidth(window.innerWidth);
       }
     };
 
@@ -131,9 +132,9 @@ const CyberChart = () => {
       },
       groups: {
         feeder: { borderWidth: 2 * scaleFactor, color: { border: "#87CEEB" } },
-        entry: { borderWidth: 2 * scaleFactor, color: { border: "#87CEEB" , background: "#089efe"  } },
+        entry: { borderWidth: 2 * scaleFactor, color: { border: "#87CEEB", background: "#089efe" } },
         mid: { borderWidth: 2 * scaleFactor, color: { border: "#98FF98", background: "#55D7AE" } },
-        central: { borderWidth: 2 * scaleFactor, color: { border: "#98FF98", background: "#55D7AE" }, widthConstraint: { minimum: 80, maximum: 150 },  },
+        central: { borderWidth: 2 * scaleFactor, color: { border: "#98FF98", background: "#55D7AE" }, widthConstraint: { minimum: 120, maximum: 150 } },
         advanced: { borderWidth: 2 * scaleFactor, color: { border: "#FFA07A", background: "#D58654" } },
       },
       interaction: { hover: true, zoomView: true, dragNodes: false },
@@ -143,6 +144,17 @@ const CyberChart = () => {
 
     const network = new Network(containerRef.current, { nodes: scaledNodes, edges }, options);
     networkRef.current = network;
+
+    // Prevent touch events from interfering with scrolling
+    const canvas = containerRef.current.querySelector("canvas");
+    if (canvas) {
+      canvas.addEventListener("touchmove", (e) => {
+        // Allow pinch-to-zoom but prevent panning from stopping scroll
+        if (e.touches.length === 1) {
+          e.preventDefault(); // Still allow single touch for hover, but don't block scroll
+        }
+      });
+    }
 
     // Show arrows and sharpen edges on node hover
     network.on("hoverNode", (params) => {
@@ -161,7 +173,7 @@ const CyberChart = () => {
           }
         });
 
-        const node = nodes.find((n) => n.id === nodeId);
+        const node = baseNodes.find((n) => n.id === nodeId);
         if (node) {
           const nodePosition = network.getPositions([nodeId])[nodeId];
           const domPosition = network.canvasToDOM({ x: nodePosition.x, y: nodePosition.y });
@@ -181,6 +193,7 @@ const CyberChart = () => {
 
           if (tippyInstanceRef.current) {
             tippyInstanceRef.current.destroy();
+            console.log("Destroyed existing Tippy instance");
           }
 
           tippyInstanceRef.current = Tippy(containerRef.current, {
@@ -191,7 +204,16 @@ const CyberChart = () => {
             allowHTML: true,
             showOnCreate: true,
             getReferenceClientRect: virtualReference.getReferenceClientRect,
-            onHidden: (instance) => instance.destroy(),
+            onHidden: (instance) => {
+              console.log("Tippy hidden, preparing to destroy");
+              setTimeout(() => {
+                if (tippyInstanceRef.current && !tippyInstanceRef.current.state.isDestroyed) {
+                  tippyInstanceRef.current.destroy();
+                  tippyInstanceRef.current = null;
+                  console.log("Tippy destroyed after delay");
+                }
+              }, 100); // Delay to ensure tooltip is fully hidden
+            },
             popperOptions: {
               modifiers: [
                 {
@@ -203,11 +225,12 @@ const CyberChart = () => {
               ],
             },
           });
+          console.log("New Tippy instance created");
         }
       }
     });
 
-    // Reset edges on node blur
+    // Reset edges on node blur with delay
     network.on("blurNode", () => {
       edges.forEach((edge) => {
         network.body.data.edges.update({
@@ -219,9 +242,9 @@ const CyberChart = () => {
       });
 
       if (tippyInstanceRef.current) {
+        console.log("Blur detected, hiding Tippy");
         tippyInstanceRef.current.hide();
-        tippyInstanceRef.current.destroy();
-        tippyInstanceRef.current = null;
+        // Delay destroy to prevent immediate cleanup
       }
     });
 
@@ -250,10 +273,10 @@ const CyberChart = () => {
       }
 
       const labels = [
-        { text: "FEEDER ROLE", x: -450 * scaleFactor, y: -300 * scaleFactor },
-        { text: "ENTRY-LEVEL", x: -250 * scaleFactor, y: -300 * scaleFactor },
-        { text: "MID-LEVEL", x: 0, y: -300 * scaleFactor },
-        { text: "ADVANCED-LEVEL", x: 350 * scaleFactor, y: -300 * scaleFactor },
+        { text: "FEEDER ROLE", x: -500 * scaleFactor, y: 0 * scaleFactor },
+        { text: "ENTRY-LEVEL", x: -250 * scaleFactor, y: 0 * scaleFactor },
+        { text: "MID-LEVEL", x: -50, y: 0 * scaleFactor },
+        { text: "ADVANCED-LEVEL", x: 150 * scaleFactor, y: 0 * scaleFactor },
       ];
 
       labels.forEach((label) => {
@@ -261,11 +284,11 @@ const CyberChart = () => {
         div.innerText = label.text;
         div.style.position = "absolute";
         div.style.color = "#666";
-        div.style.fontSize = `${14 * scaleFactor}px`;
+        div.style.fontSize = `${10 * scaleFactor}px`;
         div.style.fontWeight = "bold";
-        div.style.left = `calc(50% + ${label.x}px)`;
-        div.style.top = `calc(50% + ${label.y}px)`;
-        div.style.transform = "translate(-50%, -50%)";
+        div.style.left = `calc(70% + ${label.x}px)`;
+        div.style.top = `50px`;
+        div.style.transform = "translateX(-70%)";
         container.appendChild(div);
       });
     };
@@ -276,9 +299,10 @@ const CyberChart = () => {
 
     return () => {
       if (networkRef.current) networkRef.current.destroy();
-      if (tippyInstanceRef.current) {
+      if (tippyInstanceRef.current && !tippyInstanceRef.current.state.isDestroyed) {
         tippyInstanceRef.current.destroy();
         tippyInstanceRef.current = null;
+        console.log("Cleanup: Tippy destroyed on unmount");
       }
     };
   }, [dimensions]);
@@ -286,7 +310,7 @@ const CyberChart = () => {
   return (
     <div
       ref={containerRef}
-      style={{ height: "70vh", width: "100%", border: "1px solid #ccc", background: "#fafafa", position: "relative" }}
+      style={{ height: `${width > 850 ? "800px" : "60vh"}`, width: "100%", border: "1px solid #ccc", background: "#fafafa", position: "relative", touchAction: "auto" }}
     />
   );
 };
