@@ -159,7 +159,7 @@ const CyberChart = () => {
     // Show arrows and sharpen edges on node hover
     network.on("hoverNode", (params) => {
       const nodeId = params.node;
-      if (nodeId) {
+      if (nodeId && containerRef.current) {
         const connectedEdges = network.getConnectedEdges(nodeId);
         connectedEdges.forEach((edgeId) => {
           const edge = edges.find((e) => e.id === edgeId);
@@ -196,37 +196,46 @@ const CyberChart = () => {
             console.log("Destroyed existing Tippy instance");
           }
 
-          tippyInstanceRef.current = Tippy(containerRef.current, {
-            content: nodeDetails[node.id] || "No details",
-            trigger: "manual",
-            placement: "bottom",
-            appendTo: containerRef.current,
-            allowHTML: true,
-            showOnCreate: true,
-            getReferenceClientRect: virtualReference.getReferenceClientRect,
-            onHidden: (instance) => {
-              console.log("Tippy hidden, preparing to destroy");
-              setTimeout(() => {
-                if (tippyInstanceRef.current && !tippyInstanceRef.current.state.isDestroyed) {
-                  tippyInstanceRef.current.destroy();
-                  tippyInstanceRef.current = null;
-                  console.log("Tippy destroyed after delay");
-                }
-              }, 100); // Delay to ensure tooltip is fully hidden
-            },
-            popperOptions: {
-              modifiers: [
-                {
-                  name: "preventOverflow",
-                  options: {
-                    boundary: containerRef.current,
-                  },
+          // Delay Tippy creation to ensure DOM is ready
+          setTimeout(() => {
+            if (containerRef.current) {
+              tippyInstanceRef.current = Tippy(containerRef.current, {
+                content: nodeDetails[node.id] || "No details",
+                trigger: "manual",
+                placement: "bottom",
+                appendTo: containerRef.current,
+                allowHTML: true,
+                showOnCreate: true,
+                getReferenceClientRect: virtualReference.getReferenceClientRect,
+                onHidden: (instance) => {
+                  console.log("Tippy hidden, preparing to destroy");
+                  setTimeout(() => {
+                    if (tippyInstanceRef.current && !tippyInstanceRef.current.state.isDestroyed) {
+                      tippyInstanceRef.current.destroy();
+                      tippyInstanceRef.current = null;
+                      console.log("Tippy destroyed after delay");
+                    }
+                  }, 100);
                 },
-              ],
-            },
-          });
-          console.log("New Tippy instance created");
+                popperOptions: {
+                  modifiers: [
+                    {
+                      name: "preventOverflow",
+                      options: {
+                        boundary: containerRef.current,
+                      },
+                    },
+                  ],
+                },
+              });
+              console.log("New Tippy instance created");
+            } else {
+              console.log("containerRef.current is null during Tippy creation");
+            }
+          }, 0); // Immediate delay to defer to next event loop
         }
+      } else {
+        console.log("containerRef.current is null or nodeId is invalid");
       }
     });
 
@@ -244,7 +253,7 @@ const CyberChart = () => {
       if (tippyInstanceRef.current) {
         console.log("Blur detected, hiding Tippy");
         tippyInstanceRef.current.hide();
-        // Delay destroy to prevent immediate cleanup
+        // Delay destroy handled by onHidden
       }
     });
 
