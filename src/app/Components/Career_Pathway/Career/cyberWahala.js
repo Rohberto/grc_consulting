@@ -10,11 +10,14 @@ const CyberChart = () => {
   const containerRef = useRef(null);
   const networkRef = useRef(null);
   const tippyInstanceRef = useRef(null);
+  const isNetworkInitialized = useRef(false); // Track network initialization state
 
-  // State to track container dimensions and Tippy status
+  // State to track container dimensions, Tippy status, and mobile modal
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [width, setWidth] = useState(0);
   const [isTippyOpen, setIsTippyOpen] = useState(false);
+  const [modalContent, setModalContent] = useState(null); // For mobile modal
+  const [modalPosition, setModalPosition] = useState({ x: 0, y: 0 }); // Default position
 
   // Nodes with manual x, y coordinates for precise positioning
   const baseNodes = [
@@ -94,6 +97,8 @@ const CyberChart = () => {
   useEffect(() => {
     if (!containerRef.current || dimensions.width === 0 || dimensions.height === 0) return;
 
+    console.log("useEffect triggered, containerRef:", containerRef.current);
+
     // Scale factor based on container width (assuming base width is 800px for the original layout)
     const baseWidth = 800;
     const scaleFactor = dimensions.width / baseWidth;
@@ -138,13 +143,28 @@ const CyberChart = () => {
         central: { borderWidth: 2 * scaleFactor, color: { border: "#98FF98", background: "#55D7AE" }, widthConstraint: { minimum: 120, maximum: 150 } },
         advanced: { borderWidth: 2 * scaleFactor, color: { border: "#FFA07A", background: "#D58654" } },
       },
-      interaction: { hover: true, zoomView: true, dragNodes: false, dragView: false}, // Re-enabled hover
+      interaction: {
+        hover: true,
+        zoomView: true,
+        dragNodes: false,
+        dragView: false,
+      },
       physics: { enabled: false },
       autoResize: true,
     };
 
-    const network = new Network(containerRef.current, { nodes: scaledNodes, edges }, options);
-    networkRef.current = network;
+    // Initialize Network only if not already initialized
+    if (!isNetworkInitialized.current) {
+      networkRef.current = new Network(containerRef.current, { nodes: scaledNodes, edges }, options);
+      isNetworkInitialized.current = true;
+      console.log("Network initialized");
+    } else {
+      // Update nodes and edges if network exists (for dynamic resizing)
+      networkRef.current.setData({ nodes: scaledNodes, edges });
+      console.log("Network data updated");
+    }
+
+    const network = networkRef.current;
 
     // Prevent touch events from interfering with scrolling
     const canvas = containerRef.current.querySelector("canvas");
@@ -156,118 +176,98 @@ const CyberChart = () => {
       });
     }
 
-    // Handle hover for desktop
-    network.on("hoverNode", (params) => {
-      const nodeId = params.node;
-      if (nodeId && containerRef.current && width > 768) { // Assume > 768px is desktop
-        const connectedEdges = network.getConnectedEdges(nodeId);
-        connectedEdges.forEach((edgeId) => {
-          const edge = edges.find((e) => e.id === edgeId);
-          if (edge) {
-            network.body.data.edges.update({
-              id: edge.id,
-              arrows: { to: { enabled: true, scaleFactor: 1 } },
-              width: 2 * scaleFactor,
-              color: { color: "#444", highlight: "#444" },
-            });
-          }
-        });
-
-        const node = baseNodes.find((n) => n.id === nodeId);
-        if (node && !isTippyOpen) {
-          const nodePosition = network.getPositions([nodeId])[nodeId];
-          const domPosition = network.canvasToDOM({ x: nodePosition.x, y: nodePosition.y });
-          const nodeSize = node.size || 25 * scaleFactor;
-          const adjustedY = domPosition.y + nodeSize;
-
-          const virtualReference = {
-            getReferenceClientRect: () => ({
-              width: 0,
-              height: 0,
-              top: adjustedY,
-              left: domPosition.x,
-              right: domPosition.x,
-              bottom: adjustedY,
-            }),
-          };
-
-          if (tippyInstanceRef.current) {
-            tippyInstanceRef.current.destroy();
-            console.log("Destroyed existing Tippy instance on hover");
-          }
-
-          tippyInstanceRef.current = Tippy(containerRef.current, {
-            content: nodeDetails[node.id] || "No details",
-            trigger: "manual",
-            placement: "bottom",
-            appendTo: containerRef.current,
-            allowHTML: true,
-            showOnCreate: true,
-            getReferenceClientRect: virtualReference.getReferenceClientRect,
-            onHidden: (instance) => {
-              console.log("Tippy hidden on blur");
-              setTimeout(() => {
-                if (tippyInstanceRef.current && !tippyInstanceRef.current.state.isDestroyed) {
-                  tippyInstanceRef.current.destroy();
-                  tippyInstanceRef.current = null;
-                  setIsTippyOpen(false);
-                  console.log("Tippy destroyed after delay");
-                }
-              }, 100);
-            },
-            popperOptions: {
-              modifiers: [
-                {
-                  name: "preventOverflow",
-                  options: {
-                    boundary: containerRef.current,
-                  },
-                },
-              ],
-            },
-          });
-          setIsTippyOpen(true);
-          console.log("New Tippy instance created on hover");
+    // Handle click for mobile using DOM event listener
+    if (width <= 768 && canvas) {
+      const handleCanvasClick = (event) => {
+        console.log("Canvas click detected, event:", event);
+        if (!networkRef.current) {
+          console.warn("Network not initialized");
+          return;
         }
-      }
-    });
 
-    network.on("blurNode", () => {
-      if (tippyInstanceRef.current && width > 768) {
-        console.log("Blur detected, hiding Tippy");
-        tippyInstanceRef.current.hide();
-      }
-    });
+        // Get click coordinates relative to the canvas
+        const rect = canvas.getBoundingClientRect();
+        const clickX = event.clientX - rect.left;
+        const clickY = event.clientY - rect.top;
+        console.log("Click coordinates relative to canvas:", { clickX, clickY });
 
-    // Handle click for mobile
-    network.on("click", (params) => {
-      const nodeId = params.nodes[0];
-      if (nodeId && containerRef.current && width <= 768) { // Assume <= 768px is mobile
-        const node = baseNodes.find((n) => n.id === nodeId);
-        if (node) {
-          const nodePosition = network.getPositions([nodeId])[nodeId];
-          const domPosition = network.canvasToDOM({ x: nodePosition.x, y: nodePosition.y });
-          const nodeSize = node.size || 25 * scaleFactor;
-          const adjustedY = domPosition.y + nodeSize;
+        // Map click coordinates to a node
+        const nodeId = networkRef.current.getNodeAt({ x: clickX, y: clickY });
+        console.log("Node ID at click position:", nodeId);
 
-          const virtualReference = {
-            getReferenceClientRect: () => ({
-              width: 0,
-              height: 0,
-              top: adjustedY,
-              left: domPosition.x,
-              right: domPosition.x,
-              bottom: adjustedY,
-            }),
-          };
-
-          if (tippyInstanceRef.current) {
-            tippyInstanceRef.current.destroy();
-            setIsTippyOpen(false);
-            console.log("Destroyed existing Tippy instance on click");
+        if (nodeId) {
+          const node = baseNodes.find((n) => n.id === nodeId);
+          if (node) {
+            if (modalContent) {
+              // Close the modal if already open
+              setModalContent(null);
+              console.log("Modal closed on click");
+            } else {
+              // Open the modal with node details at default position
+              const defaultX = dimensions.width / 1.4; // Center horizontally
+              const defaultY = dimensions.height / 1.3; // Center vertically
+              setModalContent(nodeDetails[node.id] || "No details");
+              setModalPosition({ x: defaultX, y: defaultY });
+              console.log("Modal opened on click, default position:", { x: defaultX, y: defaultY });
+            }
+          } else {
+            console.warn("Node not found for nodeId:", nodeId);
           }
+        } else {
+          console.log("No node found at click position");
+        }
+      };
 
-          if (!isTippyOpen) {
+      // Attach click event listener to the canvas
+      canvas.addEventListener("click", handleCanvasClick);
+
+      // Cleanup the event listener on unmount
+      return () => {
+        canvas.removeEventListener("click", handleCanvasClick);
+      };
+    }
+
+    // Handle hover for desktop only (Tippy)
+    if (width > 768) {
+      network.on("hoverNode", (params) => {
+        const nodeId = params.node;
+        if (nodeId && containerRef.current && networkRef.current) {
+          const connectedEdges = network.getConnectedEdges(nodeId);
+          connectedEdges.forEach((edgeId) => {
+            const edge = edges.find((e) => e.id === edgeId);
+            if (edge) {
+              network.body.data.edges.update({
+                id: edge.id,
+                arrows: { to: { enabled: true, scaleFactor: 1 } },
+                width: 2 * scaleFactor,
+                color: { color: "#444", highlight: "#444" },
+              });
+            }
+          });
+
+          const node = baseNodes.find((n) => n.id === nodeId);
+          if (node && !isTippyOpen) {
+            const nodePosition = network.getPositions([nodeId])[nodeId];
+            const domPosition = network.canvasToDOM({ x: nodePosition.x, y: nodePosition.y });
+            const nodeSize = node.size || 25 * scaleFactor;
+            const adjustedY = domPosition.y + nodeSize;
+
+            const virtualReference = {
+              getReferenceClientRect: () => ({
+                width: 0,
+                height: 0,
+                top: adjustedY,
+                left: domPosition.x,
+                right: domPosition.x,
+                bottom: adjustedY,
+              }),
+            };
+
+            if (tippyInstanceRef.current) {
+              tippyInstanceRef.current.destroy();
+              console.log("Destroyed existing Tippy instance on hover");
+            }
+
             tippyInstanceRef.current = Tippy(containerRef.current, {
               content: nodeDetails[node.id] || "No details",
               trigger: "manual",
@@ -277,7 +277,7 @@ const CyberChart = () => {
               showOnCreate: true,
               getReferenceClientRect: virtualReference.getReferenceClientRect,
               onHidden: (instance) => {
-                console.log("Tippy hidden on click out");
+                console.log("Tippy hidden on blur");
                 setTimeout(() => {
                   if (tippyInstanceRef.current && !tippyInstanceRef.current.state.isDestroyed) {
                     tippyInstanceRef.current.destroy();
@@ -299,22 +299,35 @@ const CyberChart = () => {
               },
             });
             setIsTippyOpen(true);
-            console.log("New Tippy instance created on click");
+            console.log("New Tippy instance created on hover");
           }
         }
-      }
-    });
+      });
 
-    // Hide Tippy on double click (mobile) or outside interaction
-    network.on("doubleClick", () => {
-      if (tippyInstanceRef.current && width <= 768) {
-        tippyInstanceRef.current.hide();
-        setIsTippyOpen(false);
-        console.log("Tippy hidden on double click");
-      }
-    });
+      network.on("blurNode", () => {
+        if (tippyInstanceRef.current) {
+          console.log("Blur detected, hiding Tippy");
+          tippyInstanceRef.current.hide();
+        }
+      });
 
-    // Reset edges on blur (optional)
+      // Edge hover for desktop
+      network.on("hoverEdge", (params) => {
+        const edge = edges.find((e) => e.id === params.edge);
+        if (edge && networkRef.current) {
+          network.body.data.edges.update({ id: edge.id, arrows: { to: { enabled: true, scaleFactor: 1 } }, width: 2 * scaleFactor });
+        }
+      });
+
+      network.on("blurEdge", (params) => {
+        const edge = edges.find((e) => e.id === params.edge);
+        if (edge && networkRef.current) {
+          network.body.data.edges.update({ id: edge.id, arrows: { to: { enabled: false } }, width: 1 * scaleFactor });
+        }
+      });
+    }
+
+    // Reset edges on blur (for desktop)
     network.on("blurNode", () => {
       edges.forEach((edge) => {
         network.body.data.edges.update({
@@ -326,24 +339,10 @@ const CyberChart = () => {
       });
     });
 
-    // Edge hover for desktop (optional)
-    network.on("hoverEdge", (params) => {
-      const edge = edges.find((e) => e.id === params.edge);
-      if (edge && width > 768) {
-        network.body.data.edges.update({ id: edge.id, arrows: { to: { enabled: true, scaleFactor: 1 } }, width: 2 * scaleFactor });
-      }
-    });
-
-    network.on("blurEdge", (params) => {
-      const edge = edges.find((e) => e.id === params.edge);
-      if (edge) {
-        network.body.data.edges.update({ id: edge.id, arrows: { to: { enabled: false } }, width: 1 * scaleFactor });
-      }
-    });
-
     // Add level labels
     const addLevelLabels = () => {
       const container = containerRef.current;
+      if (!container) return;
       const existingLabels = container.getElementsByTagName("div");
       while (existingLabels.length > 0 && existingLabels[0].innerText.match(/ROLE|LEVEL/)) {
         container.removeChild(existingLabels[0]);
@@ -374,31 +373,17 @@ const CyberChart = () => {
       addLevelLabels();
     });
 
-    // Detect when container scrolls out of view
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting === false && tippyInstanceRef.current) {
-          console.log("Container out of view, hiding Tippy");
-          tippyInstanceRef.current.hide();
-          setIsTippyOpen(false);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
     return () => {
-      if (networkRef.current) networkRef.current.destroy();
+      if (networkRef.current) {
+        networkRef.current.destroy();
+        networkRef.current = null;
+        isNetworkInitialized.current = false;
+        console.log("Cleanup: Network destroyed on unmount");
+      }
       if (tippyInstanceRef.current && !tippyInstanceRef.current.state.isDestroyed) {
         tippyInstanceRef.current.destroy();
         tippyInstanceRef.current = null;
         console.log("Cleanup: Tippy destroyed on unmount");
-      }
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
       }
     };
   }, [dimensions, width]);
@@ -407,7 +392,35 @@ const CyberChart = () => {
     <div
       ref={containerRef}
       style={{ height: `${width > 850 ? "800px" : "60vh"}`, width: "100%", border: "1px solid #ccc", background: "#fafafa", position: "relative", touchAction: "auto" }}
-    />
+      onClick={(e) => console.log("Container clicked, event:", e)} // Debug container clicks
+    >
+      {modalContent && width <= 768 && (
+        <div
+          style={{
+            position: "absolute",
+            top: `${modalPosition.y}px`,
+            left: `${modalPosition.x}px`,
+            transform: "translateX(-50%) translateY(-50%)", // Center the modal
+            background: "#fff",
+            border: "1px solid #666",
+            padding: "10px",
+            borderRadius: "5px",
+            boxShadow: "0 2px 5px rgba(0,0,0,0.2)",
+            zIndex: 1000,
+            maxWidth: "80%", // Prevent overflow
+            maxHeight: "50%", // Prevent overflow
+            overflow: "auto", // Allow scrolling if content is long
+          }}
+          onClick={(e) => {
+            e.stopPropagation(); // Prevent click from propagating to network
+            setModalContent(null); // Close modal on click
+            console.log("Modal closed via click on modal");
+          }}
+        >
+          <div dangerouslySetInnerHTML={{ __html: modalContent }} />
+        </div>
+      )}
+    </div>
   );
 };
 
