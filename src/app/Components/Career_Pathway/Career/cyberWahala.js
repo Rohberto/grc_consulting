@@ -308,7 +308,7 @@ const CyberChart = () => {
         dragView: false,
       },
       physics: { enabled: false },
-      autoResize: true,
+      autoResize: false,
     };
 
     // Initialize Network only if not already initialized
