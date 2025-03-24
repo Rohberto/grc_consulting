@@ -41,13 +41,21 @@ padding: 40px 0;
             margin-bottom: 15px;
             /* Helps schools fulfill their digital citizenship requirements. */
 font-weight: 400;
-font-size: 24px;
+font-size: 16px;
 white-space: wrap;
 letter-spacing: 0.005em;
 color: #1D1F2C;
 transform: translateY(100%);
 opacity: 0;
         }
+        .text_container h1{
+            font-weight: 700;
+            font-size: 24px;
+            text-align: center;
+            color: #ff570d;
+            transform: translateY(100%);
+            opacity: 0;
+          }
         .background_overlay_left{
             position: absolute;
             top: 10%;
@@ -111,6 +119,6 @@ opacity: 0;
                     width: 110%;
                 }
                 .text_container li{
-                    font-size: 18px;
+                    font-size: 16px;
                 }
             }

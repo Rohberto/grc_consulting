@@ -107,16 +107,13 @@ const Homepage = () => {
                     <p className={styles.info_trusted_text}>Trusted by Leading Brands</p>
                     <div className={styles.info_trusted_brands}>
                         <div className={styles.info_trusted_brand}>
-                            <img src='/Assets/Greenish.png' alt='brand_logo'/>
+                            <img src='/Assets/comptia.png' alt='brand_logo'/>
                         </div>  
                         <div className={styles.info_trusted_brand}>
-                            <img src='/Assets/Automation.png' alt='brand_logo'/>
+                            <img src='/Assets/ISACA.png' alt='brand_logo'/>
                         </div>  
                         <div className={styles.info_trusted_brand}>
-                            <img src='/Assets/Leafe.png' alt='brand_logo'/>
-                        </div>  
-                        <div className={styles.info_trusted_brand}>
-                            <img src='/Assets/mindful.png' alt='brand_logo'/>
+                            <img src='/Assets/isc.png' alt='brand_logo'/>
                         </div>  
                     </div>
                 </div>
@@ -137,17 +134,14 @@ const Homepage = () => {
                 <div className={styles.info_trusted}>
                     <p className={styles.info_trusted_text}>Trusted by Leading Brands</p>
                     <div className={styles.info_trusted_brands}>
-                        <div className={styles.info_trusted_brand}>
-                            <img src='/Assets/Greenish.png' alt='brand_logo'/>
+                    <div className={styles.info_trusted_brand}>
+                            <img src='/Assets/comptia.png' alt='brand_logo'/>
                         </div>  
                         <div className={styles.info_trusted_brand}>
-                            <img src='/Assets/Automation.png' alt='brand_logo'/>
+                            <img src='/Assets/ISACA.png' alt='brand_logo'/>
                         </div>  
                         <div className={styles.info_trusted_brand}>
-                            <img src='/Assets/Leafe.png' alt='brand_logo'/>
-                        </div>  
-                        <div className={styles.info_trusted_brand}>
-                            <img src='/Assets/mindful.png' alt='brand_logo'/>
+                            <img src='/Assets/isc.png' alt='brand_logo'/>
                         </div>  
                     </div>
                 </div>

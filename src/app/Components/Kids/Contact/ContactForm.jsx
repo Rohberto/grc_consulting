@@ -4,10 +4,15 @@ const ContactForm = () => {
   return (
     <section className={styles.container} id="contact">
          <button className={styles.tag}>Contact Us</button>
-      <h2>Solution is a Message Away</h2>
+      <h2>Join The ITG Digital Defenders Today</h2>
       <div className={styles.formContainer}>
         <h3>Get in Touch</h3>
-        <p className={styles.reach}>You can reach us any time</p>
+        <p className={styles.reach}>Ready to empower your students, enhance your curriculum, and safeguard your
+community’s digital future? The ITG Digital Defenders Program is your gateway to a
+safer, smarter online experience.</p>
+<br/>
+<p className={styles.reach}>For more information or to speak with a program advisor, contact us at
+<a href="mailto:DigitalDefenders@itggrc.com"> DigitalDefenders@itggrc.com</a></p>
         <form className={styles.form}>
           <div className={styles.inputGroup}>
             <input type="text" placeholder="First name" required />

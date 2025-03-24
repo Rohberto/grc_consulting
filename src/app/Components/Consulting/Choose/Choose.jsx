@@ -3,9 +3,9 @@ import styles from "./Choose.module.css";
 
 const Choose = () => {
     const content = [
-        {title: "Increase Workspace Produtivity", description: "Interactive, live remote classroom-style courses  tailored to specific roles within ", image: "/Assets/choose1.png"},
-        {title: "Foster Team Growth", description: "Interactive, live remote classroom-style courses  tailored to specific roles within ", image: "/Assets/choose2.png"},
-        {title: "Maximize Performance Potential", description: "Interactive, live remote classroom-style courses  tailored to specific roles within ", image: "/Assets/choose3.png"}
+        {title: "Tailored Solution For Every Business", description: "We provide customized Governance,Risk, and Compliance solutions designed to meet the unique needs of small, mid-sized, and large organizations.", image: "/Assets/choose1.png"},
+        {title: "Expert-Led Training & Compliance Programs", description: "Our industry-certified experts offer role-based GRC training, security awareness programs, and compliance management to ensure your team stays ahead of regulatory requirements.", image: "/Assets/choose2.png"},
+        {title: "Comprehensive Risk & Compliance Approach", description: "– From policy development to risk assessments and GRC technology solutions, we offer end-to-end support to strengthen your organization's security and compliance posture.", image: "/Assets/choose3.png"}
     ]
   return (
     <div className={styles.container}>

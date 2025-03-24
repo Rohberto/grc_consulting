@@ -54,6 +54,10 @@ font-size: 14px;
 color: #4A4C56;
 text-align: left;
   }
+  .reach a{
+    color: blue;
+    text-decoration: underline;
+  }
   
   .form {
     display: flex;

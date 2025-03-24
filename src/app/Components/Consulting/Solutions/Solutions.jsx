@@ -18,16 +18,30 @@ const BusinessSolutions = () => {
       ];
 
       const Government = [
-        {title: "Education & Training Programs", description: "At ITG GRC, we provide an exceptional opportunity to elevate your skills and advance your career with industry-recognized certifications and professional training. Through our esteemed partnerships with leading organizations like CompTIA and ISC2, we ensure you gain access to high-quality programs designed to meet the demands of the ever-evolving tech and cybersecurity landscape."},
-        {title: "Risk & Compliance Solutions", description: "We offer a comprehensive suite of Risk a Compliance solutions for government agencies such as:", list: ["Risk Management",
-            "Compliance Management",
-            "Security Awareness Program"]},
-        {title: "Employment Opportunities", description: "Upon successful completion of an IT G Learning academy program, students are able to apply to GovTech opportunities within ITG."},
-        {title: "Government Contracting", description: "ITG presents numerous advantages and gives students the chance to apply for government contract opportunities within some of the top Federal, state and local agencies."}
-      ]
+        {
+          title: "Governance & Compliance Services",
+          description: "Policy & Procedure Development – Create and implement compliance policies aligned with NIST, FISMA, HIPAA, and other regulations. Regulatory Compliance Audits – Ensure compliance with federal, state, and local government regulations. IT Governance & Risk Management – Develop IT governance frameworks aligned with industry best practices (COBIT, ITIL). Government Contract Compliance – Help vendors and contractors comply with FAR, DFARS, and CMMC requirements. Enterprise Risk Management (ERM) – Develop risk frameworks to identify, assess, and mitigate risks across agencies."
+        },
+        {
+          title: "Cybersecurity Risk & Compliance",
+          description: "Risk & Vulnerability Assessments – Conduct security risk assessments based on NIST 800-53 and other federal guidelines. Third-Party & Supply Chain Risk Management – Assess the compliance of government contractors and vendors. Security Awareness & Training – Provide cybersecurity training programs for government employees. Incident Response & Business Continuity Planning – Develop response plans to mitigate security threats and cyber incidents. Zero Trust & Cloud Security Compliance – Ensure adherence to modern security models for cloud environments."
+        },
+        {
+          title: "Data Privacy & Security Services",
+          description: "Data Protection & Privacy Compliance – Ensure agencies comply with GDPR, CCPA, and government privacy frameworks. Privacy Impact Assessments (PIA) – Evaluate data handling risks and create strategies to safeguard sensitive government information. Security Framework Implementation – Implement frameworks like NIST Cybersecurity Framework, ISO 27001, and CIS Controls."
+        },
+        {
+          title: "GRC Technology & Automation",
+          description: "GRC Software Implementation – Assist agencies in deploying and managing GRC tools for risk and compliance tracking. Audit & Compliance Automation – Develop automated solutions for continuous monitoring and reporting. Cloud & IT Risk Management – Ensure secure implementation of cloud services for government agencies."
+        },
+        {
+          title: "Training & Workforce Development",
+          description: "Role-Based GRC Training – Educate government employees on governance, risk, compliance, and security best practices. CMMC & Cybersecurity Certification Training – Prepare government employees and contractors for compliance certifications. Technical Writing & Policy Documentation – Provide training on policy documentation and audit readiness."
+        }
+      ];
   return (
     <section className={styles.container}>
-      <h2 className={styles.title}>Business Solutions</h2>
+      <h2 className={styles.title}>Government Consulting</h2>
       <p className={styles.subtitle}>
         At ITG GRC Consulting, we help businesses ensure compliance, mitigate risks, and strengthen governance with tailored solutions.
       </p>

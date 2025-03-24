@@ -9,7 +9,11 @@ const Navigation = ({title}) => {
         <h1 className={styles.navigation_header}>
          {title}
         </h1>
-        <p className={styles.navigation_subtitle}>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+        <p className={styles.navigation_subtitle}>
+          ITG GRC CONSULTING
+          Security Awareness Analyst Training Program
+          (Security+ & SACP Certification Track.)
+        </p>
         <div className={styles.info_container}>
           <div className={styles.review}>
             <h3>Review</h3>
@@ -22,7 +26,7 @@ const Navigation = ({title}) => {
           </div>
           <div className={styles.duration}>
             <h3>Duration </h3>
-            <p>05hrs 20mins</p>
+            <p>198hrs 30mins</p>
           </div>
           <div className={styles.language}>
           <h3>Language </h3>

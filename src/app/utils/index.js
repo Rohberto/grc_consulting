@@ -1,3 +1,5 @@
+import { trackSynchronousRequestDataAccessInDev } from "next/dist/server/app-render/dynamic-rendering";
+
 export const levels = [
     {
       id: "entry",
@@ -19,7 +21,7 @@ export const levels = [
           lessons: 1.2,
           image: "/Assets/kid_group.png",
           price: 99.98,
-          completed: false
+          completed: trackSynchronousRequestDataAccessInDev
         },
         {
           id: "entry3",
@@ -28,7 +30,7 @@ export const levels = [
           lessons: 1.2,
           image: "/Assets/adult_group.png",
           price: 98.88,
-          completed: true
+          completed: trackSynchronousRequestDataAccessInDev
         },
         {
           id: "entry4",
@@ -37,7 +39,7 @@ export const levels = [
           lessons: 1.2,
           image: "/Assets/teaching.png",
           price: 98.88,
-          completed: true
+          completed: trackSynchronousRequestDataAccessInDev
         },
       ],
     },
@@ -52,7 +54,7 @@ export const levels = [
           lessons: 1.2,
           image: "/Assets/kid_learning.png",
           price: 98.88,
-          completed: false
+          completed: trackSynchronousRequestDataAccessInDev
         },
       
         {
@@ -62,7 +64,7 @@ export const levels = [
           lessons: 1.2,
           image: "/Assets/man_tech.png",
           price: 98.88,
-          completed: true
+          completed: trackSynchronousRequestDataAccessInDev
         },
         {
           id: "mid3",
@@ -71,7 +73,7 @@ export const levels = [
           lessons: 1.2,
           image: "/Assets/teaching.png",
           price: 98.88,
-          completed: true
+          completed: trackSynchronousRequestDataAccessInDev
         },
         {
           id: "mid4",
@@ -80,7 +82,7 @@ export const levels = [
           lessons: 1.2,
           image: "/Assets/tech_rays.png",
           price: 98.88,
-          completed: false
+          completed: trackSynchronousRequestDataAccessInDev
         },
       ],
     },
@@ -95,7 +97,7 @@ export const levels = [
           lessons: 1.2,
           image: "/Assets/man_tech.png",
           price: 98.88,
-          completed: true
+          completed: trackSynchronousRequestDataAccessInDev
         },
         {
           id: "senior2",
@@ -104,7 +106,7 @@ export const levels = [
           lessons: 1.2,
           image: "/Assets/tech_woman.png",
           price: 98.88,
-          completed: false
+          completed: trackSynchronousRequestDataAccessInDev
         },
       ],
     },

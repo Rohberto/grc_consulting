@@ -4,17 +4,51 @@ import {RiArrowDropDownLine} from "react-icons/ri";
 import { useRouter } from 'next/navigation';
 const CourseDetail = ({description, image}) => {
    const router= useRouter();
-    const Learn = ["Become a cybersecurity professional", 
-        "Understand common cyber threats and attack methods",
-        "Learn how to implement basic security measures",
-        "Develop skills in risk management and vulnerability assessment",
-        "Gain practical experience with security tools and protocols",
-        "Learn about incident response and disaster recovery"
+    const Learn = [
+      {
+        title: "Core Security Concepts",
+        description: "Gain foundational knowledge of cybersecurity principles, risk management, and threat landscapes essential for Security Awareness Analysts.",
+      },
+      {
+        title: "Security Awareness & Culture Development",
+        description: "Learn how to design, implement, and sustain effective security awareness programs that influence organizational behavior."
+      }, 
+      {
+        title: "CompTIA Security+ Exam Preparation",
+        description: "Master key topics covered in the CompTIA Security+ certification, including network security, cryptography, access control, and incident response."
+      },
+      {title: "Security Awareness and Culture Professional (SACP)TM Readiness",
+        description: "Develop skills required to foster a security-first mindset and build measurable security awareness programs"
+      },
+      {
+        title: "Human Risk Management",
+        description: "– Understand social engineering tactics, phishing threats, and how to mitigate human-related security vulnerabilities."
+      },
+      {
+        title: "Policy Development & Compliance",
+        description: "Learn how to align security awareness initiatives with compliance frameworks such as NIST, ISO 27001, and regulatory requirements."
+      },
+      {
+        title: "Communication & Training Strategies",
+        description: "Develop effective methods for delivering security education and engaging employees to reinforce best practices."
+      }, 
+      {
+        title: "Hands-on Role-Based Learning",
+        description: "– Apply security principles through real-world scenarios, case studies, and practical role-based exercises to enhance problem-solving skills."
+      },
+      {
+        title: "Incident Response & Reporting",
+        description: "Understand how to identify, report, and respond to security incidents while promoting a strong security culture within an organization."
+      },
+      {
+        title: "Building a security awareness career",
+        description: "Gain insights into career growth, job roles, and industry expectations for Security Awareness Analysts."
+      }
     ]
     const Requirements = [
         "No prior cybersecurity experience is needed",
-        "Basic understanding of computers and networks will be helpful",
-        "A computer with internet access for hands-on exercises"
+        "Basic understanding of computer terminology",
+        "A computer with internet access"
     ]
 
     const reviews= [
@@ -28,14 +62,21 @@ const CourseDetail = ({description, image}) => {
         <div className={styles.right_course_section}>
             <div className={styles.course_overview}>
                 <h3>Course Overview</h3>
-                <p>{description}</p>
+                <p>This 12-week, 108-hour training program is designed for individuals looking to advance their
+careers as Security Awareness Analysts while preparing for the CompTIA Security+ and
+Security Awareness and Culture Professional (SACP)TM certifications. The course provides a
+structured blend of technical security training, security awareness culture development, and
+hands-on role-based learning. </p>
             </div>
 
             <div className={styles.learn_requirement}>
                 <ul className={styles.requirement_container}>
                     {
                         Learn.map((item, index) => (
-                            <li key={index}> <img src="/Assets/Black.png" alt="icon" /> {item}</li>
+                          <li key={index}>
+                          <img src="/Assets/Black.png" alt="icon" />
+                         <p> <b>{item.title}</b> - {item.description}</p>
+                        </li>
                         ))
                     }
                 </ul>

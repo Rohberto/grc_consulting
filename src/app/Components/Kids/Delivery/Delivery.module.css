@@ -17,6 +17,32 @@ color: #031411;
 transform: translateY(100%);
 opacity: 0;
 }
+.delivery_stats_container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+.delivery_stats_header{
+    font-weight: 700;
+font-size: 40px;
+text-align: center;
+color: #031411;
+transform: translateY(100%);
+opacity: 0;
+}
+.delivery_stats_list{
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center;
+    color: #1D1F2C;
+    transform: translateY(100%);
+    opacity: 0;
+}
+.delivery_stats_list li{
+    margin-bottom: 20px;
+}
 .delivery_description{
     font-weight: 400;
 font-size: 18px;
@@ -129,9 +155,11 @@ color: #1D1F2C;
             font-size: 16px;
             width: 100%;
         }
-        .delivery_header{
+        .delivery_header, .delivery_stats_header{
             font-size: 36px;
             margin-bottom: 10px;
         }
-        
+      .delivery_stats_container{
+        width: 100%;
+      }
     }

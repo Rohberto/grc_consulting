@@ -4,7 +4,7 @@ import styles from "./Agent.module.css";
 const Agent = () => {
   return (
     <div className={styles.container}>
-        <h1 className={styles.header}>Top Typing Agent Features</h1>
+        <h1 className={styles.header}>ITG DiGITAL DEFENDER PROGRAM FEATURES</h1>
 
         <div className={styles.imageContainer}>
             <img src='/Assets/description.png' alt='description_image'/>    

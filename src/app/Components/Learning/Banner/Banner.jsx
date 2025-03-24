@@ -15,7 +15,10 @@ const Banner = () => {
     <div className={styles.banner_container}>
         <h1 className={styles.title}>ITG Learning Academy</h1>
         <p className={styles.subtitle}>
-        Through our Digital Defenders program we strive to educate young learners on safe internet practices, digital citizenship, and the fundamentals of cybersecurity, with a special focus on online gaming safety
+        Whether you're starting your GRC journey or advancing to leadership, the ITG Learning
+Academy equips you with the tools and knowledge to achieve your goals and thrive in
+today's evolving landscape. Explore our courses and join a community dedicated to
+driving GRC excellence.
         </p>
 
         <div className={styles.banner_buttons_container}>

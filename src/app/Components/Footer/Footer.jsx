@@ -1,5 +1,5 @@
 import styles from "./Footer.module.css";
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaFacebook, FaTwitter, FaInstagram} from "react-icons/fa";
 import Link from "next/link";
 const Footer = () => {
   return (
@@ -38,8 +38,8 @@ const Footer = () => {
           <h4>Get in Touch</h4>
           <ul>
             <li><FaEnvelope className={styles.touch_icons}/> info@itggrc.com</li>
-            <li><FaPhone className={styles.touch_icons}/> (202) 456-7890</li>
-            <li><FaMapMarkerAlt className={styles.touch_icons}/> 123 Main Street, Suite 200, New York, NY 10016</li>
+            <li><FaPhone className={styles.touch_icons}/> 281-746-1351</li>
+            <li><FaMapMarkerAlt className={styles.touch_icons}/>15210 Spring Cypress Rd, STE K #1027 ,Cypress, TX 77429</li>
           </ul>
         </div>
         <div>
@@ -58,9 +58,17 @@ const Footer = () => {
         <p>Terms of Service | Privacy Policy</p>
 
         <div className={styles.socialIcons}>
+          <a href="https://www.facebook.com/ITG GRC Consulting" target="_blank" rel="noopener noreferrer">
           <FaFacebook />
+          </a>
+          <a href="https://x.com/ITGGRC" target="_blank" rel="noopener noreferrer">
           <FaTwitter />
-          <FaLinkedin />
+          </a>
+          <a href="https://www.instagram.com/itggrcconsulting" target="_blank" rel="noopener noreferrer">
+          <FaInstagram/>
+          </a>
+          
+       
         </div>
         </div>
       </div>

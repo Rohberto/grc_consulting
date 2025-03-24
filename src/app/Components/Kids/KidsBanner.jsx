@@ -83,7 +83,11 @@ const KidsBanner = () => {
         <div className={styles.KidsBannerContentContainer}>
             <div className={styles.Kids_banner_content}>
                 <h1><span>Cyber Safety Starts with Our Kids</span></h1>
-                <p>Empowering young minds to stay safe online with fun, interactive lessons on cyber safety and digital responsibility.</p>
+                <p>Welcome to the ITG Digital Defenders Program - a dynamic, online learning experience
+that equips students with essential digital safety and cybersecurity skills. Our program is
+carefully designed to support classrooms, after-school programs, community centers,
+and parents/guardians providing engaging educational content that inspires confidence
+and builds the foundation to empower young minds to stay staff online.</p>
                 <a href='#contact' rel='no_referrer'> <button>Contact Us</button></a>
             </div>
             <div className={styles.Kids_banner_image_container}>

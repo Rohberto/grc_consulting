@@ -94,6 +94,7 @@ const mainContainer = useRef();
                 <img src="/Assets/isc.png" alt="ISC" />
                 <img src="/Assets/purple.png" alt="Purple" />
                 <img src="/Assets/comptia.png" alt="comptia" />
+                <img src="/Assets/ISACA.png" alt="comptia" />
             </div>
         </div>
 
