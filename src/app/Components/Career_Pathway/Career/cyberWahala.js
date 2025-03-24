@@ -22,39 +22,39 @@ const CyberChart = () => {
   // Nodes with manual x, y coordinates for precise positioning
   const baseNodes = [
     { id: "central_consultant", label: "Cybersecurity Consultant", group: "central", x: 100, y: 0, size: 40, title: "Central Role" },
-    // Nontech Feeder Roles
-    { id: "feeder_medical", label: "Medical/Health Services", group: "feeder", x: -400, y: -200, title: "Nontech Feeder Role" },
-    { id: "feeder_legal", label: "Legal/Paralegal", group: "feeder", x: -400, y: -120, title: "Nontech Feeder Role" },
-    { id: "feeder_project_mgmt", label: "Project Management", group: "feeder", x: -400, y: -40, title: "Nontech Feeder Role" },
-    { id: "feeder_retail", label: "Retail & Customer Service", group: "feeder", x: -400, y: 40, title: "Nontech Feeder Role" },
-    { id: "feeder_military", label: "Military/Law Enforcement", group: "feeder", x: -400, y: 120, title: "Nontech Feeder Role" },
-    { id: "feeder_trades", label: "Trades & Operations", group: "feeder", x: -400, y: 200, title: "Nontech Feeder Role" },
-    { id: "feeder_food", label: "Food Services & Hospitality", group: "feeder", x: -400, y: 280, title: "Nontech Feeder Role" },
-    { id: "feeder_finance", label: "Finance & Banking", group: "feeder", x: -400, y: 360, title: "Nontech Feeder Role" },
-    { id: "feeder_hr", label: "HR & Corporate Training", group: "feeder", x: -400, y: 440, title: "Nontech Feeder Role" },
-    // Entry-Level Roles
-    { id: "entry_grc_analyst", label: "GRC Analyst", group: "entry", x: -150, y: -150, title: "Entry-Level Role" },
-    { id: "entry_sec_compliance_analyst", label: "Security Compliance Analyst", group: "entry", x: -150, y: -50, title: "Entry-Level Role" },
-    { id: "entry_risk_compliance_assoc", label: "Risk & Compliance Associate", group: "entry", x: -150, y: 50, title: "Entry-Level Role" },
-    { id: "entry_it_auditor", label: "IT Auditor", group: "entry", x: -150, y: 150, title: "Entry-Level Role" },
-    { id: "entry_privacy_coord", label: "Privacy & Data Protection Coordinator", group: "entry", x: -150, y: 250, title: "Entry-Level Role" },
-    { id: "entry_third_party_coord", label: "Third-Party Risk Coordinator", group: "entry", x: -150, y: 350, title: "Entry-Level Role" },
+    // Nontech Feeder Roles (increased vertical gap to 150 units)
+    { id: "feeder_medical", label: "Medical/Health Services", group: "feeder", x: -400, y: -450, title: "Nontech Feeder Role" },
+    { id: "feeder_legal", label: "Legal/Paralegal", group: "feeder", x: -400, y: -300, title: "Nontech Feeder Role" },
+    { id: "feeder_project_mgmt", label: "Project Management", group: "feeder", x: -400, y: -150, title: "Nontech Feeder Role" },
+    { id: "feeder_retail", label: "Retail & Customer Service", group: "feeder", x: -400, y: 0, title: "Nontech Feeder Role" },
+    { id: "feeder_military", label: "Military/Law Enforcement", group: "feeder", x: -400, y: 150, title: "Nontech Feeder Role" },
+    { id: "feeder_trades", label: "Trades & Operations", group: "feeder", x: -400, y: 300, title: "Nontech Feeder Role" },
+    { id: "feeder_food", label: "Food Services & Hospitality", group: "feeder", x: -400, y: 450, title: "Nontech Feeder Role" },
+    { id: "feeder_finance", label: "Finance & Banking", group: "feeder", x: -400, y: 600, title: "Nontech Feeder Role" },
+    { id: "feeder_hr", label: "HR & Corporate Training", group: "feeder", x: -400, y: 750, title: "Nontech Feeder Role" },
+    // Entry-Level Roles (increased vertical gap to 150 units)
+    { id: "entry_grc_analyst", label: "GRC Analyst", group: "entry", x: -150, y: -450, title: "Entry-Level Role" },
+    { id: "entry_sec_compliance_analyst", label: "Security Compliance Analyst", group: "entry", x: -150, y: -300, title: "Entry-Level Role" },
+    { id: "entry_risk_compliance_assoc", label: "Risk & Compliance Associate", group: "entry", x: -150, y: -150, title: "Entry-Level Role" },
+    { id: "entry_it_auditor", label: "IT Auditor", group: "entry", x: -150, y: 0, title: "Entry-Level Role" },
+    { id: "entry_privacy_coord", label: "Privacy & Data Protection Coordinator", group: "entry", x: -150, y: 150, title: "Entry-Level Role" },
+    { id: "entry_third_party_coord", label: "Third-Party Risk Coordinator", group: "entry", x: -150, y: 300, title: "Entry-Level Role" },
     { id: "entry_sec_training_specialist", label: "Security Awareness & Training Specialist", group: "entry", x: -150, y: 450, title: "Entry-Level Role" },
-    // Mid-Level Roles
-    { id: "mid_risk_mgmt_analyst", label: "Risk Management Analyst", group: "mid", x: 100, y: -200, title: "Mid-Level Role" },
-    { id: "mid_sec_compliance_mgr", label: "Security Compliance Manager", group: "mid", x: 100, y: -100, title: "Mid-Level Role" },
-    { id: "mid_cyber_policy_analyst", label: "Cybersecurity Policy Analyst", group: "mid", x: 100, y: 0, title: "Mid-Level Role" },
-    { id: "mid_third_party_assessor", label: "Third-Party Risk Assessor", group: "mid", x: 100, y: 100, title: "Mid-Level Role" },
-    { id: "mid_privacy_analyst", label: "Privacy Analyst (GDPR, CCPA, HIPPA, PCI-DSS)", group: "mid", x: 100, y: 200, title: "Mid-Level Role" },
+    // Mid-Level Roles (increased vertical gap to 150 units)
+    { id: "mid_risk_mgmt_analyst", label: "Risk Management Analyst", group: "mid", x: 100, y: -450, title: "Mid-Level Role" },
+    { id: "mid_sec_compliance_mgr", label: "Security Compliance Manager", group: "mid", x: 100, y: -300, title: "Mid-Level Role" },
+    { id: "mid_cyber_policy_analyst", label: "Cybersecurity Policy Analyst", group: "mid", x: 100, y: -150, title: "Mid-Level Role" },
+    { id: "mid_third_party_assessor", label: "Third-Party Risk Assessor", group: "mid", x: 100, y: 0, title: "Mid-Level Role" },
+    { id: "mid_privacy_analyst", label: "Privacy Analyst (GDPR, CCPA, HIPPA, PCI-DSS)", group: "mid", x: 100, y: 150, title: "Mid-Level Role" },
     { id: "mid_cyber_auditor", label: "Cybersecurity Auditor", group: "mid", x: 100, y: 300, title: "Mid-Level Role" },
-    { id: "mid_reg_compliance_mgr", label: "Regulatory Compliance Manager", group: "mid", x: 100, y: 400, title: "Mid-Level Role" },
-    // Advanced-Level Roles
-    { id: "adv_grc_mgr", label: "GRC Manager/Director", group: "advanced", x: 400, y: -150, title: "Advanced Role" },
-    { id: "adv_cro", label: "Chief Risk Officer (CRO)", group: "advanced", x: 400, y: -50, title: "Advanced Role" },
-    { id: "adv_cco", label: "Chief Compliance Officer (CCO)", group: "advanced", x: 400, y: 50, title: "Advanced Role" },
-    { id: "adv_cpo", label: "Chief Privacy Officer (CPO)", group: "advanced", x: 400, y: 150, title: "Advanced Role" },
-    { id: "adv_cyber_auditor_senior", label: "Cybersecurity Auditor (Senior/Lead)", group: "advanced", x: 400, y: 250, title: "Advanced Role" },
-    { id: "adv_ciso", label: "Chief Information Security Officer (CISO)", group: "advanced", x: 400, y: 350, title: "Advanced Role" },
+    { id: "mid_reg_compliance_mgr", label: "Regulatory Compliance Manager", group: "mid", x: 100, y: 450, title: "Mid-Level Role" },
+    // Advanced-Level Roles (increased vertical gap to 150 units)
+    { id: "adv_grc_mgr", label: "GRC Manager/Director", group: "advanced", x: 400, y: -375, title: "Advanced Role" },
+    { id: "adv_cro", label: "Chief Risk Officer (CRO)", group: "advanced", x: 400, y: -225, title: "Advanced Role" },
+    { id: "adv_cco", label: "Chief Compliance Officer (CCO)", group: "advanced", x: 400, y: -75, title: "Advanced Role" },
+    { id: "adv_cpo", label: "Chief Privacy Officer (CPO)", group: "advanced", x: 400, y: 75, title: "Advanced Role" },
+    { id: "adv_cyber_auditor_senior", label: "Cybersecurity Auditor (Senior/Lead)", group: "advanced", x: 400, y: 225, title: "Advanced Role" },
+    { id: "adv_ciso", label: "Chief Information Security Officer (CISO)", group: "advanced", x: 400, y: 375, title: "Advanced Role" },
   ];
 
   const edges = [
@@ -231,10 +231,10 @@ const CyberChart = () => {
 
     // Define label positions relative to the container
     const labels = [
-      { text: "NONTECH FEEDER ROLE", x: 50, y: 20 },
-      { text: "ENTRY-LEVEL", x: dims.width * 0.25, y: 20 },
-      { text: "MID-LEVEL", x: dims.width * 0.5, y: 20 },
-      { text: "ADVANCED-LEVEL", x: dims.width * 0.75, y: 20 },
+      { text: "NONTECH FEEDER ROLE", x: 250, y: 20 },
+      { text: "ENTRY-LEVEL", x: dims.width * 0.4, y: 20 },
+      { text: "MID-LEVEL", x: dims.width * 0.55, y: 20 },
+      { text: "ADVANCED-LEVEL", x: dims.width * 0.67, y: 20 },
     ];
 
     labels.forEach((label) => {
@@ -242,7 +242,7 @@ const CyberChart = () => {
       div.innerText = label.text;
       div.style.position = "absolute";
       div.style.color = "#666";
-      div.style.fontSize = `${10 * (scaleFactor || 1)}px`;
+      div.style.fontSize = `${5 * (scaleFactor || 1)}px`;
       div.style.fontWeight = "bold";
       div.style.left = `${label.x}px`;
       div.style.top = `${label.y}px`;
@@ -303,12 +303,12 @@ const CyberChart = () => {
       },
       interaction: {
         hover: true,
-        zoomView: true,
+        zoomView: false,
         dragNodes: false,
         dragView: false,
       },
       physics: { enabled: false },
-      autoResize: false,
+      autoResize: true,
     };
 
     // Initialize Network only if not already initialized
