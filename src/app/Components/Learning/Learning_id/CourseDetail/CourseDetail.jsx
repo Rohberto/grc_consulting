@@ -75,7 +75,7 @@ hands-on role-based learning. </p>
                         Learn.map((item, index) => (
                           <li key={index}>
                           <img src="/Assets/Black.png" alt="icon" />
-                         <p> <b>{item.title}</b> - {item.description}</p>
+                         <p> <b>{item.title}</b> - {item.description} </p>
                         </li>
                         ))
                     }

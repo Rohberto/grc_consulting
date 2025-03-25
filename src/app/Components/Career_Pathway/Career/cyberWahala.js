@@ -16,45 +16,43 @@ const CyberChart = () => {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [width, setWidth] = useState(0);
   const [isTippyOpen, setIsTippyOpen] = useState(false);
-  const [modalContent, setModalContent] = useState(null); // For mobile modal
-  const [modalPosition, setModalPosition] = useState({ x: 0, y: 0 }); // Default position
 
   // Nodes with manual x, y coordinates for precise positioning
   const baseNodes = [
-    { id: "central_consultant", label: "Cybersecurity Consultant", group: "central", x: 100, y: 0, size: 40, title: "Central Role" },
-    // Nontech Feeder Roles (increased vertical gap to 150 units)
-    { id: "feeder_medical", label: "Medical/Health Services", group: "feeder", x: -400, y: -450, title: "Nontech Feeder Role" },
-    { id: "feeder_legal", label: "Legal/Paralegal", group: "feeder", x: -400, y: -300, title: "Nontech Feeder Role" },
-    { id: "feeder_project_mgmt", label: "Project Management", group: "feeder", x: -400, y: -150, title: "Nontech Feeder Role" },
-    { id: "feeder_retail", label: "Retail & Customer Service", group: "feeder", x: -400, y: 0, title: "Nontech Feeder Role" },
-    { id: "feeder_military", label: "Military/Law Enforcement", group: "feeder", x: -400, y: 150, title: "Nontech Feeder Role" },
-    { id: "feeder_trades", label: "Trades & Operations", group: "feeder", x: -400, y: 300, title: "Nontech Feeder Role" },
-    { id: "feeder_food", label: "Food Services & Hospitality", group: "feeder", x: -400, y: 450, title: "Nontech Feeder Role" },
-    { id: "feeder_finance", label: "Finance & Banking", group: "feeder", x: -400, y: 600, title: "Nontech Feeder Role" },
-    { id: "feeder_hr", label: "HR & Corporate Training", group: "feeder", x: -400, y: 750, title: "Nontech Feeder Role" },
-    // Entry-Level Roles (increased vertical gap to 150 units)
-    { id: "entry_grc_analyst", label: "GRC Analyst", group: "entry", x: -150, y: -450, title: "Entry-Level Role" },
-    { id: "entry_sec_compliance_analyst", label: "Security Compliance Analyst", group: "entry", x: -150, y: -300, title: "Entry-Level Role" },
-    { id: "entry_risk_compliance_assoc", label: "Risk & Compliance Associate", group: "entry", x: -150, y: -150, title: "Entry-Level Role" },
-    { id: "entry_it_auditor", label: "IT Auditor", group: "entry", x: -150, y: 0, title: "Entry-Level Role" },
-    { id: "entry_privacy_coord", label: "Privacy & Data Protection Coordinator", group: "entry", x: -150, y: 150, title: "Entry-Level Role" },
-    { id: "entry_third_party_coord", label: "Third-Party Risk Coordinator", group: "entry", x: -150, y: 300, title: "Entry-Level Role" },
-    { id: "entry_sec_training_specialist", label: "Security Awareness & Training Specialist", group: "entry", x: -150, y: 450, title: "Entry-Level Role" },
-    // Mid-Level Roles (increased vertical gap to 150 units)
-    { id: "mid_risk_mgmt_analyst", label: "Risk Management Analyst", group: "mid", x: 100, y: -450, title: "Mid-Level Role" },
-    { id: "mid_sec_compliance_mgr", label: "Security Compliance Manager", group: "mid", x: 100, y: -300, title: "Mid-Level Role" },
-    { id: "mid_cyber_policy_analyst", label: "Cybersecurity Policy Analyst", group: "mid", x: 100, y: -150, title: "Mid-Level Role" },
-    { id: "mid_third_party_assessor", label: "Third-Party Risk Assessor", group: "mid", x: 100, y: 0, title: "Mid-Level Role" },
-    { id: "mid_privacy_analyst", label: "Privacy Analyst (GDPR, CCPA, HIPPA, PCI-DSS)", group: "mid", x: 100, y: 150, title: "Mid-Level Role" },
-    { id: "mid_cyber_auditor", label: "Cybersecurity Auditor", group: "mid", x: 100, y: 300, title: "Mid-Level Role" },
-    { id: "mid_reg_compliance_mgr", label: "Regulatory Compliance Manager", group: "mid", x: 100, y: 450, title: "Mid-Level Role" },
-    // Advanced-Level Roles (increased vertical gap to 150 units)
-    { id: "adv_grc_mgr", label: "GRC Manager/Director", group: "advanced", x: 400, y: -375, title: "Advanced Role" },
-    { id: "adv_cro", label: "Chief Risk Officer (CRO)", group: "advanced", x: 400, y: -225, title: "Advanced Role" },
-    { id: "adv_cco", label: "Chief Compliance Officer (CCO)", group: "advanced", x: 400, y: -75, title: "Advanced Role" },
-    { id: "adv_cpo", label: "Chief Privacy Officer (CPO)", group: "advanced", x: 400, y: 75, title: "Advanced Role" },
-    { id: "adv_cyber_auditor_senior", label: "Cybersecurity Auditor (Senior/Lead)", group: "advanced", x: 400, y: 225, title: "Advanced Role" },
-    { id: "adv_ciso", label: "Chief Information Security Officer (CISO)", group: "advanced", x: 400, y: 375, title: "Advanced Role" },
+    { id: "central_consultant", label: "Cybersecurity Consultant", group: "central", x: 150, y: 0, size: 60, title: "Central Role" },
+    // Nontech Feeder Roles (vertical gap of 200 units)
+    { id: "feeder_medical", label: "Medical/Health Services", group: "feeder", x: -600, y: -800, title: "Nontech Feeder Role" },
+    { id: "feeder_legal", label: "Legal/Paralegal", group: "feeder", x: -600, y: -600, title: "Nontech Feeder Role" },
+    { id: "feeder_project_mgmt", label: "Project Management", group: "feeder", x: -600, y: -400, title: "Nontech Feeder Role" },
+    { id: "feeder_retail", label: "Retail & Customer Service", group: "feeder", x: -600, y: -200, title: "Nontech Feeder Role" },
+    { id: "feeder_military", label: "Military/Law Enforcement", group: "feeder", x: -600, y: 0, title: "Nontech Feeder Role" },
+    { id: "feeder_trades", label: "Trades & Operations", group: "feeder", x: -600, y: 200, title: "Nontech Feeder Role" },
+    { id: "feeder_food", label: "Food Services & Hospitality", group: "feeder", x: -600, y: 400, title: "Nontech Feeder Role" },
+    { id: "feeder_finance", label: "Finance & Banking", group: "feeder", x: -600, y: 600, title: "Nontech Feeder Role" },
+    { id: "feeder_hr", label: "HR & Corporate Training", group: "feeder", x: -600, y: 800, title: "Nontech Feeder Role" },
+    // Entry-Level Roles (vertical gap of 200 units)
+    { id: "entry_grc_analyst", label: "GRC Analyst", group: "entry", x: -300, y: -600, title: "Entry-Level Role" },
+    { id: "entry_sec_compliance_analyst", label: "Security Compliance Analyst", group: "entry", x: -300, y: -400, title: "Entry-Level Role" },
+    { id: "entry_risk_compliance_assoc", label: "Risk & Compliance Associate", group: "entry", x: -300, y: -200, title: "Entry-Level Role" },
+    { id: "entry_it_auditor", label: "IT Auditor", group: "entry", x: -300, y: 0, title: "Entry-Level Role" },
+    { id: "entry_privacy_coord", label: "Privacy & Data Protection Coordinator", group: "entry", x: -300, y: 200, title: "Entry-Level Role" },
+    { id: "entry_third_party_coord", label: "Third-Party Risk Coordinator", group: "entry", x: -300, y: 400, title: "Entry-Level Role" },
+    { id: "entry_sec_training_specialist", label: "Security Awareness & Training Specialist", group: "entry", x: -300, y: 600, title: "Entry-Level Role" },
+    // Mid-Level Roles (vertical gap of 200 units)
+    { id: "mid_risk_mgmt_analyst", label: "Risk Management Analyst", group: "mid", x: 0, y: -600, title: "Mid-Level Role" },
+    { id: "mid_sec_compliance_mgr", label: "Security Compliance Manager", group: "mid", x: 0, y: -400, title: "Mid-Level Role" },
+    { id: "mid_cyber_policy_analyst", label: "Cybersecurity Policy Analyst", group: "mid", x: 0, y: -200, title: "Mid-Level Role" },
+    { id: "mid_third_party_assessor", label: "Third-Party Risk Assessor", group: "mid", x: 0, y: 0, title: "Mid-Level Role" },
+    { id: "mid_privacy_analyst", label: "Privacy Analyst (GDPR, CCPA, HIPPA, PCI-DSS)", group: "mid", x: 0, y: 200, title: "Mid-Level Role" },
+    { id: "mid_cyber_auditor", label: "Cybersecurity Auditor", group: "mid", x: 0, y: 400, title: "Mid-Level Role" },
+    { id: "mid_reg_compliance_mgr", label: "Regulatory Compliance Manager", group: "mid", x: 0, y: 600, title: "Mid-Level Role" },
+    // Advanced-Level Roles (vertical gap of 200 units)
+    { id: "adv_grc_mgr", label: "GRC Manager/Director", group: "advanced", x: 600, y: -500, title: "Advanced Role" },
+    { id: "adv_cro", label: "Chief Risk Officer (CRO)", group: "advanced", x: 600, y: -300, title: "Advanced Role" },
+    { id: "adv_cco", label: "Chief Compliance Officer (CCO)", group: "advanced", x: 600, y: -100, title: "Advanced Role" },
+    { id: "adv_cpo", label: "Chief Privacy Officer (CPO)", group: "advanced", x: 600, y: 100, title: "Advanced Role" },
+    { id: "adv_cyber_auditor_senior", label: "Cybersecurity Auditor (Senior/Lead)", group: "advanced", x: 600, y: 300, title: "Advanced Role" },
+    { id: "adv_ciso", label: "Chief Information Security Officer (CISO)", group: "advanced", x: 600, y: 500, title: "Advanced Role" },
   ];
 
   const edges = [
@@ -224,17 +222,25 @@ const CyberChart = () => {
     // Remove existing labels
     const existingLabels = container.getElementsByTagName("div");
     for (let i = existingLabels.length - 1; i >= 0; i--) {
-      if (existingLabels[i].innerText.match(/ROLE|LEVEL/)) {
+      if (existingLabels[i].innerText.match(/ROLE|LEVEL|CYBERSECURITY CONSULTANT/)) {
         container.removeChild(existingLabels[i]);
       }
     }
 
-    // Define label positions relative to the container
+    // Calculate the scaled x positions of the node groups
+    const feederX = -600 * scaleFactor; // Scaled x position of feeder nodes
+    const entryX = -300 * scaleFactor;  // Scaled x position of entry-level nodes
+    const centralX = 2000 * scaleFactor; // Scaled x position of central node
+    const midX = 0 * scaleFactor;       // Scaled x position of mid-level nodes
+    const advX = 600 * scaleFactor;     // Scaled x position of advanced-level nodes
+
+    // Define label positions to align with the node groups
     const labels = [
-      { text: "NONTECH FEEDER ROLE", x: 250, y: 20 },
-      { text: "ENTRY-LEVEL", x: dims.width * 0.4, y: 20 },
-      { text: "MID-LEVEL", x: dims.width * 0.55, y: 20 },
-      { text: "ADVANCED-LEVEL", x: dims.width * 0.67, y: 20 },
+      { text: "NONTECH FEEDER ROLE", x: feederX + dims.width / 2 + 400},
+      { text: "ENTRY-LEVEL", x: entryX + dims.width / 2 + 200 },
+      { text: "CYBERSECURITY CONSULTANT", x: centralX + dims.width / 2 + 200 },
+      { text: "MID-LEVEL", x: midX + dims.width / 2 + 50 },
+      { text: "ADVANCED-LEVEL", x: advX + dims.width / 2 + -400 },
     ];
 
     labels.forEach((label) => {
@@ -242,22 +248,29 @@ const CyberChart = () => {
       div.innerText = label.text;
       div.style.position = "absolute";
       div.style.color = "#666";
-      div.style.fontSize = `${5 * (scaleFactor || 1)}px`;
+      div.style.fontSize = `${10 * (scaleFactor || 1)}px`;
       div.style.fontWeight = "bold";
       div.style.left = `${label.x}px`;
-      div.style.top = `${label.y}px`;
+      div.style.top = `${label.y || 20}px`;
       div.style.zIndex = "1001";
+      div.style.transform = "translateX(-50%)"; // Center the label text
       container.appendChild(div);
-      console.log(`Added label: ${label.text} at ${label.x}px, ${label.y}px`);
+      console.log(`Added label: ${label.text} at ${label.x}px, ${label.y || 20}px`);
     });
   };
 
   useEffect(() => {
     if (!containerRef.current || dimensions.width === 0 || dimensions.height === 0) return;
 
+    // Skip chart rendering if in mobile view (768px and below)
+    if (width <= 768) {
+      console.log("Mobile view detected, skipping chart rendering");
+      return;
+    }
+
     console.log("useEffect triggered, containerRef:", containerRef.current);
 
-    // Scale factor based on container width (assuming base width is 800px for the original layout)
+    // Scale factor based on container width (base width is 1200 to match the x range)
     const baseWidth = 800;
     const scaleFactor = dimensions.width / baseWidth;
 
@@ -266,14 +279,14 @@ const CyberChart = () => {
       ...node,
       x: node.x * scaleFactor,
       y: node.y * scaleFactor,
-      size: node.size * scaleFactor,
+      size: node.size ? node.size * scaleFactor : 40 * scaleFactor, // Default to 35 * scaleFactor if size not specified
     }));
 
     const options = {
       nodes: {
         shape: "circle", // Default shape for all nodes
         font: {
-          size: 12 * scaleFactor,
+          size: 16 * scaleFactor,
           color: "#000",
           face: "arial",
           multi: "html",
@@ -284,9 +297,9 @@ const CyberChart = () => {
           border: "#666",
           highlight: { background: "#e0e0e0", border: "#333" },
         },
-        widthConstraint: { minimum: 80 * scaleFactor, maximum: 120 * scaleFactor },
+        widthConstraint: { minimum: 120 * scaleFactor, maximum: 150 * scaleFactor },
         borderWidth: 2 * scaleFactor,
-        size: 25 * scaleFactor,
+        size: 40 * scaleFactor, // Default size
       },
       edges: {
         color: { color: "transparent", highlight: "transparent" }, // Invisible by default
@@ -295,7 +308,7 @@ const CyberChart = () => {
         arrows: { to: { enabled: false } },
       },
       groups: {
-        feeder: { shape: "text", font: { size: 12 * scaleFactor, color: "#000" } }, // Feeder roles as plain text
+        feeder: { shape: "text", font: { size: 16 * scaleFactor, color: "#000" } }, // Feeder roles as plain text
         entry: { borderWidth: 2 * scaleFactor, color: { border: "#87CEEB", background: "#089efe" } },
         mid: { borderWidth: 2 * scaleFactor, color: { border: "#98FF98", background: "#55D7AE" } },
         central: { borderWidth: 2 * scaleFactor, color: { border: "#98FF98", background: "#55D7AE" }, widthConstraint: { minimum: 120, maximum: 150 } },
@@ -335,51 +348,6 @@ const CyberChart = () => {
       });
     }
 
-    // Handle click for mobile using DOM event listener
-    if (width <= 768 && canvas) {
-      const handleCanvasClick = (event) => {
-        console.log("Canvas click detected, event:", event);
-        if (!networkRef.current) {
-          console.warn("Network not initialized");
-          return;
-        }
-
-        const rect = canvas.getBoundingClientRect();
-        const clickX = event.clientX - rect.left;
-        const clickY = event.clientY - rect.top;
-        console.log("Click coordinates relative to canvas:", { clickX, clickY });
-
-        const nodeId = networkRef.current.getNodeAt({ x: clickX, y: clickY });
-        console.log("Node ID at click position:", nodeId);
-
-        if (nodeId) {
-          const node = baseNodes.find((n) => n.id === nodeId);
-          if (node) {
-            if (modalContent) {
-              setModalContent(null);
-              console.log("Modal closed on click");
-            } else {
-              const defaultX = dimensions.width / 2;
-              const defaultY = dimensions.height / 2;
-              setModalContent(nodeDetails[node.id] || "No details");
-              setModalPosition({ x: defaultX, y: defaultY });
-              console.log("Modal opened on click, default position:", { x: defaultX, y: defaultY });
-            }
-          } else {
-            console.warn("Node not found for nodeId:", nodeId);
-          }
-        } else {
-          console.log("No node found at click position");
-        }
-      };
-
-      canvas.addEventListener("click", handleCanvasClick);
-
-      return () => {
-        canvas.removeEventListener("click", handleCanvasClick);
-      };
-    }
-
     // Handle hover for desktop only (Tippy)
     if (width > 768) {
       network.on("hoverNode", (params) => {
@@ -402,17 +370,17 @@ const CyberChart = () => {
           if (node && !isTippyOpen) {
             const nodePosition = network.getPositions([nodeId])[nodeId];
             const domPosition = network.canvasToDOM({ x: nodePosition.x, y: nodePosition.y });
-            const nodeSize = node.size || 25 * scaleFactor;
-            const adjustedY = domPosition.y + nodeSize;
+            const nodeSize = node.size || 35 * scaleFactor;
 
+            // Adjust the reference position to account for the node's size
             const virtualReference = {
               getReferenceClientRect: () => ({
                 width: 0,
                 height: 0,
-                top: adjustedY,
+                top: domPosition.y - nodeSize / 2, // Anchor at the top edge of the node
+                bottom: domPosition.y + nodeSize / 2, // Bottom edge of the node
                 left: domPosition.x,
                 right: domPosition.x,
-                bottom: adjustedY,
               }),
             };
 
@@ -424,7 +392,7 @@ const CyberChart = () => {
             tippyInstanceRef.current = Tippy(containerRef.current, {
               content: nodeDetails[node.id] || "No details",
               trigger: "manual",
-              placement: "bottom",
+              placement: "bottom", // Default placement
               appendTo: containerRef.current,
               allowHTML: true,
               showOnCreate: true,
@@ -445,14 +413,24 @@ const CyberChart = () => {
                   {
                     name: "preventOverflow",
                     options: {
-                      boundary: containerRef.current,
+                      boundary: "viewport", // Use the viewport as the boundary
+                      padding: 10,
+                    },
+                  },
+                  {
+                    name: "flip",
+                    options: {
+                      fallbackPlacements: ["top"], // Flip to top if bottom doesn't fit
                     },
                   },
                 ],
               },
+              onShow: (instance) => {
+                console.log(`Tippy shown for node: ${node.label}, DOM y: ${domPosition.y}, container height: ${dimensions.height}, placement: ${instance.props.placement}`);
+              },
             });
             setIsTippyOpen(true);
-            console.log("New Tippy instance created on hover");
+            console.log(`New Tippy instance created on hover for node: ${node.label}`);
           }
         }
       });
@@ -474,7 +452,7 @@ const CyberChart = () => {
     }
 
     const handleResize = () => {
-      const baseWidth = 800;
+      const baseWidth = 1200;
       const scaleFactor = dimensions.width / baseWidth;
       addLevelLabels(containerRef.current, dimensions, scaleFactor);
     };
@@ -499,35 +477,45 @@ const CyberChart = () => {
   return (
     <div
       ref={containerRef}
-      style={{ height: `${width > 850 ? "800px" : "60vh"}`, width: "100%", border: "1px solid #ccc", background: "#fafafa", position: "relative", touchAction: "auto" }}
+      style={{
+        height: `${width > 850 ? "150vh" : "80vh"}`,
+        width: "100%",
+        border: "1px solid #ccc",
+        background: "#fafafa",
+        position: "relative",
+        touchAction: "auto",
+        overflow: "visible", // Ensure tooltips aren't clipped
+      }}
       onClick={(e) => console.log("Container clicked, event:", e)}
     >
-      {modalContent && width <= 768 && (
+      {width <= 768 ? (
         <div
           style={{
             position: "absolute",
-            top: `${modalPosition.y}px`,
-            left: `${modalPosition.x}px`,
-            transform: "translateX(-50%) translateY(-50%)",
-            background: "#fff",
-            border: "1px solid #666",
-            padding: "10px",
-            borderRadius: "5px",
-            boxShadow: "0 2px 5px rgba(0,0,0,0.2)",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            background: "rgba(128, 128, 128, 0.8)", // Gray overlay with opacity
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
             zIndex: 1000,
-            maxWidth: "80%",
-            maxHeight: "50%",
-            overflow: "auto",
-          }}
-          onClick={(e) => {
-            e.stopPropagation();
-            setModalContent(null);
-            console.log("Modal closed via click on modal");
           }}
         >
-          <div dangerouslySetInnerHTML={{ __html: modalContent }} />
+          <div
+            style={{
+              color: "#fff",
+              fontSize: "24px",
+              fontWeight: "bold",
+              textAlign: "center",
+              textShadow: "1px 1px 2px rgba(0, 0, 0, 0.5)",
+            }}
+          >
+            View on Desktop
+          </div>
         </div>
-      )}
+      ) : null}
     </div>
   );
 };
