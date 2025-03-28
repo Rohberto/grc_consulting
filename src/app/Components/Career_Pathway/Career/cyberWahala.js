@@ -232,7 +232,7 @@ const CyberChart = () => {
     // Define label positions relative to the container
     const labels = [
       { text: "NONTECH FEEDER ROLE", x: 150, y: 20 },
-      { text: "ENTRY-LEVEL", x: dims.width * 0.25 + 20, y: 20 },
+      { text: "ENTRY-LEVEL", x: dims.width * 0.25 + 100, y: 20 },
       { text: "MID-LEVEL", x: dims.width * 0.5, y: 20 },
       { text: "ADVANCED-LEVEL", x: dims.width * 0.75, y: 20 },
     ];
@@ -332,7 +332,7 @@ const CyberChart = () => {
       if (width <= 768) {
         canvas.style.zIndex = "1002"; // Higher than modal (1000) and labels (1001)
       } else {
-        canvas.style.zIndex = "0"; // Reset in desktop view
+        canvas.style.zIndex = "2000"; // Reset in desktop view
       }
 
       canvas.addEventListener("touchmove", (e) => {
