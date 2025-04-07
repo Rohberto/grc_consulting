@@ -5,22 +5,14 @@ import React, { useState, useCallback, useEffect } from 'react';
 import ReactFlow, { Background, Controls} from 'reactflow';
 import 'reactflow/dist/style.css';
 
-const [width, setWidth] = useState(0);
-useEffect(() => {
-  const handleResize = () => setWidth(window.innerWidth);
-  handleResize();
-
-  window.addEventListener('resize', handleResize);
-  return () => window.removeEventListener('resize', handleResize);
-}, [])
 
 // Custom node styles (larger circles with text inside)
 const customNodeStyles = {
   feeder: { 
     background: 'transparent', 
     borderRadius: '50%', 
-    width: width > 700 ? '150px' : "100px", 
-    height: width > 700 ? '150px' : "100px", 
+    width: window.innerWidth > 700 ? '150px' : "100px", 
+    height: window.innerWidth > 700 ? '150px' : "100px", 
     border: 'none', 
     display: 'flex', 
     alignItems: 'center', 
@@ -34,8 +26,8 @@ const customNodeStyles = {
   entry: { 
     background: '#2ecc71', 
     borderRadius: '50%', 
-    width: width > 700 ? '150px' : "100px", 
-    height: width > 700 ? '150px' : "100px", 
+    width: window.innerWidth > 700 ? '150px' : "100px", 
+    height: window.innerWidth > 700 ? '150px' : "100px", 
     border: 'none', 
     display: 'flex', 
     alignItems: 'center', 
@@ -49,8 +41,8 @@ const customNodeStyles = {
   mid: { 
     background: '#e67e22', 
     borderRadius: '50%', 
-    width: width > 700 ? '150px' : "100px", 
-    height: width > 700 ? '150px' : "100px", 
+    width: window.innerWidth > 700 ? '150px' : "100px", 
+    height: window.innerWidth > 700 ? '150px' : "100px", 
     border: 'none', 
     display: 'flex', 
     alignItems: 'center', 
@@ -64,8 +56,8 @@ const customNodeStyles = {
   advanced: { 
     background: '#9b59b6', 
     borderRadius: '50%', 
-    width: width > 700 ? '150px' : "100px", 
-    height: width > 700 ? '150px' : "100px", 
+    width: window.innerWidth > 700 ? '150px' : "100px", 
+    height: window.innerWidth > 700 ? '150px' : "100px", 
     border: 'none', 
     display: 'flex', 
     alignItems: 'center', 
@@ -199,6 +191,14 @@ const initialEdges = [
 
 export default function CareerPathway() {
   const [hoveredNode, setHoveredNode] = useState(null);
+const [width, setWidth] = useState(0);
+useEffect(() => {
+  const handleResize = () => setWidth(window.innerWidth);
+  handleResize();
+
+  window.addEventListener('resize', handleResize);
+  return () => window.removeEventListener('resize', handleResize);
+}, [])
 
   // Show edges only for the hovered node
   const getVisibleEdges = useCallback(() => {
