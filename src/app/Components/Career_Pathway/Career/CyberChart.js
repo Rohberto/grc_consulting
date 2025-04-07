@@ -5,6 +5,14 @@ import React, { useState, useCallback, useEffect } from 'react';
 import ReactFlow, { Background, Controls} from 'reactflow';
 import 'reactflow/dist/style.css';
 
+const [width, setWidth] = useState(0);
+useEffect(() => {
+  const handleResize = () => setWidth(window.innerWidth);
+  handleResize();
+
+  window.addEventListener('resize', handleResize);
+  return () => window.removeEventListener('resize', handleResize);
+}, [])
 
 // Custom node styles (larger circles with text inside)
 const customNodeStyles = {
@@ -213,14 +221,7 @@ export default function CareerPathway() {
     setHoveredNode(node.id);
   }, []);
 
-  const [width, setWidth] = useState(0);
-useEffect(() => {
-  const handleResize = () => setWidth(window.innerWidth);
-  handleResize();
-
-  window.addEventListener('resize', handleResize);
-  return () => window.removeEventListener('resize', handleResize);
-}, [])
+  
 
 
 
