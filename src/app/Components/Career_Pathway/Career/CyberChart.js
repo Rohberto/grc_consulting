@@ -2,7 +2,7 @@
 
 import { minHeight } from '@mui/system';
 import React, { useState, useCallback, useEffect } from 'react';
-import ReactFlow, { Background, Controls, MiniMap } from 'reactflow';
+import ReactFlow, { Background, Controls} from 'reactflow';
 import 'reactflow/dist/style.css';
 
 
@@ -11,8 +11,8 @@ const customNodeStyles = {
   feeder: { 
     background: 'transparent', 
     borderRadius: '50%', 
-    width: '150px', 
-    height: '150px', 
+    width: width > 700 ? '150px' : "100px", 
+    height: width > 700 ? '150px' : "100px", 
     border: 'none', 
     display: 'flex', 
     alignItems: 'center', 
@@ -26,8 +26,8 @@ const customNodeStyles = {
   entry: { 
     background: '#2ecc71', 
     borderRadius: '50%', 
-    width: '150px', 
-    height: '150px', 
+    width: width > 700 ? '150px' : "100px", 
+    height: width > 700 ? '150px' : "100px", 
     border: 'none', 
     display: 'flex', 
     alignItems: 'center', 
@@ -41,8 +41,8 @@ const customNodeStyles = {
   mid: { 
     background: '#e67e22', 
     borderRadius: '50%', 
-    width: '150px', 
-    height: '150px', 
+    width: width > 700 ? '150px' : "100px", 
+    height: width > 700 ? '150px' : "100px", 
     border: 'none', 
     display: 'flex', 
     alignItems: 'center', 
@@ -56,8 +56,8 @@ const customNodeStyles = {
   advanced: { 
     background: '#9b59b6', 
     borderRadius: '50%', 
-    width: '150px', 
-    height: '150px', 
+    width: width > 700 ? '150px' : "100px", 
+    height: width > 700 ? '150px' : "100px", 
     border: 'none', 
     display: 'flex', 
     alignItems: 'center', 
@@ -242,7 +242,6 @@ useEffect(() => {
         >
           <Background />
           <Controls />
-          <MiniMap />
         </ReactFlow>
       </div>
       {/* Sidebar */}
