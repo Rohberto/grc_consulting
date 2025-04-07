@@ -11,6 +11,14 @@ const Banner = () => {
   const [activeLevel, setActiveLevel] = useState("entry");
   // Find the current level object to get the label
   const currentLevel = levels.find((level) => level.id === activeLevel);
+
+  function limitWords(text, maxWords) {
+    const words = text.split(' ');
+    if (words.length > maxWords) {
+      return words.slice(0, maxWords).join(' ') + '...';
+    }
+    return text;
+  }
   return (
     <div className={styles.banner_container}>
         <h1 className={styles.title}>ITG Learning Academy</h1>
@@ -45,7 +53,7 @@ driving GRC excellence.
               <div className={`${card?.completed ? styles.blur : ""}`}>
             <img src={card.image} alt={card.title} className={styles.image} />
             <h4>{card.title}</h4>
-            <p>{card.description}</p>
+            <p>{`${limitWords(card.description, 30)}`}</p>
             <ul>
               <li>{card.lessons}</li>
             </ul>

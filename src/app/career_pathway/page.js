@@ -3,7 +3,6 @@ import styles from "./page.module.css"
 import Navigation from '../Components/Career_Pathway/Navigation/Navigation';
 import Career from '../Components/Career_Pathway/Career/Career';
 import Footer from '../Components/Footer/Footer';
-import Certifications from '../Components/Career_Pathway/Certification/Certification';
 import CareerDevelopment from '../Components/Career_Pathway/Career/CareerDevelopment';
 import Header from '../Components/Header/Header';
 
@@ -14,7 +13,6 @@ const page = () => {
       <Header/>
         <Navigation/>
         <Career/>
-        <Certifications/>
         <CareerDevelopment/>
         <Footer/>
     </div>

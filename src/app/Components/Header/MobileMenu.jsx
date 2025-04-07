@@ -19,7 +19,7 @@ export default function MobileMenu() {
           <ul>
             <li><Link href="/" onClick={() => setIsOpen(false)}>Home</Link></li>
             <li><Link href="/about" onClick={() => setIsOpen(false)}>About Us</Link></li>
-            <li><Link href="/career_pathway" onClick={() => setIsOpen(false)}>Career Pathways</Link></li>
+            <li><Link href="/career_pathway" onClick={() => setIsOpen(false)}>Career</Link></li>
             <li><Link href="/kids" onClick={() => setIsOpen(false)}>Kids Center</Link></li>
             <li><Link href="/learning" onClick={() => setIsOpen(false)}>Learning</Link></li>
             <li><Link href="/consulting" onClick={() => setIsOpen(false)}>Consulting</Link></li>

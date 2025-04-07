@@ -2,7 +2,7 @@
 import React, {useState} from 'react';
 import styles from "./Team.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper/modules";
+import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
@@ -22,9 +22,8 @@ const Team = () => {
         <h1 className={styles.title}>Facts About The Team.</h1>
     
         <Swiper 
-       modules={[Pagination, Autoplay]}
+       modules={[Pagination]}
             pagination={{ clickable: true }}
-            autoplay= {{delay: 3000, disableOnInteraction: false}}
             spaceBetween={20}
             slidesPerView={1}
             breakpoints={{
@@ -35,7 +34,9 @@ const Team = () => {
             className={styles.swiper}>
                 {Info.map((item, index) => (
                     <SwiperSlide key={index} className={`${styles.card} ${styles[item.background]}`}>
-                        <h1>{item.title}</h1>
+                       <div> <div className='box_image'>
+                        <img src="/assets/about_logo.png" alt="logo" />
+                        </div> <h1>{item.title}</h1></div>
                         <p>{item.description}</p>
                         <div className={styles.bottom_content}>
                             <div className={styles.icon}>
@@ -52,31 +53,7 @@ const Team = () => {
         
       </Swiper>
 
-      <div className={`${styles.brand_marquee} ${paused ? styles.paused : ""}`}>
-        <div className={styles.marquee_content}>
-        <img src='/Assets/fast_company.png' alt='brands associated with Grc'  onMouseEnter={() => setPaused(true)} 
-            onMouseLeave={() => setPaused(false)}/>
-        <img src='/Assets/USA.png' alt='brands associated with Grc'  onMouseEnter={() => setPaused(true)} 
-            onMouseLeave={() => setPaused(false)}/>
-        <img src='/Assets/wall.png' alt='brands associated with Grc'  onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}/>
-        <img src='/Assets/CNBC.png' alt='brands associated with Grc'  onMouseEnter={() => setPaused(true)}  onMouseLeave={() => setPaused(false)}/>
-        <img src='/Assets/Insider.png' alt='brands associated with Grc'  onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}/>
-        <img src='/Assets/fast_company.png' alt='brands associated with Grc'  onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}/>
-        <img src='/Assets/USA.png' alt='brands associated with Grc'  onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}/>
-        <img src='/Assets/isc.png' alt='brands associated with Grc'  onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}/>
-        <img src='/Assets/comptia.png' alt='brands associated with Grc'  onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}/>
-        <img src='/Assets/ISACA.png' alt='brands associated with Grc'  onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}/>
-        <img src='/Assets/CNBC.png' alt='brands associated with Grc'  onMouseEnter={() => setPaused(true)}  onMouseLeave={() => setPaused(false)}/>
-        <img src='/Assets/Insider.png' alt='brands associated with Grc'  onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}/>
-        <img src='/Assets/fast_company.png' alt='brands associated with Grc'  onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}/>
-        <img src='/Assets/USA.png' alt='brands associated with Grc'  onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}/>
-        <img src='/Assets/isc.png' alt='brands associated with Grc'  onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}/>
-        <img src='/Assets/comptia.png' alt='brands associated with Grc'  onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}/>
-        <img src='/Assets/ISACA.png' alt='brands associated with Grc'  onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}/>
-       
-      </div>
-      </div>
-    </div>
+         </div>
   )
 }
 

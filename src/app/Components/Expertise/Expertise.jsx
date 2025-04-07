@@ -10,44 +10,41 @@ import gsap from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
+import { useRouter } from "next/navigation";
 
 
 const Expertise = () => {
+  const router = useRouter();
     const expertiseData = [
         {
-          title: "Business Solutions",
-          image: "/Assets/solutions.png", 
-          link: "#"
-        },
-        {
           title: "ITG Learning Academy",
           image: "/Assets/learning.png", 
-          link: "#"
+          link: "/learning"
         },
         {
           title: "Career Development",
           image: "/Assets/career.png", 
-          link: "#"
+          link: "/career_pathway"
         },
         {
           title: "Government Solutions",
           image: "/Assets/govenment.png", 
-          link: "#"
+          link: "/consulting"
         },
         {
           title: "ITG Learning Academy",
           image: "/Assets/learning.png", 
-          link: "#"
+          link: "/learning"
         },
         {
           title: "Career Development",
           image: "/Assets/career.png", 
-          link: "#"
+          link: "/career_pathway"
         },
         {
           title: "Government Solutions",
           image: "/Assets/govenment.png", 
-          link: "#"
+          link: "/consulting"
         }
       ];
 

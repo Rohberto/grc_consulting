@@ -2,8 +2,10 @@ import styles from './Services.module.css';
 import gsap from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import { useRef } from 'react';
+import { useRef } from 'react'; 
+import { useRouter } from 'next/navigation';
 const Services = () => {
+  const router = useRouter();
   const container = useRef();
 
   useGSAP(() => {
@@ -140,7 +142,7 @@ const Services = () => {
               <li>Skills Development Workshops</li>
               <li>Members Only Club</li>
             </ul>
-            <button className={styles.readMore}>Read More</button>
+            <button className={styles.readMore} onClick={() => router.push("/career_pathway#services")}>Read More</button>
           </div>
 
           {/* GRC Solution Card */}
@@ -154,7 +156,8 @@ const Services = () => {
               <li>Incident Response & Business Continuity</li>
               <li>Internal Audit & Assurance</li>
             </ul>
-            <button className={styles.readMore}>Read More</button>
+            <button className={styles.readMore}
+            onClick={() => router.push('/consulting')}>Read More</button>
           </div>
         </div>
       </div>

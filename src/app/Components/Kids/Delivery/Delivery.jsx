@@ -44,7 +44,7 @@ const Delivery = () => {
       })
     })
 
-    gsap.to([`.${styles.delivery_header}`, `.${styles.delivery_description}`, `.${styles.delivery_stats_header}`, `.${styles.delivery_stats_list}`], {
+    gsap.to([`.${styles.delivery_header}`, `.${styles.delivery_description}`], {
       y: 0,
       opacity: 1,
       duration: .5,
@@ -70,20 +70,6 @@ practice, or a parent eager to support digital safety at home, our digital downl
 provide valuable, on-demand content to supplement the ITG Digital Defenders Program.
         </p>
    
-<div className={styles.delivery_stats_container}>
-  <h1 className={styles.delivery_stats_header}>Statistics</h1>
-
-  <ul className={styles.delivery_stats_list}>
-    <li>1,331 cyber incidents targeting U.S. schools between 2016 and 2022, with a rise in
-    incidents each year.</li>
-    <li>40% of young children have been reported to access the internet by the age of 4. This
-early exposure often occurs before they are taught essential safety practices, increasing
-the risk of encountering online threats.</li>
-    <li>91% of children aged 10-15 use the internet daily in the U.S. However, many lack the
-    understanding of what constitutes safe and ethical behavior online.</li>
-  </ul>
-</div>
-
    <div className={styles.delivery_cards_container} ref={cardContainer}>
         <div  className={`${styles.card} ${styles.card_one}`}>
             <div className={styles.card_image}>

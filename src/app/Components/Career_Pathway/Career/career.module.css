@@ -18,6 +18,17 @@ color: #062C65;
     height: auto;
     object-fit: contain;
 }
+
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .container {
+        flex-direction: column !important;
+        height: auto !important;
+        width: 100%;
+      }
+  
+    }
 @media (max-width: 1100px){
     .container{
         padding: 40px 20px;

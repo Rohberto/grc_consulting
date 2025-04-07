@@ -62,11 +62,7 @@ const CourseDetail = ({description, image}) => {
         <div className={styles.right_course_section}>
             <div className={styles.course_overview}>
                 <h3>Course Overview</h3>
-                <p>This 12-week, 108-hour training program is designed for individuals looking to advance their
-careers as Security Awareness Analysts while preparing for the CompTIA Security+ and
-Security Awareness and Culture Professional (SACP)TM certifications. The course provides a
-structured blend of technical security training, security awareness culture development, and
-hands-on role-based learning. </p>
+                <p>{description} </p>
             </div>
 
             <div className={styles.learn_requirement}>

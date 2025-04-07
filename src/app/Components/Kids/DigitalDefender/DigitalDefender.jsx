@@ -17,22 +17,30 @@ const DigitalDefender = () => {
   const toggleDropdown = (grade) => {
     setOpenGrade(openGrade === grade ? null : grade);
   };
-  const gradeData = [
+  const buttonData = [
     {
+      id:1,
       title: 'K-2nd Grade',
-      content: 'Focus: We focus on exploring basic concepts of privacy, identifying trusted adults, and understanding “stranger danger” online. Students will gain an understanding of knowing which games are age-appropriate and why it’s important to only play with friends they know in real life.'
+      content: 'Focus: We focus on exploring basic concepts of privacy, identifying trusted adults, and understanding “stranger danger” online. Students will gain an understanding of knowing which games are age-appropriate and why it’s important to only play with friends they know in real life.',
+      image: "/Assets/kiddies.png"
     },
     {
+      id: 2,
       title: '3rd-5th Grade',
-      content: 'Focus: We focus on safe browsing, recognizing secure websites, basic password creation, and understanding cyberbullying. Students will gain an understanding of in-game chat risks, not sharing personal information in games, and reporting suspicious behavior.'
+      content: 'Focus: We focus on safe browsing, recognizing secure websites, basic password creation, and understanding cyberbullying. Students will gain an understanding of in-game chat risks, not sharing personal information in games, and reporting suspicious behavior.',
+      image: "/Assets/kiddies_2.png"
     },
     {
+      id: 3,
       title: '6th-8th Grade',
-      content: 'Focus: We focus on exploring Social media awareness, privacy settings, the importance of secure passwords, understanding phishing and smartphone best practices. Students will gain an understanding of recognizing scams and in-game purchases, using privacy settings on gaming platforms, and managing screen time.'
+      content: 'Focus: We focus on exploring Social media awareness, privacy settings, the importance of secure passwords, understanding phishing and smartphone best practices. Students will gain an understanding of recognizing scams and in-game purchases, using privacy settings on gaming platforms, and managing screen time.',
+       image: "/Assets/kiddies_3.png"
     },
     {
+      id: 4,
       title: '9th-12th Grade',
-      content: 'Focus: We focus on cyber threats like phishing, ransomware, online scams, and digital footprints. Students will gain an understanding of digital currency, recognizing predatory behavior, and protecting personal information on streaming and social media platforms.'
+      content: 'Focus: We focus on cyber threats like phishing, ransomware, online scams, and digital footprints. Students will gain an understanding of digital currency, recognizing predatory behavior, and protecting personal information on streaming and social media platforms.',
+       image: "/Assets/kiddies_4.png"
     }
   ];
   useGSAP(() => {
@@ -98,12 +106,13 @@ const DigitalDefender = () => {
         stagger: .5,
         scrollTrigger: {
           trigger: lowerContainer.current,
-          start: "top center",
-          end: "top top", 
+          start: "top bottom",
+          end: "top center", 
           scrub: true
         }
       })
   })
+  const [hoveredButton, setHoveredButton] = useState(1);
   return (
     <div className={styles.container} ref={container}>
         <div className={styles.digital_upper_content}>
@@ -112,35 +121,26 @@ const DigitalDefender = () => {
             </h1>
             <p>Through our Digital Defenders program we strive to educate young learners on safe internet practices, digital citizenship, and the fundamentals of cybersecurity, with a special focus on online gaming safety.</p>
             <div className={styles.buttons_container}>
-              {gradeData.map((item, index) => (
-                  <div key={index} className={`${styles.button_container} ${ openGrade === index ? styles.active_container : ""}`}>
-                  <button className={`${ openGrade === index ? styles.white_button : styles.green_button}`} onClick={() => toggleDropdown(index)}>{item.title} 
+              {buttonData.map((button, index) => (
+                <button
+            key={button.id}
+            className={`${styles.button} ${hoveredButton === button.id ? styles.white_button : styles.green_button}`}
+            onMouseEnter={() => setHoveredButton(button.id)}
+            onClick={() => setHoveredButton(button.id)}
+          >
+            {button.title}
+          </button>
                   
-                  <span className={`${styles.dropdown_icon} ${
-                    openGrade === index ? styles.open : ""
-                  }`}>^</span>
-
-                   </button>
-                  {openGrade === index && (
-                <div className={styles.drop_down_content}>
-                  <h4>{item.content}</h4>
-                </div>
-              )}
-                  </div>
               ))}
            </div>
         </div>
         <div className={styles.digital_lower_content} ref={lowerContainer}>
             <div className={styles.image_container}>
-                <img src='/Assets/kiddies.png' alt='Kids Images'/>
+                <img src={buttonData.find((b) => b.id === hoveredButton)?.image || `/Assets/kiddies.png`} alt='Kids Images'/>
             </div>
             <div className={styles.content_container}>
                 <h1>INTRODUCTION TO DIGITAL SAFETY</h1>
-                <p>At ITG we believe cybersecurity education starts early. Our kids and teen’s
-cybersecurity programs are designed to empower young minds with the knowledge and
-skills to navigate the digital world safely. Through engaging, age-appropriate activities,
-we teach them how to recognize online threats, protect personal information, and
-develop responsible digital habits.</p>
+                <p>{buttonData.find((b) => b.id === hoveredButton).content}</p>
             </div>
         </div>
       

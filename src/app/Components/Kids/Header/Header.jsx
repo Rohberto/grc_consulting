@@ -31,7 +31,7 @@ const Header = () => {
         <ul className={styles.header_links}>
             <li className={styles.header_link}><Link href="/">Home</Link></li>
             <li className={styles.header_link}><Link href="/about">About Us</Link></li>
-            <li className={styles.header_link}><Link href="/career_pathway">Career Pathway</Link></li>
+            <li className={styles.header_link}><Link href="/career_pathway">Career</Link></li>
             <li className={styles.header_link}><Link href="/kids">Kids Center</Link></li>
             <li className={styles.header_link}><Link href="/learning">Learning</Link></li>
             <li className={styles.header_link}><Link href="/consulting">Consulting</Link></li>

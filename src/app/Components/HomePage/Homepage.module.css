@@ -70,7 +70,7 @@ font-size: 18px;
 color: #E9E9EA;
 }
 .info_trusted_brands{
-    width: 100%;
+    width: 60%;
     display: flex;
     align-items: center;
     margin-left: -15px;
@@ -134,6 +134,7 @@ color: #E9E9EA;
         }
         .info_trusted_brands{
             margin-left: -10px;
+            width: 100%;
         }
 }
 @media (max-width: 500px){

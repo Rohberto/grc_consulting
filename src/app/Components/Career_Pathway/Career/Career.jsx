@@ -3,7 +3,7 @@ import React from 'react';
 import styles from "./career.module.css";
 import CyberChart from './cyberWahala';
 import ErrorBoundary from './ErrorBoundary';
-
+import CareerPathway from './CyberChart';
 
 const Career = () => {
   return (
@@ -14,7 +14,7 @@ const Career = () => {
             <img src="/Assets/career_chart.png" alt='career_chart'/>
         </div> */}
 <ErrorBoundary>
-   <CyberChart/>
+<CareerPathway/>
    </ErrorBoundary>
     </div>
   )

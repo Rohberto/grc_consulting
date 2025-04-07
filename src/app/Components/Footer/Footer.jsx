@@ -1,7 +1,10 @@
+"use client"
 import styles from "./Footer.module.css";
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaFacebook, FaTwitter, FaInstagram} from "react-icons/fa";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 const Footer = () => {
+  const router = useRouter();
   return (
     <footer className={styles.footer}>
       <div className={styles.topSection}>
@@ -28,10 +31,9 @@ const Footer = () => {
         <div>
           <h4>Our Services</h4>
           <ul>
-            <li>Compliance Services</li>
-            <li>ITG Learning Academy</li>
-            <li>Career Development</li>
-            <li>Government Contracts</li>
+            <li onClick={() => router.push("/learning")}>ITG Learning Academy</li>
+            <li onClick={() => router.push("/career_pathway")}>Career Development</li>
+            <li onClick={() => router.push("/consulting")}>Government Contracts</li>
           </ul>
         </div>
         <div>
@@ -42,14 +44,7 @@ const Footer = () => {
             <li><FaMapMarkerAlt className={styles.touch_icons}/>15210 Spring Cypress Rd, STE K #1027 ,Cypress, TX 77429</li>
           </ul>
         </div>
-        <div>
-          <h4>Certification</h4>
-          <ul>
-            <li> <img src="/Assets/check.svg" alt="check"/>The International Information System Security Certification Consortium</li>
-            <li> <img src="/Assets/check.svg" alt="check"/>ITG Learning Certified Security Awareness Professional</li>
-            <li><img src="/Assets/check.svg" alt="check"/> Consulting Technology Industry Association (CompTIA)</li>
-          </ul>
-        </div>
+       
       </div>
       <div className={styles.bottomSection}>
         <p>&copy; ITG GRC Consulting, 2024. All Rights Reserved.</p>

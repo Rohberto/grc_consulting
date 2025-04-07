@@ -33,6 +33,13 @@ width: 50%;
 
 .section {
   margin-bottom: 3rem;
+
+}
+.membership_card{
+  cursor: pointer;
+}
+.membership_card:hover{
+  transform: scale(1.05);
 }
 .section h3{
 font-style: normal;

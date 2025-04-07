@@ -13,12 +13,12 @@
 .marqueeContent {
   display: flex;
   width: 100%;
-  animation: marqueeAnimation 20s linear infinite;
+  animation: marqueeAnimation 30s linear infinite;
   margin-bottom: 40px;
 }
 
 .reverse .marqueeContent {
-  animation: marqueeAnimationReverse 20s linear infinite;
+  animation: marqueeAnimationReverse 30s linear infinite;
 }
 
 .card {
@@ -36,7 +36,6 @@ color: #4A4C56;
 white-space: wrap;
 text-align: left;
 padding: 10px 0;
-
 }
 .top_text{
   display: flex;
