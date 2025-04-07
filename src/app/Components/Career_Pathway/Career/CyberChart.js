@@ -6,13 +6,14 @@ import ReactFlow, { Background, Controls} from 'reactflow';
 import 'reactflow/dist/style.css';
 
 
+
 // Custom node styles (larger circles with text inside)
 const customNodeStyles = {
   feeder: { 
     background: 'transparent', 
     borderRadius: '50%', 
-    width: window.innerWidth > 700 ? '150px' : "100px", 
-    height: window.innerWidth > 700 ? '150px' : "100px", 
+    width: '150px' , 
+    height: '150px', 
     border: 'none', 
     display: 'flex', 
     alignItems: 'center', 
@@ -26,8 +27,8 @@ const customNodeStyles = {
   entry: { 
     background: '#2ecc71', 
     borderRadius: '50%', 
-    width: window.innerWidth > 700 ? '150px' : "100px", 
-    height: window.innerWidth > 700 ? '150px' : "100px", 
+    width: '150px', 
+    height: '150px', 
     border: 'none', 
     display: 'flex', 
     alignItems: 'center', 
@@ -41,8 +42,8 @@ const customNodeStyles = {
   mid: { 
     background: '#e67e22', 
     borderRadius: '50%', 
-    width: window.innerWidth > 700 ? '150px' : "100px", 
-    height: window.innerWidth > 700 ? '150px' : "100px", 
+    width: '150px', 
+    height: '150px', 
     border: 'none', 
     display: 'flex', 
     alignItems: 'center', 
@@ -56,8 +57,8 @@ const customNodeStyles = {
   advanced: { 
     background: '#9b59b6', 
     borderRadius: '50%', 
-    width: window.innerWidth > 700 ? '150px' : "100px", 
-    height: window.innerWidth > 700 ? '150px' : "100px", 
+    width: '150px', 
+    height: '150px', 
     border: 'none', 
     display: 'flex', 
     alignItems: 'center', 
@@ -191,7 +192,7 @@ const initialEdges = [
 
 export default function CareerPathway() {
   const [hoveredNode, setHoveredNode] = useState(null);
-const [width, setWidth] = useState(0);
+const [width, setWidth] = useState(1000);
 useEffect(() => {
   const handleResize = () => setWidth(window.innerWidth);
   handleResize();
@@ -228,7 +229,7 @@ useEffect(() => {
   return (
     <div className="container" style={{ display: 'flex', flexDirection: width > 768 ? "row" : "column", height: '90vh', width: '100%',  minHeight: width < 768 ? '90vh' : '' }}>
       {/* ReactFlow Chart */}
-      <div className="chart" style={{ flex: 3, height: '100%' }}>
+      <div className="chart" style={{ width: width > 768 ? '70%' : '100%', height: width > 768 ? '100%' : '70%'}}>
         <ReactFlow
           nodes={initialNodes}
           edges={getVisibleEdges()}
@@ -246,7 +247,7 @@ useEffect(() => {
         </ReactFlow>
       </div>
       {/* Sidebar */}
-      <div className="sidebar" style={{ flex: 1, padding: '20px', borderLeft: '1px solid #ccc', overflowY: 'auto' }}>
+      <div className="sidebar" style={{ width: width > 768 ? '30%' : '100%', padding: '20px', borderLeft: '1px solid #ccc', overflowY: 'auto' }}>
         {hoveredNode ? (
           <>
             <h2>{initialNodes.find((n) => n.id === hoveredNode)?.data.label}</h2>
