@@ -4,6 +4,7 @@ import { minHeight } from '@mui/system';
 import React, { useState, useCallback, useEffect } from 'react';
 import ReactFlow, { Background, Controls} from 'reactflow';
 import 'reactflow/dist/style.css';
+import "./cyberchart.css";
 
 
 
@@ -230,8 +231,17 @@ useEffect(() => {
     <div className="container" style={{ display: 'flex', flexDirection: width > 768 ? "row" : "column", height: '90vh', width: '100%',  minHeight: width < 768 ? '90vh' : '' }}>
       {/* ReactFlow Chart */}
       <div className="chart" style={{ width: width > 768 ? '70%' : '100%', height: width > 768 ? '100%' : '70%'}}>
+       <div className="labels_container">
+       <div className="label_container" >
+        <p>Feeder Roles</p>
+        <p>Entry Roles</p>
+        <p>Mid-Level Roles</p>
+        <p>Advanced Roles</p>
+        </div>
+       </div>
         <ReactFlow
           nodes={initialNodes}
+
           edges={getVisibleEdges()}
           onNodeMouseEnter={onNodeMouseEnter}
           onNodeMouseLeave={onNodeMouseLeave}
@@ -253,7 +263,7 @@ useEffect(() => {
             <h2>{initialNodes.find((n) => n.id === hoveredNode)?.data.label}</h2>
             <p><strong>Title:</strong> {initialNodes.find((n) => n.id === hoveredNode)?.data.title}</p>
             <p>{initialNodes.find((n) => n.id === hoveredNode)?.data.details}</p>
-            <h3>Next Steps:</h3>
+            <h3>{`${initialNodes.find((n) => n.id === hoveredNode)?.data.title === 'Advanced Role' ? "Previous Roles"  : "Next Steps:"}`}</h3>
             <ul>
               {getVisibleEdges().map((edge) => (
                 <li key={edge.id}>

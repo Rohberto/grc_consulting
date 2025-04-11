@@ -35,7 +35,7 @@ const Team = () => {
                 {Info.map((item, index) => (
                     <SwiperSlide key={index} className={`${styles.card} ${styles[item.background]}`}>
                        <div> <div className='box_image'>
-                        <img src="/assets/about_logo.png" alt="logo" />
+                        <img src="/Assets/about_logo.png" alt="logo" />
                         </div> <h1>{item.title}</h1></div>
                         <p>{item.description}</p>
                         <div className={styles.bottom_content}>

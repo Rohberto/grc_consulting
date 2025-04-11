@@ -1,68 +1,22 @@
-/* Default styles */
-.container {
-    display: flex;
-    flex-direction: row;
-    height: 90vh;
+.labels_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.label_container{
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+}
+.label_container p{
+  font-size: 12px;
+}
+@media (max-width: 600px){
+  .label_container{
     width: 100%;
   }
-  
-  .chart {
-    flex: 3;
-    height: 100%;
+  .label_container p{
+    font-size: 10px;
   }
-  
-  .sidebar {
-    flex: 1;
-    padding: 20px;
-    border-left: 1px solid #ccc;
-    overflow-y: auto;
-  }
-  
-  /* Base node styles (150px for desktop) */
-  .feeder-node, .entry-node, .mid-node, .advanced-node {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    text-align: center;
-    padding: 15px;
-    cursor: pointer;
-  }
-  
-  /* Mobile responsiveness */
-  @media (max-width: 768px) {
-    .container {
-      flex-direction: column !important;
-      height: auto !important;
-    }
-  
-    .chart {
-      width: 100% !important;
-      height: 60vh !important;
-      min-height: 400px;
-    }
-  
-    .sidebar {
-      width: 100% !important;
-      border-left: none !important;
-      border-top: 1px solid #ccc !important;
-      padding: 10px !important;
-    }
-  
-    .page-container h1 {
-      font-size: 20px !important;
-      padding: 10px !important;
-    }
-  
-    /* Override node sizes to 100px on mobile */
-    .feeder-node, .entry-node, .mid-node, .advanced-node {
-      width: 100px !important;
-      height: 100px !important;
-      font-size: 14px !important;
-      padding: 10px !important;
-    }
-  }
+}

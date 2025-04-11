@@ -10,6 +10,7 @@ const page = () => {
  
   return (
     <div className={styles.container}>
+      
       <Header/>
         <Navigation/>
         <Career/>

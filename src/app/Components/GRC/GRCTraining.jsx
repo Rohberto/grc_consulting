@@ -3,10 +3,11 @@ import gsap from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
+import { useRouter } from "next/navigation";
 
 const GRCTraining = () => {
   const container = useRef();
-
+  const router = useRouter();
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
    gsap.to(`.${styles.image}`,{
@@ -31,7 +32,7 @@ const GRCTraining = () => {
       scrollTrigger: {
         trigger: container.current,
         start: "top bottom",
-        end: "bottom top", 
+        end: "top top", 
         scrub: true
       }
     })
@@ -44,7 +45,7 @@ const GRCTraining = () => {
         <p>
           ITG GRC provides comprehensive GRC training solutions to equip employees with the skills needed to mitigate risks, ensure compliance and enhance cybersecurity. Our customized corporate training programs educate employees at all levels, fostering a well-informed and security-conscious workforce.
         </p>
-        <button className={styles.button}>Learn More</button>
+        <button className={styles.button} onClick={() => router.push("/consulting")}>Learn More</button>
       </div>
       <div className={styles.imageContainer}>
         <img src="/Assets/training.png" alt="GRC Training" width={500} height={300} className={styles.image} />

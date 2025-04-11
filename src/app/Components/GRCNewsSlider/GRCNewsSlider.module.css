@@ -35,6 +35,8 @@ color: #062C65;
     text-align: left;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
+    min-width: 300px;
+    max-width: 400px;
   }
   
   .card:hover {
@@ -42,6 +44,7 @@ color: #062C65;
   }
   .image{
     width: 100%;
+    object-fit: cover;
   }
   
   .content {
