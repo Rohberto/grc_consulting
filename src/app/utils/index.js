@@ -41,6 +41,25 @@ export const levels = [
           price: 98.88,
           completed: false
         },
+        {
+          id: "entry5",
+          title: "Security+",
+          description: "This online course prepares you for the CompTIA Security+ exam, covering essential topics like threats, network security, risk management, and incident response. Ideal for beginners or IT professionals starting a career in cybersecurity.",
+          lessons: 1.2,
+          image: "/Assets/teaching.png",
+          price: 98.88,
+          completed: false
+        },
+        {
+          id: "entry6",
+          title: "Security+",
+          description: "This online course prepares you for the CompTIA Security+ exam, covering essential topics like threats, network security, risk management, and incident response. Ideal for beginners or IT professionals starting a career in cybersecurity.",
+          lessons: 1.2,
+          image: "/Assets/man_tech.png",
+          price: 98.88,
+          completed: false
+        },
+       
       ],
     },
     {
@@ -49,6 +68,15 @@ export const levels = [
       content: [
         {
           id: "mid1",
+          title: " CGRC",
+          description: "Learn the foundations of governance, risk, and compliance with a focus on cybersecurity. This course covers key frameworks like NIST and ISO 27001 and prepares you for real-world GRC roles.",
+          lessons: 1.2,
+          image: "/Assets/man_tech.png",
+          price: 98.88,
+          completed: false
+        },
+        {
+          id: "mid3",
           title: "Military Fundamentals Course",
           description: "Engaging, hands-on courses that spark curiosity, creativity, and critical thinking through interactive play and fun learning experiences for kids",
           lessons: 1.2,
@@ -65,7 +93,15 @@ export const levels = [
           image: "/Assets/man_tech.png",
           price: 98.88,
           completed: trackSynchronousRequestDataAccessInDev
-        }
+        }, {
+          id: "mid4",
+          title: "Security+",
+          description: "This online course prepares you for the CompTIA Security+ exam, covering essential topics like threats, network security, risk management, and incident response. Ideal for beginners or IT professionals starting a career in cybersecurity.",
+          lessons: 1.2,
+          image: "/Assets/man_tech.png",
+          price: 98.88,
+          completed: false
+        },
       ],
     },
     {
@@ -74,21 +110,39 @@ export const levels = [
       content: [
         {
           id: "senior1",
-          title: "Military Fundamentals Course",
+          title: "CRISC",
           description: "Engaging, hands-on courses that spark curiosity, creativity, and critical thinking through interactive play and fun learning experiences for kids",
           lessons: 1.2,
           image: "/Assets/man_tech.png",
           price: 98.88,
-          completed: trackSynchronousRequestDataAccessInDev
+          completed: false
         },
         {
           id: "senior2",
-          title: "Transition and Leadership training",
-          description: "Engaging, hands-on courses that spark curiosity, creativity, and critical thinking through interactive play and fun learning experiences for kids",
+          title: "CISA",
+          description: "Prepare for the ISACA CISA exam with this course focused on information systems auditing, control, and assurance. Perfect for professionals pursuing careers in IT audit, risk, and compliance.",
           lessons: 1.2,
-          image: "/Assets/tech_woman.png",
+          image: "/Assets/teaching.png",
           price: 98.88,
-          completed: trackSynchronousRequestDataAccessInDev
+          completed: false
+        },
+        {
+          id: "senior3",
+          title: "CISM",
+          description: "This course prepares you for the ISACA CISM exam, focusing on information security management, governance, risk, and incident response. Ideal for professionals advancing into leadership roles in cybersecurity.",
+          lessons: 1.2,
+          image: "/Assets/adult_group.png",
+          price: 98.88,
+          completed: false
+        },
+        {
+          id: "senior4",
+          title: "Security+",
+          description: "This online course prepares you for the CompTIA Security+ exam, covering essential topics like threats, network security, risk management, and incident response. Ideal for beginners or IT professionals starting a career in cybersecurity.",
+          lessons: 1.2,
+          image: "/Assets/man_tech.png",
+          price: 98.88,
+          completed: false
         },
       ],
     },

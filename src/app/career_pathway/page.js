@@ -5,6 +5,7 @@ import Career from '../Components/Career_Pathway/Career/Career';
 import Footer from '../Components/Footer/Footer';
 import CareerDevelopment from '../Components/Career_Pathway/Career/CareerDevelopment';
 import Header from '../Components/Header/Header';
+import Popup from '../Components/Career_Pathway/popup';
 
 const page = () => {
  
@@ -15,6 +16,7 @@ const page = () => {
         <Navigation/>
         <Career/>
         <CareerDevelopment/>
+        <Popup/>
         <Footer/>
     </div>
   )

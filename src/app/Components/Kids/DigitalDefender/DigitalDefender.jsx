@@ -34,13 +34,13 @@ const DigitalDefender = () => {
       id: 3,
       title: '6th-8th Grade',
       content: 'Focus: We focus on exploring Social media awareness, privacy settings, the importance of secure passwords, understanding phishing and smartphone best practices. Students will gain an understanding of recognizing scams and in-game purchases, using privacy settings on gaming platforms, and managing screen time.',
-       image: "/Assets/kiddies_3.png"
+       image: "/Assets/kiddies_4.png"
     },
     {
       id: 4,
       title: '9th-12th Grade',
       content: 'Focus: We focus on cyber threats like phishing, ransomware, online scams, and digital footprints. Students will gain an understanding of digital currency, recognizing predatory behavior, and protecting personal information on streaming and social media platforms.',
-       image: "/Assets/kiddies_4.png"
+       image: "/Assets/kid_5.png"
     }
   ];
   useGSAP(() => {

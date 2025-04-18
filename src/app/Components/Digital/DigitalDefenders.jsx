@@ -11,31 +11,7 @@ const DigitalDefenders = () => {
 
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
-   gsap.to(`.${styles.largeImage}`,{
-    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-     scale: 1,
-    duration: 2,
-    ease: "power2",
-    scrollTrigger: {
-      trigger: container.current,
-      start: "top bottom",
-      end: "bottom top", 
-      scrub: true
-    }
-    })
-   gsap.to(`.${styles.smallImage}`,{
-    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-    scale: 1,
-    delay: .5,
-      duration: 2,
-    ease: "power2",
-    scrollTrigger: {
-      trigger: container.current,
-      start: "top bottom",
-      end: "bottom top", 
-      scrub: true
-    }
-    })
+  
     gsap.to(`.${styles.textContainer} > *`, {
       y: 0,
       opacity: 1,
@@ -57,8 +33,9 @@ const DigitalDefenders = () => {
       <div className={styles.container}>
         {/* Left Side - Images */}
         <div className={styles.imageContainer}>
-          <img src="/Assets/kid1.png" alt="Kid Learning" className={styles.largeImage} />
-          <img src="/Assets/smiley.jpg" alt="Kid on Laptop" className={styles.smallImage} />
+          <img src="/Assets/kid3.jpg"  alt="Kid Learning" className={styles.smallImage} />
+          <img src="/Assets/kid1.png" alt="Kid on Laptop" className={styles.largeImage} />
+          <img src="/Assets/KID-ITG.png" alt="Kid on Laptop" className={styles.ImageLogo} />
         </div>
 
         {/* Right Side - Text */}
@@ -73,9 +50,18 @@ const DigitalDefenders = () => {
 
           {/* Features */}
           <ul className={styles.features}>
-            <li><strong>Online Learning:</strong> Self-paced courses with videos, quizzes, and forums.</li>
-            <li><strong>Customized Training:</strong> Tailored programs for schools and organizations.</li>
-            <li><strong>In-Person Workshops:</strong> Expert-led sessions for schools and community centers.</li>
+            <li><strong>Online Learning:</strong> Self Pacedd, Kid-friendly modules designed tot teach online safety, digital citizenship and cybersecurity basics.</li>
+            <li><strong>Customized Training:</strong> Tailored Curriculum and lessson plans for schools, after-school programs and community organizations.</li>
+            <li><strong>Interactive Digital Activities:</strong>Hans-on games, quizzes and simulationthat help reinforce cyber safety lessons in a fun and engaging way.</li>
+            <li><strong>Subscription-Based Content For Parents & Guardians: A monthly membership with age-appropriate lessons and resources - perfect for homeschoolers, remote learners and families looking to teach online safety at home.
+              </strong>Hands-on games, quizzes and simulationthat help reinforce cyber safety lessons in a fun and engaging way.
+              
+              <ul>
+                <li>Great For at-home Learning</li>
+                <li>Includes videos, games, worksheets and activities.</li>
+                <li>Aligned with digital literacy benchmarks.</li>
+              </ul>
+            </li>
           </ul>
         </div>
       </div>

@@ -24,20 +24,7 @@ const Banner = () => {
     })
       mm.add("(min-width: 200px)", () => {
 
-        gsap.to([`.${styles.mission}`, `.${styles.vision}`], {
-            x: 0,
-            scale: 1,
-            skewX: 0,
-            opacity: 1,
-            duration: .5,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: container.current,
-              start: "top center",
-              end: "top top", 
-              scrub: true
-            }
-          })
+  
 
           gsap.to(`.${styles.video_container} img`,{
             clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",

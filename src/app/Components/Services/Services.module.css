@@ -64,11 +64,8 @@
     min-width: 300px;
     max-width: 500px;
     text-align: left;
-    transform: translateX(-200px) skewX(-20deg) scale(1.2);
   }
-  .card:last-child{
-    transform: translateX(200px) skewX(20deg) scale(1.2);
-  }
+
   .card h3 {
     font-size: 1.5rem;
     color: #002855;

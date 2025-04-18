@@ -27,27 +27,31 @@
   /* Large Image */
   .largeImage {
     width: 100%;
-    object-fit: cover;
-    transform: scale(1.5);
+    object-fit: contain;
 max-width: 306px;
 max-height: 381px;
 border-radius: 8px;
-clip-path: polygon(0 0, 0 0,0 100%, 0 100%);
   }
   
   /* Small Image */
   .smallImage {
-    width: 70%;
-    object-fit: cover;
+    width: 80%;
+    object-fit: contain;
     position: absolute;
-    transform: scale(1.5);
     bottom: -20px;
     left: 280px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 max-width: 227px;
 height: 319px;
-border-radius: 8px;
-clip-path: polygon(0 0, 0 0,0 100%, 0 100%);
+border-radius: 10px;
+  }
+  .ImageLogo{
+    position: absolute;
+    left: 60%;
+    width: 
+    120px;
+    height: 120px;
+    top: -10%;
   }
   
   /* Text Content */
@@ -101,6 +105,10 @@ clip-path: polygon(0 0, 0 0,0 100%, 0 100%);
     color: #333;
     margin-bottom: 10px;
     
+  }
+  .features li ul{
+    padding: 20px;
+    list-style: square;
   }
   
   .features li strong {

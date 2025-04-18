@@ -1,5 +1,5 @@
 "use client"
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import styles from "./Delivery.module.css";
 import gsap from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
@@ -9,6 +9,45 @@ import { useGSAP } from '@gsap/react';
 const Delivery = () => {
   const container = useRef();
   const cardContainer = useRef();
+  const [isDownloading, setIsDownloading] = useState(false);
+
+  const crosswordDownload = [
+    '/Assets/crossword_1.jpg',
+    '/Assets/crossword_2.jpg',
+    '/Assets/crossword_3.jpg',
+    '/Assets/crossword_4.jpg',
+  ];
+  const badgesDownload = [
+    '/Assets/badge.jpg',
+    '/Assets/badge_1.jpg',
+  ];
+  const pledgeDownload = [
+    '/Assets/pledge.jpg',
+];
+
+const handleDownload = (filesToDownload) => {
+  try {
+    setIsDownloading(true);
+
+    // Trigger download for each file
+    filesToDownload.forEach((file) => {
+      // Create a temporary link element for each file
+      const link = document.createElement('a');
+      link.href = file; // Direct URL to the file in the public folder
+      link.download = file.split('/').pop(); // Use the file name for download
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  } catch (error) {
+    console.error('Error downloading files:', error);
+    alert('Failed to download some files');
+  } finally {
+    setIsDownloading(false);
+  }
+};
+
+
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
     let mm = gsap.matchMedia();
@@ -75,22 +114,49 @@ provide valuable, on-demand content to supplement the ITG Digital Defenders Prog
             <div className={styles.card_image}>
                 <img src="/Assets/frame.png" at="kids_frame"/>
             </div>
-            <h3>Online Learning Platform</h3>
-            <p>Self-paced courses with video lessons, interactive quizzes, and discussion forums</p>
+            <h3>Crossword Puzzles Grades k-12 </h3>
+            <p>The ITG Digital Defender Crossword Puzzle is a fun and educational activity designed to help kids in (K-2nd,3rd-5th,6th-8th,9-12) learn key cybersecurity terms and concepts. This engaging puzzle challenges participants to solve clues related to online safety, digital citizenship, and responsible gaming.
+<br/>
+<br/>
+Download the crossword today and let your child become a savvy cyber defender while having fun!
+</p>
+            <button onClick={() => handleDownload(crosswordDownload)}
+      disabled={isDownloading}
+      className={styles.download_button}>
+      { isDownloading ? 'Downloading...' : 'Download Files' }
+    </button>
         </div>
         <div className={`${styles.card} ${styles.card_two}`}>
             <div className={styles.card_image}>
                 <img src="/Assets/frame1.png" at="kids_frame"/>
             </div>
-            <h3>Customized training packages</h3>
-            <p>Training programs developed based on the school or organizations needs</p>
+            <h3>Cyber Pledges grades k-12</h3>
+            <p>The ITG Digital Defenders Pledge empowers kids and teens to commit to safe and responsible online behaviors. By taking the pledge, participants promise to protect their personal information, think before they click, and help create a safer digital community. This pledge is a fun and engaging way for young learners to become confident cyber citizens and champions of cybersecurity awareness.
+<br/>
+<br/>
+Encourage your child to take the pledge today and join the ITG Digital Defenders in safeguarding the online world!
+</p>
+           <button onClick={() => handleDownload(pledgeDownload)}
+      disabled={isDownloading}
+      className={styles.download_button}>
+      { isDownloading ? 'Downloading...' : 'Download Files' }
+    </button>
         </div>
         <div className={`${styles.card} ${styles.card_three}`}>
             <div className={styles.card_image}>
                 <img src="/Assets/frame2.png" at="kids_frame"/>
             </div>
-            <h3>In-Person Workshops</h3>
-            <p>Facilitated by trained instructors, available for school assemblies, classroom sessions, and community centers.</p>
+            <h3>ITG Digital Defenders Color Badge</h3>
+            <p>The ITG Digital Defender Badge Coloring Sheet lets kids unleash their creativity while learning about cybersecurity! This fun activity encourages children to color and design their own badge, symbolizing their role as a Digital Defender. They can add words, symbols, and drawings that reflect what online safety means to them.
+<br/>
+<br/>
+Download the badge today and let your child proudly show their commitment to staying safe online!
+</p>
+             <button onClick={() => handleDownload(badgesDownload)}
+      disabled={isDownloading}
+      className={styles.download_button}>
+      { isDownloading ? 'Downloading...' : 'Download Files' }
+    </button>
         </div>
    </div>
 

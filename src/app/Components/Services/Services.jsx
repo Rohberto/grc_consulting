@@ -101,19 +101,6 @@ const Services = () => {
         scrub: true
       }
     })
-    gsap.to(`.${styles.card}`, {
-      x: 0,
-      scale: 1,
-      skewX: 0,
-      duration: .5,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: container.current,
-        start: "top center",
-        end: "center top", 
-        scrub: true
-      }
-    })
   })
   })
   return (

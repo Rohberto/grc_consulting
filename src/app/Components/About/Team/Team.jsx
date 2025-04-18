@@ -9,12 +9,13 @@ import "swiper/css/autoplay";
 
 const Team = () => {
     const Info = [
-        {title: "How a GRC Expert Transformed Our Compliance Strategy", description: "Our expert team is dedicated to helping organizaions navigate the complex landscape of governance, risk and compliance, while empowering the next generation of GRC professionals. With over 10 years of experience we posess the skills and knowledge needed to best equip you and your organization for the unpredictable future.", icon: "/Assets/company.png", company: "ABC Company", location: "Santa Clara, CA", background: "dark"},
-        {title: "How a GRC Expert Transformed Our Compliance Strategy", description: "Our team consists of GRC professionals who are graduates of nationally ranked Cybersecurity degree programs and certification, courses. They have years of experience in the public and private sectors and a vast understanding of GRC frameworks.", icon: "/Assets/company1.png", company: "XYZ Company", location: "Santa Clara, CA", background: "light"},
-        {title: "How a GRC Expert Transformed Our Compliance Strategy", description: "Our expert team is dedicated to helping organizaions navigate the complex landscape of governance, risk and compliance, while empowering the next generation of GRC professionals. With over 10 years of experience we posess the skills and knowledge needed to best equip you and your organization for the unpredictable future.", icon: "/Assets/company.png", company: "ABC Company", location: "Santa Clara, CA", background: "dark"},
-        {title: "How a GRC Expert Transformed Our Compliance Strategy", description: "Our team consists of GRC professionals who are graduates of nationally ranked Cybersecurity degree programs and certification, courses. They have years of experience in the public and private sectors and a vast understanding of GRC frameworks.", icon: "/Assets/company1.png", company: "XYZ Company", location: "Santa Clara, CA", background: "light"},
-        {title: "How a GRC Expert Transformed Our Compliance Strategy", description: "Our expert team is dedicated to helping organizaions navigate the complex landscape of governance, risk and compliance, while empowering the next generation of GRC professionals. With over 10 years of experience we posess the skills and knowledge needed to best equip you and your organization for the unpredictable future.", icon: "/Assets/company.png", company: "ABC Company", location: "Santa Clara, CA", background: "dark"},
-        {title: "How a GRC Expert Transformed Our Compliance Strategy", description: "Our team consists of GRC professionals who are graduates of nationally ranked Cybersecurity degree programs and certification, courses. They have years of experience in the public and private sectors and a vast understanding of GRC frameworks.", icon: "/Assets/company1.png", company: "XYZ Company", location: "Santa Clara, CA", background: "light"}
+        {title: "How GRC experts are working to transform our Compliance Strategy", description: "Our team consists of GRC professionals who are graduates of nationally ranked Cybersecurity degree programs and certification, courses. They have years of experience in the public and private sectors and a vast understanding of GRC frameworks.", icon: "/Assets/company1.png", company: "XYZ Company", location: "Santa Clara, CA", background: "light"},
+        {title: "How GRC experts are working to transform our Compliance Strategy", description: "Our expert team is dedicated to helping organizaions navigate the complex landscape of governance, risk and compliance, while empowering the next generation of GRC professionals. With over 10 years of experience we posess the skills and knowledge needed to best equip you and your organization for the unpredictable future.", icon: "/Assets/company.png", company: "ABC Company", location: "Santa Clara, CA", background: "dark"},
+        {title: "How GRC experts are working to transform our Compliance Strategy", description: "Our team consists of GRC professionals who are graduates of nationally ranked Cybersecurity degree programs and certification, courses. They have years of experience in the public and private sectors and a vast understanding of GRC frameworks.", icon: "/Assets/company1.png", company: "XYZ Company", location: "Santa Clara, CA", background: "light"},
+        {title: "How GRC experts are working to transform our Compliance Strategy", description: "Our expert team is dedicated to helping organizaions navigate the complex landscape of governance, risk and compliance, while empowering the next generation of GRC professionals. With over 10 years of experience we posess the skills and knowledge needed to best equip you and your organization for the unpredictable future.", icon: "/Assets/company.png", company: "ABC Company", location: "Santa Clara, CA", background: "dark"},
+        {title: "How GRC experts are working to transform our Compliance Strategy", description: "Our team consists of GRC professionals who are graduates of nationally ranked Cybersecurity degree programs and certification, courses. They have years of experience in the public and private sectors and a vast understanding of GRC frameworks.", icon: "/Assets/company1.png", company: "XYZ Company", location: "Santa Clara, CA", background: "light"},
+        {title: "How GRC experts are working to transform our Compliance Strategy", description: "Our expert team is dedicated to helping organizaions navigate the complex landscape of governance, risk and compliance, while empowering the next generation of GRC professionals. With over 10 years of experience we posess the skills and knowledge needed to best equip you and your organization for the unpredictable future.", icon: "/Assets/company.png", company: "ABC Company", location: "Santa Clara, CA", background: "dark"},
+     
     ]
     const [paused, setPaused] = useState(false);
   return (
@@ -39,13 +40,10 @@ const Team = () => {
                         </div> <h1>{item.title}</h1></div>
                         <p>{item.description}</p>
                         <div className={styles.bottom_content}>
-                            <div className={styles.icon}>
-                                <img src={item.icon} alt='icon logo'/>
-                            </div>
 
                             <div className={styles.bottom_text}>
-                                <h3>{item.company}</h3>
-                                <p>{item.location}</p>
+                                <h3>ITG GRC</h3>
+                                <p>Houston, Tx</p>
                             </div>
                         </div>
                     </SwiperSlide>

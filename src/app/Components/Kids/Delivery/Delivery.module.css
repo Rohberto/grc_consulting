@@ -86,11 +86,28 @@ background: #6FE7A1;
 .card h3{
     width: 100%;
 font-weight: 700;
-font-size: 24px;
+font-size: 18px;
 text-align: center;
 letter-spacing: 0.005em;
 color: #1D1F2C;
 
+}
+.card p{
+    font-size: 12px;
+}
+.download_button{
+    cursor: pointer;
+    background-color: #1D1F2C;
+    color: #fff;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px;
+    outline: none;
+    font-weight: 700;
+font-size: 18px;
+text-align: center;
+letter-spacing: 0.005em;
 }
 .card_image{
     width: 100%;

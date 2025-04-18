@@ -26,7 +26,7 @@ const customNodeStyles = {
     cursor: 'pointer' 
   },
   entry: { 
-    background: '#2ecc71', 
+    background: 'blue', 
     borderRadius: '50%', 
     width: '150px', 
     height: '150px', 
@@ -41,7 +41,7 @@ const customNodeStyles = {
     cursor: 'pointer' 
   },
   mid: { 
-    background: '#e67e22', 
+    background: '#00ab66', 
     borderRadius: '50%', 
     width: '150px', 
     height: '150px', 
@@ -56,7 +56,7 @@ const customNodeStyles = {
     cursor: 'pointer' 
   },
   advanced: { 
-    background: '#9b59b6', 
+    background: '#D67229', 
     borderRadius: '50%', 
     width: '150px', 
     height: '150px', 

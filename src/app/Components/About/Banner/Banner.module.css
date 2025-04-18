@@ -41,14 +41,8 @@ max-width: 644px;
 border-radius: 16px;
 background: #E0E9F5;
 text-align: left;
-opacity: 0;
 }
-.mission{
-    transform: translateX(-200px) skewX(-20deg) scale(1.2);
-}
-.vision{
-    transform: translateX(200px) skewX(20deg) scale(1.2);
-}
+
 .mission h1, .vision h1{
 font-weight: 700;
 font-size: 32px;

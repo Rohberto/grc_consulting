@@ -36,14 +36,6 @@ const careerServices = [
   ];
   return (
     <section className={styles.container}>
-      <h2 className={styles.title}>Career Development Services</h2>
-      <p className={styles.subtitle}>Elevate your career in governance, risk, and compliance with our expert Career Development
-      Services. At ITG GRC, we provide tailored guidance, professional training, and certification
-      preparation to help you excel in the ever-evolving GRC landscape. Whether you're an aspiring
-      practitioner or currently an intermediate professional looking to advance, our services include,
-      resume building, interview preparation, and access to exclusive industry insights. Unlock your
-      potential and position yourself for success with career support designed to help you thrive in the
-      world of GRC.</p>
 
       <div className={styles.section} id="services">
         <h3>Career Services</h3>
