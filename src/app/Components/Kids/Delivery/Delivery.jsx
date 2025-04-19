@@ -24,7 +24,7 @@ const Delivery = () => {
   const pledgeDownload = [
     '/Assets/pledge.jpg',
 ];
-
+/*
 const handleDownload = (filesToDownload) => {
   try {
     setIsDownloading(true);
@@ -46,7 +46,7 @@ const handleDownload = (filesToDownload) => {
     setIsDownloading(false);
   }
 };
-
+*/
 
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -120,10 +120,17 @@ provide valuable, on-demand content to supplement the ITG Digital Defenders Prog
 <br/>
 Download the crossword today and let your child become a savvy cyber defender while having fun!
 </p>
-            <button onClick={() => handleDownload(crosswordDownload)}
-      disabled={isDownloading}
-      className={styles.download_button}>
-      { isDownloading ? 'Downloading...' : 'Download Files' }
+            <button className={styles.download_button}>
+            <a
+      href="/Assets/crossword.pdf"
+      download
+    style={{
+      textDecoration: "none",
+      color: "#fff"
+    }}
+    >
+      Download Crosswords
+    </a>
     </button>
         </div>
         <div className={`${styles.card} ${styles.card_two}`}>
@@ -136,10 +143,18 @@ Download the crossword today and let your child become a savvy cyber defender wh
 <br/>
 Encourage your child to take the pledge today and join the ITG Digital Defenders in safeguarding the online world!
 </p>
-           <button onClick={() => handleDownload(pledgeDownload)}
-      disabled={isDownloading}
+           <button 
       className={styles.download_button}>
-      { isDownloading ? 'Downloading...' : 'Download Files' }
+     <a
+      href="/Assets/pledge.pdf"
+      download
+    style={{
+      textDecoration: "none",
+      color: "#fff"
+    }}
+    >
+      Download Pledge
+    </a>
     </button>
         </div>
         <div className={`${styles.card} ${styles.card_three}`}>
@@ -152,10 +167,18 @@ Encourage your child to take the pledge today and join the ITG Digital Defenders
 <br/>
 Download the badge today and let your child proudly show their commitment to staying safe online!
 </p>
-             <button onClick={() => handleDownload(badgesDownload)}
-      disabled={isDownloading}
+             <button
       className={styles.download_button}>
-      { isDownloading ? 'Downloading...' : 'Download Files' }
+         <a
+      href="/Assets/badge.pdf"
+      download
+    style={{
+      textDecoration: "none",
+      color: "#fff"
+    }}
+    >
+      Download Badges
+    </a>
     </button>
         </div>
    </div>
