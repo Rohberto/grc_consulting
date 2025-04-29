@@ -73,6 +73,7 @@ opacity: 0;
     justify-content: center;
     align-items: center;
     gap: 40px;
+    margin-top: 40px;
 }
 .green_button{
 display: flex;

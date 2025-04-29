@@ -120,8 +120,7 @@ provide valuable, on-demand content to supplement the ITG Digital Defenders Prog
 <br/>
 Download the crossword today and let your child become a savvy cyber defender while having fun!
 </p>
-            <button className={styles.download_button}>
-            <a
+<a
       href="/Assets/crossword.pdf"
       download
     style={{
@@ -129,9 +128,12 @@ Download the crossword today and let your child become a savvy cyber defender wh
       color: "#fff"
     }}
     >
+          <button className={styles.download_button}>
+           
       Download Crosswords
-    </a>
+   
     </button>
+    </a>
         </div>
         <div className={`${styles.card} ${styles.card_two}`}>
             <div className={styles.card_image}>
@@ -143,19 +145,21 @@ Download the crossword today and let your child become a savvy cyber defender wh
 <br/>
 Encourage your child to take the pledge today and join the ITG Digital Defenders in safeguarding the online world!
 </p>
-           <button 
-      className={styles.download_button}>
-     <a
+<a
       href="/Assets/pledge.pdf"
       download
     style={{
       textDecoration: "none",
       color: "#fff"
     }}
-    >
+    >   
+     <button 
+      className={styles.download_button}>
+  
       Download Pledge
-    </a>
+  
     </button>
+    </a>
         </div>
         <div className={`${styles.card} ${styles.card_three}`}>
             <div className={styles.card_image}>
@@ -167,9 +171,8 @@ Encourage your child to take the pledge today and join the ITG Digital Defenders
 <br/>
 Download the badge today and let your child proudly show their commitment to staying safe online!
 </p>
-             <button
-      className={styles.download_button}>
-         <a
+         
+<a
       href="/Assets/badge.pdf"
       download
     style={{
@@ -177,9 +180,13 @@ Download the badge today and let your child proudly show their commitment to sta
       color: "#fff"
     }}
     >
+          <button
+      className={styles.download_button}>
+
       Download Badges
-    </a>
+    
     </button>
+    </a>
         </div>
    </div>
 

@@ -33,7 +33,7 @@ const DigitalDefenders = () => {
       <div className={styles.container}>
         {/* Left Side - Images */}
         <div className={styles.imageContainer}>
-          <img src="/Assets/kid3.jpg"  alt="Kid Learning" className={styles.smallImage} />
+          <img src="/Assets/kid3.JPG"  alt="Kid Learning" className={styles.smallImage} />
           <img src="/Assets/kid1.png" alt="Kid on Laptop" className={styles.largeImage} />
           <img src="/Assets/KID-ITG.png" alt="Kid on Laptop" className={styles.ImageLogo} />
         </div>

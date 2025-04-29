@@ -109,6 +109,9 @@ font-size: 18px;
 text-align: center;
 letter-spacing: 0.005em;
 }
+.card a{
+    width: 100%;
+}
 .card_image{
     width: 100%;
     height: auto;
